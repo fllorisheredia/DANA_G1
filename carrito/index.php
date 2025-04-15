@@ -24,6 +24,8 @@ $total = 0;
 
 <!DOCTYPE html>
 <html lang="es">
+
+
 <head>
   <meta charset="UTF-8">
   <title>Tu Carrito</title>
