@@ -1,43 +1,43 @@
 <?php
 include 'includes/header.php';
-//include 'includes/db.php';
+include 'includes/db.php';
 ?>
 
-<div id="carruselInicio" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
+<div class="carousel w-full h-[85vh]">
 
-        <!-- Slide 1 -->
-        <div class="carousel-item active">
-            <img src="css/Foto1.jpg" class="d-block w-100" alt="Primera imagen">
-            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
-                <h2 class="display-4 fw-bold text-shadow">Bienvenido a Pueblos Unidos</h2>
-                <p class="lead text-shadow">El pueblo ayuda al pueblo</p>
-                <a href="login.php" class="btn btn-light btn-lg mt-3">Iniciar Sesión</a>
-            </div>
+    <div id="slide1" class="carousel-item relative w-full">
+        <img src="img/Foto1.jpg" class="w-full object-cover" />
+
+        <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-6">
+            <h2 class="text-4xl md:text-5xl font-bold drop-shadow-lg">Bienvenido a Pueblos Unidos</h2>
+            <p class="text-lg md:text-xl mt-2 mb-4 drop-shadow">El pueblo ayuda al pueblo</p>
+            <a href="login.php" class="btn btn-primary btn-wide">Iniciar Sesión</a>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="carousel-item">
-            <img src="css/Foto1.jpg" class="d-block w-100" alt="Segunda imagen">
-            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
-                <h2 class="display-4 fw-bold text-shadow">Accede a Pueblos Unidos</h2>
-                <p class="lead text-shadow">Regístrate y forma parte de la familia</p>
-                <a href="registro.php" class="btn btn-light btn-lg mt-3">Registrarse</a>
-            </div>
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" class="btn btn-circle">❮</a>
+            <a href="#slide2" class="btn btn-circle">❯</a>
         </div>
-
     </div>
 
-    <!-- Controles -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-        <span class="visually-hidden">Anterior</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-        <span class="visually-hidden">Siguiente</span>
-    </button>
+    <div id="slide2" class="carousel-item relative w-full">
+        <img src="img/Foto1.jpg" class="w-full object-cover" />
+
+        <div
+            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-6">
+            <h2 class="text-4xl md:text-5xl font-bold drop-shadow-lg">Accede a Pueblos Unidos</h2>
+            <p class="text-lg md:text-xl mt-2 mb-4 drop-shadow">Regístrate y forma parte de la familia</p>
+            <a href="registro.php" class="btn btn-secondary btn-wide">Registrarse</a>
+        </div>
+
+        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" class="btn btn-circle">❮</a>
+            <a href="#slide1" class="btn btn-circle">❯</a>
+        </div>
+    </div>
 </div>
+
 
 <?php
 include 'includes/footer.php';

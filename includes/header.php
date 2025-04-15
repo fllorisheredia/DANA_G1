@@ -1,26 +1,39 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DANA - Tienda</title>
-  <!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap 5 Bundle JS (con Popper incluido) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="/DANA0/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANA - Tienda</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<header class="main-header">
-    <div class="header-container container d-flex justify-content-between align-items-center py-3">
-      <h1 class="site-title m-0">PUEBLO <span class="highlight">UNIDO</span></h1>
-    <nav class="main-nav d-flex gap-3">
-            <a href="index.php" class="nav-link">Inicio</a>
-            <a href="quienes_somos.php" class="nav-link">Quiénes Somos</a>
-            <a href="contacto.php" class="nav-link">Contacto</a>
-            <a href="login.php" class="nav-link">Login</a>
-            <a href="registro.php" class="nav-link">Registro</a>
-        </nav>
+
+
+<body class="min-h-screen flex flex-col">
+
+    <div class="navbar bg-white shadow-sm px-6 py-4">
+        <div class="navbar-start">
+            <img class="w-auto sm:h-20" src="img/logoSinF.png" alt="Logo">
+            <a class="btn btn-ghost text-xl font-bold text-violet-700">Pueblo Unido</a>
+        </div>
+
+        <div class="navbar-center">
+            <ul class="menu menu-horizontal px-4 space-x-6">
+                <li><a href="index.php" class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a></li>
+                <li><a href="quienes_somos.php" class="text-md text-black hover:bg-purple-600 font-semibold">Quiénes
+                        Somos</a></li>
+                <li><a href="contacto.php" class="text-md text-black hover:bg-purple-600 font-semibold">Contacto</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="navbar-end gap-2">
+            <a href="login.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Iniciar sesión</a>
+            <a href="registro.php" class="btn bg-purple-500 btn-sm hover:bg-purple-600 text-black">Registrarse</a>
+        </div>
+
     </div>
-</header>
+</body>

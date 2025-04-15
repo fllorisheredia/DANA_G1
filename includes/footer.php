@@ -1,29 +1,29 @@
+<footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-auto">
+    <aside>
+        <img src="img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto mb-4" />
+        <p>
+            Plataforma dedicada a brindar apoyo a las víctimas de la DANA. Ayudamos en la recuperación de las
+            comunidades
+            afectadas con información y recursos.
+        </p>
+    </aside>
 
-<footer class="bg-dark text-white py-4 border-radius-30">
-    <div class="container-fluid">
-      <div class="row gx-5">
-        <div class="col-lg-4 col-md-6 mb-4">
-          <h4 class="text-purple">PUEBLO UNIDO</h4>
-          <p>Plataforma dedicada a brindar apoyo a las víctimas de la DANA. Ayudamos en la recuperación de las comunidades afectadas con información y recursos.</p>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <h5 class="text-white">Enlaces</h5>
-          <ul class="list-unstyled">
-            <li><a href="index.php" class="text-white-50">Inicio</a></li>
-            <li><a href="quienes_somos.php" class="text-white-50">Quiénes Somos</a></li>
-            <li><a href="contacto.php" class="text-white-50">Contacto</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-          <h5 class="text-white">Contacto</h5>
-          <p><i class="fa fa-envelope mr-2"></i>grupo1@gmail.com</p>
-        </div>
-      </div>
-    </div>
+    <nav>
+        <h6 class="footer-title">Enlaces</h6>
+        <a href="index.php">Inicio</a>
+        <a href="quienes_somos.php">Quiénes Somos</a>
+        <a href="contacto.php">Contacto</a>
+    </nav>
 
-    <div class="bg-dark text-white text-center py-3 border-top border-light-subtle">
-      <p class="m-0">Copyright &copy; 2025 Familia DANA. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+    <nav>
+        <h6 class="footer-title">Legal</h6>
+        <a class="link link-hover">Términos de uso</a>
+        <a class="link link-hover">Política de privacidad</a>
+        <a class="link link-hover">Política de cookies</a>
+    </nav>
+</footer>
+
+
 </body>
+
 </html>
