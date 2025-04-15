@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($consulta->execute()) {
       $message = "Usuario registrado con éxito.";
       $alertType = "success"; // Tipo de alerta para éxito
-      header("Location: login.php");
+      // header("Location: login.php");
 
   } else {
       $message = "Error al registrar el usuario: " . $consulta->error;
@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <script>
 // Mostrar el modal si se estableció el mensaje
 <?php if (isset($message)): ?>
+
   var myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
   myModal.show();
 <?php endif; ?>

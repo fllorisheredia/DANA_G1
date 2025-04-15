@@ -1,4 +1,4 @@
-// 4. /productos/agregar.php
+
 <?php
 session_start();
 include '../includes/db.php';
