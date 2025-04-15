@@ -78,8 +78,14 @@ include '../includes/header.php';
 
                                     <div>
                                         <label class="font-semibold text-black">Tonkens:</label>
-                                        <input type="text" name="nombre" value="<?php echo $usuario['tonkens']; ?>"
+                                        <input type="text" id="tonkens_<?php echo $usuario['id']; ?>"
+                                            value="<?php echo $usuario['tonkens']; ?>"
                                             class="input bg-white input-bordered w-full" />
+
+                                        <a href="#" class="btn btn-primary mt-1"
+                                            onclick="actualizarTonkens(<?php echo $usuario['id']; ?>); return false;">
+                                            -
+                                        </a>
                                     </div>
 
 
@@ -98,6 +104,29 @@ include '../includes/header.php';
     </div>
 
     <?php include '../includes/footer.php'; ?>
+
+    <script>
+        function actualizarTonkens(idUsuario) {
+            const input = document.getElementById('tonkens_' + idUsuario);
+            const nuevoValor = input.value;
+
+            fetch('actualizarTonkens.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `id=${idUsuario}&tonkens=${encodeURIComponent(nuevoValor)}`
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data); // Puedes cambiar esto por algo más bonito
+                })
+                .catch(error => {
+                    alert('Error al actualizar los tonkens');
+                    console.error(error);
+                });
+        }
+    </script>
 
     <script>
         function toggleMenu(id) {

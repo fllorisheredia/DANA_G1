@@ -71,14 +71,25 @@
                 </svg>
 
                 Gestionar Pedidos</a>
-            <a href="registro.php" class="nav-link">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5s-3.5 1.505-3.5 3.5s1.505 3.5 3.5 3.5M9 13H7c-2.757 0-5 2.243-5 5v1h12v-1c0-2.757-2.243-5-5-5m11.293-4.707L18 10.586l-2.293-2.293l-1.414 1.414l2.292 2.292l-2.293 2.293l1.414 1.414l2.293-2.293l2.294 2.294l1.414-1.414L19.414 12l2.293-2.293z" />
-                </svg>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle fw-semibold font-monospace" type="button" id="menu-button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <?php echo htmlspecialchars($_SESSION['nombre'] ?? 'Invitado'); ?>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="menu-button">
+                    <!-- Aquí puedes agregar ítems del menú si los necesitas -->
+                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                    <li><a class="dropdown-item" href="#">Configuración</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                </ul>
+            </div>
 
-                Cerrar Sessión</a>
         </nav>
+
+
     </div>
 </header>
 
