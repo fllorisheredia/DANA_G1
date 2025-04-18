@@ -1,4 +1,3 @@
-// 5. /productos/index.php
 <?php
 session_start();
 include '../includes/db.php';

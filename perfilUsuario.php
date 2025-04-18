@@ -3,41 +3,69 @@ include 'includes/header.php';
 //include 'includes/db.php';
 ?>
 
+
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil de Usuario</title>
+  <meta charset="UTF-8">
+  <title>Panel de Usuario</title>
+</head>
+<body>
 
-    <body>
+<!-- Tabla principal -->
+<table border="0" cellspacing="20">
+  <tr>
+    <!-- Panel 1 -->
+    <td valign="top">
+      <table border="1" cellpadding="10" width="300">
+        <tr>
+          <td>
+            <h3>Datos del usuario</h3>
+            <p><strong>Email:</strong> email@gmail.com</p>
+            <p><a href="#">Edita el perfil</a></p>
+          </td>
+        </tr>
+      </table>
+    </td>
 
-<!-- Encabezado -->
-<header>
-    <b style="font-size: 36px;">Bienvenido al Perfil de Usuario</b>
-    <nav>
-        <a href="index.php">Inicio</a> |
-        <a href="quienes_somos.php">Quienes Somos</a> |
-        <a href="contacto.php">Contacto</a> |
-        <a href="#contact">Subir Producto</a> |
-        <a href="#contact">Subir Servicio</a>
-    </nav>
-</header>
-<div style="height: 20px;"></div>
-
-<!-- Contenido principal -->
-
-
-<main>
-    <p>Esta es la página para ayudar a los afectados por la DANA.</p>
-    <p>Puedes elegir entre:</p>
-    <ul>
-        <li  style="padding-left: 30px;" ><a href="#home">Subir Producto</a></li>
-        <li  style="padding-left: 30px;" ><a href="#about">Ofrecer Servicio</a></li>
-    </ul>
-</main>
-
-    
+    <!-- Separador -->
 
 
+  <tr>
+    <!-- Panel 3 -->
+    <td valign="top">
+      <table border="1" cellpadding="10" width="300">
+        <tr>
+          <td>
+            <h3>Detalle del Usuario</h3>
+            <ul>
+              <li><strong>Nombre:</strong> nombre</li>
+              <li><strong>Apellidos:</strong> apellido</li>
+              <li><strong>Contraseña:</strong> contraseña</li>
+              <li><strong>Tokens:</strong> nº tokens</li>
+              <li><strong>Insignias:</strong> nº Insignias</li>
+              <li><strong>Valoración:</strong> nº Valoración</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </td>
+
+    <!-- Separador -->
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
+    <!-- Panel 4 -->
+    <td valign="top">
+      <table border="1" cellpadding="10" width="300">
+        <tr>
+          <td>
+            <h3>Descripción</h3>
+            <textarea rows="8" cols="100" placeholder="Bio"></textarea>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
 
 
