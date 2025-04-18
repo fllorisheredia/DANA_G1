@@ -2,9 +2,9 @@
 
 $servidor = "localhost";
 $usuario = "root";
-$password = "1234";
-$base_datos = "tiendadana";
-$port = 3307;
+$password = "";
+$base_datos = "dana";
+$port = 3306;
 
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos, $port);
 
