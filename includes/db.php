@@ -4,7 +4,7 @@ $servidor = "localhost";
 $usuario = "root";
 $password = "";
 $base_datos = "dana";
-$port = 3307;
+$port = 3306;
 
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos, $port);
 
