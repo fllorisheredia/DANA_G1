@@ -2,10 +2,10 @@
 <?php
 session_start();
 include '../includes/db.php';
-if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'administrador') {
-    header("Location: ../index.php");
-    exit();
-}
+// if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'administrador') {
+//     header("Location: ../index.php");
+//     exit();
+// }
 $resultado = $conexion->query("SELECT * FROM pedidos");
 include '../includes/header.php';
 ?>
