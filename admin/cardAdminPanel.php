@@ -34,7 +34,7 @@ include '../includes/db.php';
           </table>
         </div>
         <div class="card-actions justify-end mt-3">
-          <a href="usuarios2.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
+          <a href="usuariosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
       </div>
     </div>
@@ -64,7 +64,7 @@ include '../includes/db.php';
           </table>
         </div>
         <div class="card-actions justify-end mt-3">
-          <a href="productos2.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
+          <a href="productosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
       </div>
     </div>
@@ -94,7 +94,7 @@ include '../includes/db.php';
           </table>
         </div>
         <div class="card-actions justify-end mt-3">
-          <a href="pedidos.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
+          <a href="pedidosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
       </div>
     </div>

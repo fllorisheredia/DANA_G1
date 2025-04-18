@@ -21,6 +21,10 @@ if ($query->execute()) {
     $_SESSION['carrito'] = [];
     echo "<p>Pedido realizado con éxito.</p>";
     include '../emails/enviar_pedido.php';
+
+    // CREAR XML PARA GUARDAR LA INFORMACION EN LOCAL Y ENVIAR POR EMAIL
+
+
     enviarCorreoPedido($_SESSION['usuario']['email'], "Tu pedido ha sido confirmado.");
 } else {
     echo "<p>Error al procesar el pedido.</p>";
