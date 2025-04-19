@@ -1,4 +1,3 @@
-// 6. /usuarios/editar.php
 <?php
 session_start();
 include '../includes/db.php';

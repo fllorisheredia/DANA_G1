@@ -11,7 +11,7 @@ if (!$pedido_id) {
 
 
 
-$producto_id = 1;
+$producto_id = 1; //ME FALTA INDICAR QUE SERVICIO CON EL PRODUCTO ID
 $cantidad = 1;
 
 // Verificar stock
@@ -35,8 +35,16 @@ if ($producto && $producto['stock'] >= $cantidad) {
     ");
     $insertar->bind_param("iii", $pedido_id, $producto_id, $cantidad);
     $insertar->execute();
-
+    $id = $_SESSION['usuario']['id'];
+    $precioToken = $conexion->prepare("SELECT precio_tonkens FROM productos WHERE id = ?");
+    $precioToken->bind_param("i", $producto_id);
+    $precioToken->execute();            //SALE ERROR EN LA LINEA 45, pero si funciona
+    $resultToken = $precioToken->get_result();
+    $restarToken = $conexion->prepare("UPDATE usuarios SET tonkens = tonkens - ? WHERE id = ?");
+    $restarToken->bind_param("ii",$resultToken, $id);
+    $restarToken->execute();
     echo "✅ Producto solicitado con éxito.";
+
 } else {
     echo "❌ No hay suficiente stock.";
 }

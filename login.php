@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               header("Location: admin/indexAdmin.php");
               break;
           case 'cliente':
-              header("Location: /DANA0/damnificados/indexDamni.php");
+              header("Location: perfilUsuario.php");
               break;
           case 'voluntario':
               header("Location: voluntario/indexVoluntario.php");

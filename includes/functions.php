@@ -1,4 +1,3 @@
-// 4. /includes/functions.php
 <?php
 function verificarSesion() {
     if (!isset($_SESSION['usuario'])) {
