@@ -11,9 +11,9 @@
 
     <nav>
         <h6 class="footer-title">Enlaces</h6>
-        <a href="index.php">Inicio</a>
-        <a href="quienes_somos.php">Quiénes Somos</a>
-        <a href="contacto.php">Contacto</a>
+        <a href="/DANA_G1/index.php">Inicio</a>
+        <a href="/DANA_G1/quienes_somos.php">Quiénes Somos</a>
+        <a href="/DANA_G1/contacto.php">Contacto</a>
     </nav>
 
     <nav>
