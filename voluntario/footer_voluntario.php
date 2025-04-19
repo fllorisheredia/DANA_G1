@@ -11,15 +11,15 @@
     
     <nav>
         <h6 class="footer-title">Enlaces</h6>
-        <a href="/DANA/index.php">Inicio</a>
-        <a href="/DANA/quienes_somos.php">Quiénes Somos</a>
-        <a href="/DANA/contacto.php">Contacto</a>
+        <a href="subir_producto.php">Subir Porducto</a>
+        <a href="quienes_somos_voluntario.php">Quiénes Somos</a>
+        <a href="contacto_voluntario.php">Contacto</a> <!-- Pendiente a cambiar!!!!!!!!!!!!!!!!!!!!!!! -->
     </nav>
     
     <nav>
         <h6 class="footer-title">Legal</h6>
-        <a href="/DANA/legal/terminosdeuso.php">Términos de uso</a>
-        <a href="/DANA/legal/privacidad.php">Política de privacidad</a>
+        <a href="terminosdeuso.php">Términos de uso</a>
+        <a href="privacidad.php">Política de privacidad</a>
     </nav>
 </footer>
 

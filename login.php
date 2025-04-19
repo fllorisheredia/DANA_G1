@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               header("Location: perfilUsuario.php");
               break;
           case 'voluntario':
-              header("Location: voluntario/indexVoluntario.php");
+              header("Location: voluntario/subir_producto.php");
               break;
           default:
               echo "Rol desconocido.";
