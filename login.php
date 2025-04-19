@@ -14,7 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       session_start();
       $_SESSION['usuario'] = $resultado->fetch_assoc();
 
-      // Redirigir según el rol
       switch ($_SESSION['usuario']['rol']) {
           case 'administrador':
               header("Location: admin/indexAdmin.php");

@@ -3,21 +3,31 @@ include 'includes/header.php';
 include 'includes/db.php';
 ?>
 
-<main class="min-h-screen bg-base-100 flex items-center justify-center">
+<main class="min-h-screen bg-base-100 flex items-center justify-center px-4">
     <article
-        class="bg-white dark:bg-neutral rounded-xl shadow-lg p-8 max-w-3xl w-full space-y-4 border border-gray-200 dark:border-gray-700">
-        <h6 class="text-3xl font-bold text-center text-violet-700">¿Quiénes somos?</h6>
+        class="bg-white dark:bg-neutral rounded-3xl shadow-2xl p-10 max-w-4xl w-full space-y-6 border border-gray-200 dark:border-gray-700 transition-all duration-300">
 
-        <p class="text-neutral text-justify">
-            Somos una organización comprometida con brindar ayuda a las víctimas de la DANA.
-            Nuestra misión es ofrecer apoyo, recursos y soluciones tecnológicas para facilitar la recuperación de las
-            comunidades afectadas.
-        </p>
+        <div class="flex justify-center">
+            <div class="flex justify-center mx-auto">
+                <img class="w-auto sm:h-20" src="img/logoSinF.png" alt="Logo">
+            </div>
+        </div>
 
-        <p class="text-neutral text-justify">
-            Con un equipo dedicado de profesionales y voluntarios, trabajamos para crear herramientas digitales
-            que permitan mejorar la respuesta ante emergencias y fortalecer la solidaridad entre las personas.
-        </p>
+        <h1 class="text-4xl font-extrabold text-center text-violet-700 tracking-tight">¿Quiénes somos?</h1>
+
+        <div class="space-y-4 text-neutral text-lg leading-relaxed text-justify">
+            <p>
+                Somos una organización comprometida con brindar ayuda a las víctimas de la <strong>DANA</strong>.
+                Nuestra misión es ofrecer apoyo, recursos y soluciones tecnológicas para facilitar la recuperación de
+                las comunidades afectadas.
+            </p>
+
+            <p>
+                Con un equipo dedicado de profesionales y voluntarios, trabajamos para crear herramientas digitales
+                que mejoren la respuesta ante emergencias y fortalezcan la solidaridad entre las personas.
+            </p>
+        </div>
+
     </article>
 </main>
 
