@@ -19,7 +19,7 @@
     <nav>
         <h6 class="footer-title">Legal</h6>
         <a href="/DANA_G1/legal/terminosdeuso.php">Términos de uso</a>
-        <a href="*">Política de privacidad</a>
+        <a href="/DANA_G1/legal/privacidad.php">Política de privacidad</a>
     </nav>
 </footer>
 
