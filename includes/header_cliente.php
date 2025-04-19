@@ -36,10 +36,9 @@
         </div>
 
         <div class="navbar-end gap-2">
-            <a href="/DANA/login.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Iniciar
-                sesión</a>
-            <a href="/DANA/registro.php"
-                class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Registrarse</a>
+            <a href="/DANA/solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Solicitar Ayuda</a>
+            <a href="/DANA/perfilUsuario.php"
+                class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Perfil</a>
         </div>
 
     </div>
