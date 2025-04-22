@@ -36,10 +36,10 @@ include '../includes/db.php';
         <div class="card-actions justify-end mt-3">
           <a href="usuariosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
-<<<<<<< HEAD
+
       </div>
     </div>
-=======
+
 
         <!-- Tarjeta de Pedidos -->
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -71,9 +71,6 @@ include '../includes/db.php';
         </div>
 
     </div>
-<<<<<<< HEAD
-=======
->>>>>>> 2495b56ed8d1036af096e723784d159e96809bf0
 
     <!-- Productos -->
     <div class="card bg-base-100 shadow-md border border-gray-700">
@@ -136,8 +133,4 @@ include '../includes/db.php';
     </div>
 
   </div>
-<<<<<<< HEAD
-=======
->>>>>>> fernando
->>>>>>> 2495b56ed8d1036af096e723784d159e96809bf0
 </div>
