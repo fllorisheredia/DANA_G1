@@ -17,13 +17,8 @@
     <div class="navbar bg-base-100 shadow-sm px-6 py-4">
         <div class="navbar-start">
             <a href="/DANA/index.php" class="flex items-center gap-2">
-<<<<<<< HEAD
-                <img src="/DANA/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
-                <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
-=======
                 <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold text-primary">Pueblo Unido</span>
->>>>>>> fernando
             </a>
         </div>
 

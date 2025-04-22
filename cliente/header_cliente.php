@@ -25,13 +25,6 @@
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
                 <li><a href="solicitar_producto.php"
-<<<<<<< HEAD
-                        class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a></li>
-                <li><a href="quienes_somos_cliente.php"
-                        class="text-md text-black hover:bg-purple-600 font-semibold">Quiénes Somos</a></li>
-                <li><a href="contacto_cliente.php"
-                        class="text-md text-black hover:bg-purple-600 font-semibold">Contacto</a></li>
-=======
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
                 </li>
                 <li><a href="quienes_somos_cliente.php"
@@ -40,22 +33,10 @@
                 <li><a href="contacto_cliente.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Contacto</a>
                 </li>
->>>>>>> fernando
             </ul>
         </div>
 
         <div class="navbar-end gap-2">
-<<<<<<< HEAD
-
-            <?php if (isset($_SESSION['usuario'])): ?>
-            <a href="/DANA/usuarios/perfil.php"
-                class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-white">Perfil</a>
-            <a href="/DANA/usuarios/logout.php" class="btn btn-sm bg-red-500 hover:bg-red-600 text-white">Cerrar
-                sesión</a>
-            <?php endif; ?>
-        </div>
-    </div>
-=======
 
             <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
                 <span id="theme-icon">🌙</span>
@@ -70,4 +51,3 @@
 
 
 <script src="/DANA_G1/js/main.js"></script>
->>>>>>> fernando
