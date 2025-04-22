@@ -8,7 +8,7 @@
             Ayudamos en la recuperación de las comunidades afectadas con información y recursos.
         </p>
     </aside>
-    
+
     <nav>
         <h6 class="footer-title">Enlaces</h6>
 
@@ -16,11 +16,14 @@
         <a href="/DANA/quienes_somos.php">Quiénes Somos</a>
         <a href="/DANA/contacto.php">Contacto</a>
     </nav>
-    
+
     <nav>
         <h6 class="footer-title">Legal</h6>
         <a href="/DANA/legal/terminosdeuso.php">Términos de uso</a>
         <a href="/DANA/legal/privacidad.php">Política de privacidad</a>
+        <a href="/DANA/legal/condiciones.php">Condiciones de uso y venta</a>
+        <a href="/DANA/legal/cookies.php">Política de cookies</a>
+        <a href="/DANA/legal/legal.php">Aviso Legal</a>
     </nav>
 </footer>
 

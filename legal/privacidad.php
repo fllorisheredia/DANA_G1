@@ -1,66 +1,50 @@
 <?php
 include '../includes/header.php';
+include '../includes/db.php';
 ?>
 
 <main class="min-h-screen bg-base-100 py-12 px-4 md:px-12 lg:px-24">
-    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl border-l-4 border-violet-700 p-10 space-y-8">
-        <h1 class="text-4xl font-extrabold text-center text-violet-700 tracking-tight">Política de Privacidad</h1>
+    <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl border-l-4 border-violet-800 p-10 space-y-8">
+        <h1 class="text-4xl font-extrabold text-center text-violet-800 tracking-tight mb-6">
+            Política de Privacidad
+        </h1>
 
         <p class="text-lg text-gray-800 text-justify leading-relaxed">
-            Este sitio web ha sido creado como parte de un <strong>proyecto académico del ciclo de Desarrollo de
-                Aplicaciones Multiplataforma (DAM)</strong>. Toda la información aquí recogida se utiliza exclusivamente
-            con fines educativos y demostrativos.
+            Este sitio ha sido creado con fines educativos por estudiantes del ciclo de
+            <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong>. No se recogen ni procesan datos
+            personales reales.
         </p>
 
         <div class="space-y-6">
             <div>
-                <h2 class="text-2xl font-semibold text-violet-600">1. Información que recopilamos</h2>
+                <h2 class="text-2xl font-semibold text-violet-700 mb-2">1. Datos personales</h2>
                 <p class="text-gray-800 text-justify">
-                    No recopilamos datos personales reales de los usuarios. Cualquier formulario o sistema de registro
-                    mostrado en esta web es puramente decorativo o simulado como parte del entorno del proyecto. No hay
-                    almacenamiento ni tratamiento de datos personales.
+                    Los formularios son simulados. No se almacena ninguna información personal ni se utiliza con fines
+                    reales.
                 </p>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-violet-600">2. Finalidad del tratamiento</h2>
+                <h2 class="text-2xl font-semibold text-violet-700 mb-2">2. Finalidad</h2>
                 <p class="text-gray-800 text-justify">
-                    La única finalidad de esta web es servir como ejercicio práctico dentro de una formación
-                    profesional. No se realiza ningún tratamiento de datos con fines comerciales, publicitarios ni de
-                    análisis.
+                    La única finalidad de este sitio es demostrar conocimientos técnicos adquiridos durante la
+                    formación. No tiene usos comerciales ni de análisis.
                 </p>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-violet-600">3. Derechos de los usuarios</h2>
+                <h2 class="text-2xl font-semibold text-violet-700 mb-2">3. Derechos</h2>
                 <p class="text-gray-800 text-justify">
-                    Como no se almacenan datos personales reales, no es necesario ejercer derechos como acceso,
-                    rectificación o supresión. En un entorno real, dichos derechos estarían garantizados conforme al
-                    RGPD.
+                    Al no tratarse de datos reales, no es necesario ejercer derechos como acceso, rectificación o
+                    supresión.
                 </p>
             </div>
 
             <div>
-                <h2 class="text-2xl font-semibold text-violet-600">4. Uso de cookies</h2>
+                <h2 class="text-2xl font-semibold text-violet-700 mb-2">4. Responsable del tratamiento</h2>
                 <p class="text-gray-800 text-justify">
-                    Este sitio puede simular el uso de cookies con fines demostrativos. No se emplean cookies reales
-                    para rastrear la actividad del usuario ni para recopilar información personal.
-                </p>
-            </div>
-
-            <div>
-                <h2 class="text-2xl font-semibold text-violet-600">5. Enlaces a terceros</h2>
-                <p class="text-gray-800 text-justify">
-                    Puede que se incluyan enlaces a otros sitios web como parte del contenido simulado del proyecto. No
-                    nos hacemos responsables de sus políticas de privacidad ni del uso de sus servicios.
-                </p>
-            </div>
-
-            <div>
-                <h2 class="text-2xl font-semibold text-violet-600">6. Modificaciones de esta política</h2>
-                <p class="text-gray-800 text-justify">
-                    Esta política de privacidad puede actualizarse para ajustarse a nuevas prácticas educativas. Al ser
-                    un entorno de prácticas, estos cambios no implican consecuencias legales.
+                    Este sitio no tiene un responsable de tratamiento real, ya que no hay tratamiento efectivo de datos
+                    personales.
                 </p>
             </div>
         </div>

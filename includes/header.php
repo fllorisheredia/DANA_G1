@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANA - Tienda</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -38,8 +37,7 @@
         <div class="navbar-end gap-2">
             <a href="/DANA/login.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Iniciar
                 sesión</a>
-            <a href="/DANA/registro.php"
-                class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Registrarse</a>
+            <a href="/DANA/registro.php" class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Registrarse</a>
         </div>
 
     </div>
