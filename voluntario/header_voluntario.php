@@ -25,7 +25,7 @@
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-                <li><a href="subir_producto.php" class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a>
+                <li><a href="index_voluntario.php" class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a>
                 </li>
                 <li><a href="quienes_somos_voluntario.php"
                         class="text-md text-black hover:bg-purple-600 font-semibold">Quiénes
@@ -36,7 +36,7 @@
         </div>
 
         <div class="navbar-end gap-2">
-            <a href="subir_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Inicio </a>
+            <a href="subir_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Subir Producto </a>
             <a href="perfilUsuario.php"
                 class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Perfil</a>
         </div>
