@@ -30,7 +30,8 @@
                 <li><a href="quienes_somos_voluntario.php"
                         class="text-md text-black hover:bg-purple-600 font-semibold">Quiénes
                         Somos</a></li>
-                <li><a href="contacto_voluntario.php" class="text-md text-black hover:bg-purple-600 font-semibold">Contacto</a>
+                <li><a href="contacto_voluntario.php"
+                        class="text-md text-black hover:bg-purple-600 font-semibold">Contacto</a>
                 </li>
             </ul>
         </div>

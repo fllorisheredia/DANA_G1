@@ -8,9 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = trim($_POST['nombre'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
+    $rol = trim($_POST['rol'] ?? 'cliente'); // Ahora el rol se obtiene del formulario
 
-    $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, 'cliente')");
-    $consulta->bind_param("sss", $nombre, $email, $password);
+    $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)");
+    $consulta->bind_param("ssss", $nombre, $email, $password, $rol);
 
     if ($consulta->execute()) {
         $registroExitoso = true;
@@ -43,22 +44,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <form method="POST" class="space-y-6 mt-4">
                 <div>
-                    <label for="nombre" class="block text-lg font-medium text-gray-700">Nombre</label>
+                    <label for="nombre"
+                        class="block text-lg font-medium text-gray-600 dark:text-gray-200">Nombre</label>
                     <input type="text" id="nombre" name="nombre" class="input input-bordered w-full text-lg py-3 mt-2"
                         placeholder="Ingrese su nombre" required />
                 </div>
 
                 <div>
-                    <label for="email" class="block text-lg font-medium text-gray-700">Correo electrónico</label>
+                    <label for="email" class="block text-lg font-medium text-gray-600 dark:text-gray-200">Correo
+                        electrónico</label>
                     <input type="email" id="email" name="email" class="input input-bordered w-full text-lg py-3 mt-2"
                         placeholder="Ingrese su correo electrónico" required />
                 </div>
 
                 <div>
-                    <label for="password" class="block text-lg font-medium text-gray-700">Contraseña</label>
+                    <label for="password"
+                        class="block text-lg font-medium text-gray-600 dark:text-gray-200">Contraseña</label>
                     <input type="password" id="password" name="password"
                         class="input input-bordered w-full text-lg py-3 mt-2" placeholder="Ingrese su contraseña"
                         required />
+                </div>
+
+                <!-- Selector de rol -->
+                <div>
+                    <label for="rol" class="block text-lg font-medium text-gray-600 dark:text-gray-200">Tipo de
+                        usuario</label>
+                    <select id="rol" name="rol" class="select select-bordered w-full mt-2 text-lg py-3" required>
+                        <option value="" disabled selected>Selecciona tu rol</option>
+                        <option value="cliente">Cliente</option>
+                        <option value="voluntario">Voluntario</option>
+                    </select>
                 </div>
 
                 <div class="flex items-center justify-between mt-4">
@@ -75,5 +90,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </div>
 
-include 'includes/footer.php';
-?>
+<?php include 'includes/footer.php'; ?>

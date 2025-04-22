@@ -3,19 +3,20 @@
     <aside class="flex items-start gap-4 max-w-4xl mx-auto p-4">
         <img src="/DANA/img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto" />
 
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+        <div class="text-gray-700 dark:text-gray-300 leading-relaxed self-center">
             Plataforma dedicada a brindar apoyo a las víctimas de la DANA. <br />
             Ayudamos en la recuperación de las comunidades afectadas con información y recursos.
-        </p>
+        </div>
     </aside>
-    
+
     <nav>
         <h6 class="footer-title">Enlaces</h6>
+
         <a href="/DANA/index.php">Inicio</a>
         <a href="/DANA/quienes_somos.php">Quiénes Somos</a>
         <a href="/DANA/contacto.php">Contacto</a>
     </nav>
-    
+
     <nav>
         <h6 class="footer-title">Legal</h6>
         <a href="/DANA/legal/terminosdeuso.php">Términos de uso</a>
