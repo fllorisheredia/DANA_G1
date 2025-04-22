@@ -36,8 +36,44 @@ include '../includes/db.php';
         <div class="card-actions justify-end mt-3">
           <a href="usuariosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
+<<<<<<< HEAD
       </div>
     </div>
+=======
+
+        <!-- Tarjeta de Pedidos -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card border-secondary shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Últimos Pedidos</h5>
+                    <a href="pedidos.php" class="stretched-link text-decoration-none text-dark">
+                        <table class="table table-sm">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $sqlPedidos = "SELECT id, estado, fecha FROM pedidos LIMIT 3";
+                                $resultPedidos = $conexion->query($sqlPedidos);
+                                while ($row = $resultPedidos->fetch_assoc()) {
+                                    echo "<tr><td>{$row['id']}</td><td>{$row['estado']}</td><td>{$row['fecha']}</td></tr>";
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 2495b56ed8d1036af096e723784d159e96809bf0
 
     <!-- Productos -->
     <div class="card bg-base-100 shadow-md border border-gray-700">
@@ -100,4 +136,8 @@ include '../includes/db.php';
     </div>
 
   </div>
+<<<<<<< HEAD
+=======
+>>>>>>> fernando
+>>>>>>> 2495b56ed8d1036af096e723784d159e96809bf0
 </div>
