@@ -47,13 +47,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <form method="POST" class="space-y-6 mt-4">
                 <div>
-                    <label for="email" class="block text-lg font-medium text-gray-700">Correo electrónico</label>
+                    <label for="email" class="block text-lg font-medium text-gray-600 dark:text-gray-200">Correo
+                        electrónico</label>
                     <input type="email" id="email" name="email" class="input input-bordered w-full text-lg py-3 mt-2"
                         placeholder="Ingrese su correo electrónico" required />
                 </div>
 
                 <div>
-                    <label for="password" class="block text-lg font-medium text-gray-700">Contraseña</label>
+                    <label for="password"
+                        class="block text-lg font-medium text-gray-600 dark:text-gray-200">Contraseña</label>
                     <input type="password" id="password" name="password"
                         class="input input-bordered w-full text-lg py-3 mt-2" placeholder="Ingrese su contraseña"
                         required />
