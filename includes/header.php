@@ -17,7 +17,7 @@
     <div class="navbar bg-white shadow-sm px-6 py-4">
         <div class="navbar-start">
             <a href="/DANA/index.php" class="flex items-center gap-2">
-                <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
+                <img src="/DANA/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
             </a>
         </div>
