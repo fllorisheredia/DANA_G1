@@ -231,7 +231,24 @@ document.addEventListener("click", function (e) {
 
 
 
-//FUNCION 
+//CERRAR SESION
 
-
+document.getElementById('btnCerrarSesion').addEventListener('click', function () {
+    fetch('../includes/cerrar_sesion.php', {
+        method: 'GET'
+    })
+    .then(response => {
+        if (response.redirected) {
+            // Si PHP redirige, llevamos al usuario allí (normalmente a index.php)
+            window.location.href = response.url;
+        } else {
+            // Por si quieres mostrar un mensaje sin redirigir
+            alert("Sesión cerrada.");
+        }
+    })
+    .catch(error => {
+        console.error('Error cerrando sesión:', error);
+        alert("Hubo un error al cerrar la sesión.");
+    });
+});
 

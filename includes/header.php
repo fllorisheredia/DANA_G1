@@ -24,9 +24,9 @@
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-                <li><a href="/DANA/index.php" class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a>
+                <li><a href="./DANA_G1/index.php" class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a>
                 </li>
-                <li><a href="/DANA/quienes_somos.php"
+                <li><a href="/DANA_G1/quienes_somos.php"
                         class="text-md text-black hover:bg-purple-600 font-semibold">Quiénes
                         Somos</a></li>
                 <li><a href="contacto.php" class="text-md text-black hover:bg-purple-600 font-semibold">Contacto</a>
@@ -35,9 +35,9 @@
         </div>
 
         <div class="navbar-end gap-2">
-            <a href="/DANA/login.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Iniciar
+            <a href="/DANA_G1/login.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-black">Iniciar
                 sesión</a>
-            <a href="/DANA/registro.php" class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Registrarse</a>
+            <a href="/DANA_G1/registro.php" class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-black">Registrarse</a>
         </div>
 
     </div>
