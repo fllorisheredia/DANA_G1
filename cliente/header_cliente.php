@@ -14,10 +14,10 @@
 
 <body class="min-h-screen flex flex-col font-[Raleway]">
 
-    <div class="navbar bg-white shadow-sm px-6 py-4">
+    <div class="navbar bg-base-200 shadow-sm px-6 py-4">
         <div class="navbar-start">
             <a href="solicitar_producto.php" class="flex items-center gap-2">
-                <img src="/DANA/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
+                <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
             </a>
         </div>
@@ -25,15 +25,27 @@
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
                 <li><a href="solicitar_producto.php"
+<<<<<<< HEAD
                         class="text-md text-black hover:bg-purple-600 font-semibold">Inicio</a></li>
                 <li><a href="quienes_somos_cliente.php"
                         class="text-md text-black hover:bg-purple-600 font-semibold">Quiénes Somos</a></li>
                 <li><a href="contacto_cliente.php"
                         class="text-md text-black hover:bg-purple-600 font-semibold">Contacto</a></li>
+=======
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
+                </li>
+                <li><a href="quienes_somos_cliente.php"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Quiénes
+                        Somos</a></li>
+                <li><a href="contacto_cliente.php"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Contacto</a>
+                </li>
+>>>>>>> fernando
             </ul>
         </div>
 
         <div class="navbar-end gap-2">
+<<<<<<< HEAD
 
             <?php if (isset($_SESSION['usuario'])): ?>
             <a href="/DANA/usuarios/perfil.php"
@@ -43,3 +55,19 @@
             <?php endif; ?>
         </div>
     </div>
+=======
+
+            <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
+            </button>
+
+            <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio </a>
+            <a href="perfilUsuario.php" class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-base-content">Perfil</a>
+        </div>
+
+    </div>
+</body>
+
+
+<script src="/DANA_G1/js/main.js"></script>
+>>>>>>> fernando
