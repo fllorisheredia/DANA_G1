@@ -5,8 +5,8 @@ include 'includes/db.php';
 
 <div class="carousel w-full h-[85vh]">
 
-    <div id="slide1" class="carousel-item relative w-full h-full">
-        <img src="img/Foto1.jpg" class="w-full h-full object-cover" />
+    <div id="slide1" class="carousel-item relative w-full h-[85vh]">
+        <img src="img/Foto1.jpg" class="w-full h-[85vh] object-cover" />
 
         <div
             class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-6">
@@ -21,8 +21,8 @@ include 'includes/db.php';
         </div>
     </div>
 
-    <div id="slide2" class="carousel-item relative w-full h-full">
-        <img src="img/Foto2.jpg" class="w-full h-full object-cover" />
+    <div id="slide2" class="carousel-item relative w-full h-[85vh]">
+        <img src="img/Foto2.jpg" class="w-full h-[85vh] object-cover" />
 
         <div
             class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center text-white px-6">
