@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: admin/indexAdmin.php");
                 break;
             case 'cliente':
-                header("Location: cliente/solicitar_producto.php");
+                header("Location: cliente/dashboardCliente.php");
                 break;
             case 'voluntario':
                 header("Location: voluntario/subir_producto.php");

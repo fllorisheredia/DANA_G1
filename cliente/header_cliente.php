@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 ?>
 <!DOCTYPE html>
@@ -28,14 +28,13 @@ session_start();
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-                <li><a href="solicitar_producto.php"
+                <li><a onclick="cargarVista('vistaInicio.php')"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
                 </li>
-                <li><a href="quienes_somos_cliente.php"
-                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Quiénes
-                        Somos</a></li>
-                <li><a href="contacto_cliente.php"
-                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Contacto</a>
+                <li><a onclick="cargarVista('paginaProductos.php')"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Productos</a></li>
+                <li><a href="solicitar_producto.php"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Servicios</a>
                 </li>
             </ul>
         </div>
