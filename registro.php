@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = trim($_POST['nombre'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
-    $rol = trim($_POST['rol'] ?? 'cliente'); // Ahora el rol se obtiene del formulario
+    $rol = trim($_POST['rol'] ?? 'cliente');
 
     $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)");
     $consulta->bind_param("ssss", $nombre, $email, $password, $rol);

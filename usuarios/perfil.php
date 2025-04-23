@@ -26,11 +26,7 @@ $result3 = $query3->get_result();
 $tieneMensajes = $result3->num_rows > 0;
 
 
-
-
-
 ?>
-
 
 
 <!DOCTYPE html>
@@ -72,11 +68,14 @@ $tieneMensajes = $result3->num_rows > 0;
             <!-- Redes -->
             <div class="card bg-base-100 shadow-md p-4">
                 <ul class="menu">
-                <h2 class="font-semibold text-lg mb-4">🐙 REDES SOCIALES</h2>
+                    <h2 class="font-semibold text-lg mb-4">🐙 REDES SOCIALES</h2>
 
-                    <li><a><span>🐦 Twitter</span> <span class="text-sm text-gray-500 ml-auto">@pepe1DANA</span></a></li>
-                    <li><a><span>📸 Instagram</span> <span class="text-sm text-gray-500 ml-auto">pepe1DANA</span></a></li>
-                    <li><a><span>📘 Facebook</span> <span class="text-sm text-gray-500 ml-auto">pepe1DANA</span></a></li>
+                    <li><a><span>🐦 Twitter</span> <span class="text-sm text-gray-500 ml-auto">@pepe1DANA</span></a>
+                    </li>
+                    <li><a><span>📸 Instagram</span> <span class="text-sm text-gray-500 ml-auto">pepe1DANA</span></a>
+                    </li>
+                    <li><a><span>📘 Facebook</span> <span class="text-sm text-gray-500 ml-auto">pepe1DANA</span></a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -90,7 +89,8 @@ $tieneMensajes = $result3->num_rows > 0;
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
                     <div><span class="font-semibold">Nombre:</span> <?php echo $usuario['nombre']; ?></div>
                     <div><span class="font-semibold">Email:</span> <?php echo $usuario['email']; ?></div>
-                    <div><span class="font-semibold">Cantidad de Tonkens:</span> <?php echo $usuario['tonkens']; ?></div>
+                    <div><span class="font-semibold">Cantidad de Tonkens:</span> <?php echo $usuario['tonkens']; ?>
+                    </div>
                     <div><span class="font-semibold">Valoración:</span> <?php echo $usuario['valoracion']; ?></div>
                     <!-- <div><span class="font-semibold">Dirección:</span> Bay Area, San Francisco, CA</div> -->
                 </div>
@@ -108,61 +108,61 @@ $tieneMensajes = $result3->num_rows > 0;
                     <div class="space-y-3 text-sm">
 
                         <?php if ($tieneMensajes): ?>
-                            <?php while ($mensaje = $result3->fetch_assoc()): ?>
-                                <div>
-                                    <span>Pedido #<?php echo $mensaje['id_remitente']; ?> - Estado:
-                                        <?php echo ucfirst($mensaje['fecha']); ?>
-                                        <?php echo ucfirst($mensaje['mensaje']); ?>
-                                    
-                                    </span>
-                                    <!-- <progress class="progress progress-primary w-full"
+                        <?php while ($mensaje = $result3->fetch_assoc()): ?>
+                        <div>
+                            <span>Pedido #<?php echo $mensaje['id_remitente']; ?> - Estado:
+                                <?php echo ucfirst($mensaje['fecha']); ?>
+                                <?php echo ucfirst($mensaje['mensaje']); ?>
+
+                            </span>
+                            <!-- <progress class="progress progress-primary w-full"
                                         value="
                                         <?php echo $mensaje['mensaje'] === 'completado' ? 100 : ($mensaje['estado'] === 'enviado' ? 70 : 30); ?>
                                         "
                                         max="100"></progress>
                                 </div> -->
                             <?php endwhile; ?>
-                        <?php else: ?>
+                            <?php else: ?>
                             <div class="alert alert-info shadow-sm">
-                            📥 No tienes ningun mensaje todavia.
+                                📥 No tienes ningun mensaje todavia.
                             </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- MIS PEDIDOS -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="card bg-base-100 shadow-md p-6">
-                    <h2 class="font-semibold text-lg mb-4">📊 MIS PEDIDOS</h2>
-                    <div class="space-y-3 text-sm">
+                <!-- MIS PEDIDOS -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card bg-base-100 shadow-md p-6">
+                        <h2 class="font-semibold text-lg mb-4">📊 MIS PEDIDOS</h2>
+                        <div class="space-y-3 text-sm">
 
-                        <?php if ($tienePedidos): ?>
+                            <?php if ($tienePedidos): ?>
                             <?php while ($pedido = $result->fetch_assoc()): ?>
-                                <div>
-                                    <span>Pedido #<?php echo $pedido['id']; ?> - Estado:
-                                        <?php echo ucfirst($pedido['estado']); ?></span>
-                                    <progress class="progress progress-primary w-full"
-                                        value="<?php echo $pedido['estado'] === 'completado' ? 100 : ($pedido['estado'] === 'enviado' ? 70 : 30); ?>"
-                                        max="100"></progress>
-                                </div>
+                            <div>
+                                <span>Pedido #<?php echo $pedido['id']; ?> - Estado:
+                                    <?php echo ucfirst($pedido['estado']); ?></span>
+                                <progress class="progress progress-primary w-full"
+                                    value="<?php echo $pedido['estado'] === 'completado' ? 100 : ($pedido['estado'] === 'enviado' ? 70 : 30); ?>"
+                                    max="100"></progress>
+                            </div>
                             <?php endwhile; ?>
-                        <?php else: ?>
+                            <?php else: ?>
                             <div class="alert alert-info shadow-sm">
                                 🚫 No tienes pedidos registrados todavía.
                             </div>
-                        <?php endif; ?>
+                            <?php endif; ?>
 
+                        </div>
                     </div>
                 </div>
+
             </div>
-
-    </div>
-    </div>
+        </div>
 
 
-    <?php include '../includes/footer.php'; ?>
+        <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>

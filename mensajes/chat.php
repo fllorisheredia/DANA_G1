@@ -30,7 +30,7 @@ if ($destinatario_id) {
 ?>
 
 <div class="flex h-screen">
-    <!-- Panel izquierdo: lista de usuarios -->
+    <!--Panel izquierdo: lista de usuarios -->
     <div class="w-1/4 bg-base-200 border-r p-4 overflow-y-auto">
         <h2 class="text-lg font-bold mb-4">Usuarios</h2>
         <ul class="space-y-2">

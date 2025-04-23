@@ -6,32 +6,37 @@ include '../includes/db.php';
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 
 <div class=" bg-white p-6">
-  <h1 class="text-3xl font-bold mb-6 text-black">Panel <span class="text-purple-500">Administración</span></h1>
+    <h1 class="text-3xl font-bold mb-6 text-black">Panel <span class="text-purple-500">Administración</span></h1>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-    <!-- Usuarios -->
-    <div class="card bg-base-100 shadow-md border border-gray-700">
-      <div class="card-body">
-        <h2 class="card-title text-lg text-white">Últimos Usuarios</h2>
-        <div class="overflow-x-auto">
-          <table class="table table-zebra text-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
+        <!-- Usuarios -->
+        <div class="card bg-base-100 shadow-md border border-gray-700">
+            <div class="card-body">
+                <h2 class="card-title text-lg text-white">Últimos Usuarios</h2>
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra text-sm">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
               $sqlUsuarios = "SELECT id, nombre FROM usuarios LIMIT 3";
               $resultUsuarios = $conexion->query($sqlUsuarios);
               while ($row = $resultUsuarios->fetch_assoc()) {
                 echo "<tr><td>{$row['id']}</td><td>{$row['nombre']}</td></tr>";
               }
               ?>
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-actions justify-end mt-3">
+                    <a href="usuariosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
+                </div>
+            </div>
         </div>
         <div class="card-actions justify-end mt-3">
           <a href="usuariosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
@@ -63,13 +68,13 @@ include '../includes/db.php';
                 echo "<tr><td>{$row['id']}</td><td>{$row['nombre']}</td><td>{$row['precio_tonkens']}</td></tr>";
               }
               ?>
-            </tbody>
-          </table>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-actions justify-end mt-3">
+                <a href="productosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
+            </div>
         </div>
-        <div class="card-actions justify-end mt-3">
-          <a href="productosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
-        </div>
-      </div>
     </div>
 
     <!-- Pedidos -->
@@ -93,14 +98,15 @@ include '../includes/db.php';
                 echo "<tr><td>{$row['id']}</td><td>{$row['estado']}</td><td>{$row['fecha']}</td></tr>";
               }
               ?>
-            </tbody>
-          </table>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-actions justify-end mt-3">
+                <a href="pedidosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
+            </div>
         </div>
-        <div class="card-actions justify-end mt-3">
-          <a href="pedidosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
-        </div>
-      </div>
     </div>
 
   </div>
+</div>
 </div>

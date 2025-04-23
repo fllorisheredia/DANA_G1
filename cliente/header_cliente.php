@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -6,12 +9,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANA - Tienda</title>
-    <!-- Bootstrap 5 CSS -->
+
+    <!-- DaisyUI + Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 
 <body class="min-h-screen flex flex-col font-[Raleway]">
 
@@ -39,16 +42,34 @@
 
         <div class="navbar-end gap-2">
 
-            <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
-                <span id="theme-icon">🌙</span>
-            </button>
+            <div class="mr-10">
+                <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
+            </div>
+            <div class="dropdown dropdown-end mr-10"></div>
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                    <!-- <div class="w-10 rounded-full"> -->
+                        <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" /> -->
+                    <!-- </div> -->
+                <!-- <button href="/DANA_G1/usuarios/perfil.php"><?php echo $usuario['nombre'] ?> -->
 
-            <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio </a>
-            <a href="perfilUsuario.php" class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-base-content">Perfil</a>
+            </div>
+            <?php include 'deplegable_perfil.php' ?>
+
+            </a>
+            <!-- <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio
+            </a>
+            <a href="perfilUsuario.php"
+                class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-base-content">Perfil</a> -->
         </div>
 
     </div>
 </body>
+
+
+
+
 
 
 <script src="/DANA_G1/js/main.js"></script>

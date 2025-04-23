@@ -1,22 +1,22 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>DANA - Administración</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="/DANA0/css/style.css">
+    <meta charset="UTF-8">
+    <title>DANA - Administración</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 
-
-  <style>
+    <style>
     iframe {
-      width: 100%;
-      height: calc(100vh - 64px); /* Resta el alto del header */
-      border: none;
+        width: 100%;
+        height: calc(100vh - 64px);
+        /* Resta el alto del header */
+        border: none;
     }
-  </style>
+    </style>
 
 
 
@@ -24,32 +24,29 @@
 
 <body class="bg-white text-white">
 
-  <div class="flex h-screen">
+    <div class="flex h-screen">
 
-    <!-- Sidebar (izquierda) -->
-    <aside class="w-64 bg-gray-800 text-white  flex flex-col">
-      <?php include 'navbarAdmin.php'; ?>
-    </aside>
+        <!-- Sidebar (izquierda) -->
+        <aside class="w-64 bg-gray-800 text-white  flex flex-col">
+            <?php include 'navbarAdmin.php'; ?>
+        </aside>
 
-    <!-- Contenido principal  -->
-    <div class="flex flex-col flex-1 overflow-hidden">
-     
-
-      
-
-      <!-- Área del iframe -->
-      <main class=" bg-white flex-1 overflow-auto">
-        <iframe id="visor" src="cardAdminPanel.php"></iframe>
-      </main>
+        <!-- Contenido principal  -->
+        <div class="flex flex-col flex-1 overflow-hidden">
+            <!-- Área del iframe -->
+            <main class=" bg-white flex-1 overflow-auto">
+                <iframe id="visor" src="cardAdminPanel.php"></iframe>
+            </main>
+        </div>
     </div>
-  </div>
-  <!-- <?php include '../includes/footer.php'?> -->
+    <!-- <?php include '../includes/footer.php'?> -->
 
-  <script>
+    <script>
     function cargarPagina(url) {
-      document.getElementById("visor").src = url;
+        document.getElementById("visor").src = url;
     }
-  </script>
+    </script>
 
 </body>
+
 </html>
