@@ -7,13 +7,13 @@ include '../includes/header.php';
 $usuario_id = $_SESSION['usuario']['id'];
 $destinatario_id = $_GET['id'] ?? null;
 
-// ✅ Obtener todos los usuarios menos el actual
+// Obtener todos los usuarios menos el actual
 $usuarios = $conexion->prepare("SELECT id, nombre FROM usuarios WHERE id != ?");
 $usuarios->bind_param("i", $usuario_id);
 $usuarios->execute();
 $resultadoUsuarios = $usuarios->get_result()->fetch_all(MYSQLI_ASSOC);
 
-// ✅ Obtener mensajes si hay un destinatario seleccionado
+// Obtener mensajes si hay un destinatario seleccionado
 $mensajes = [];
 if ($destinatario_id) {
     $query = $conexion->prepare("
@@ -30,7 +30,7 @@ if ($destinatario_id) {
 ?>
 
 <div class="flex h-screen">
-    <!-- 🔹 Panel izquierdo: lista de usuarios -->
+    <!-- Panel izquierdo: lista de usuarios -->
     <div class="w-1/4 bg-base-200 border-r p-4 overflow-y-auto">
         <h2 class="text-lg font-bold mb-4">Usuarios</h2>
         <ul class="space-y-2">
