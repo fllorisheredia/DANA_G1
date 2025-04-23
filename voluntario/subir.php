@@ -8,7 +8,7 @@ $descripcion = $_POST['descripcion'] ?? '';
 $precio_token = $_POST['precio_tonkens'] ?? 1;
 $stock = $_POST['stock'] ?? 1;
 $categoria = $_POST['categoria'] ?? 'alimentos';
-
+$registroExitoso = false;
 // Validación básica
 if (empty($nombre) || empty($categoria)) {
     die("❌ Faltan datos obligatorios.");
@@ -40,6 +40,7 @@ if ($resultado->num_rows > 0) {
     $actualizar->bind_param("sisi", $descripcion, $nuevo_stock, $categoria, $producto_id);
 
     if ($actualizar->execute()) {
+        $registroExitoso = true;
         echo "✅ Producto actualizado correctamente.";
     } else {
         echo "❌ Error al actualizar el producto.";
@@ -50,7 +51,7 @@ if ($resultado->num_rows > 0) {
     $insertar->bind_param("issisi", $usuario_id, $nombre, $descripcion, $precio_token, $categoria, $stock);
 
     if ($insertar->execute()) {
-        
+        $registroExitoso = true;
         echo "✅ Producto Subido correctamente.";
     } else {
         echo "❌ Error al subir el producto.";

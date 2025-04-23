@@ -1,7 +1,6 @@
 <?php
 include 'header_voluntario.php';
 include '../includes/db.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,19 +9,6 @@ include '../includes/db.php';
   <title>Subir Producto</title>
   </head>
 <body>
-
-<input type="checkbox" id="registroExitosoModal" class="modal-toggle" />
-<div class="modal">
-    <div class="modal-box text-center">   <!-- Agregar el toggle este raro --> 
-        <h2 class="text-2xl font-bold text-green-600 mb-4">¡Registro exitoso!</h2>
-        <p class="text-lg">Tu cuenta ha sido creada correctamente.</p>
-        <div class="modal-action">
-            <a href="login.php" class="btn btn-success">Ir al login</a>
-        </div>
-    </div>
-</div>
-
-
 
 <div class="flex gap-4 justify-center flex-wrap">
 
