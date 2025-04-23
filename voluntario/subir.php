@@ -58,5 +58,9 @@ if ($resultado->num_rows > 0) {
     }
 }
 
+if ($registroExitoso) {
+    header("Location: subir_producto.php?registro=exitoso");
+    exit;
+}
 $conexion->close();
 ?>

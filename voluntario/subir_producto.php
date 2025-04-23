@@ -8,6 +8,19 @@ include '../includes/db.php';
   <meta charset="UTF-8">
   <title>Subir Producto</title>
   </head>
+
+<?php if (isset($_GET['registro']) && $_GET['registro'] === 'exitoso'): ?>
+<input type="checkbox" id="registroExitosoModal" class="modal-toggle" checked />
+<div class="modal">
+    <div class="modal-box text-center">
+        <h2 class="text-2xl font-bold text-green-600 mb-4">¡Producto añadido!</h2>
+        <p class="text-lg">El producto ha sido agregado correctamente, Gracias por tu aportación! </p>
+        <div class="modal-action">
+            <label for="registroExitosoModal" class="btn btn-success">Cerrar</label>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
 <body>
 
 <div class="flex gap-4 justify-center flex-wrap">
