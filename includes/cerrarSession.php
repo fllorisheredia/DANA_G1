@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start(); // Esto es imprescindible para poder destruir la sesión
 
 // Elimina todas las variables de sesión
 $_SESSION = [];
@@ -16,6 +16,9 @@ if (ini_get("session.use_cookies")) {
 // Destruye completamente la sesión
 session_destroy();
 
-// Devuelve respuesta JSON (para usar con JS)
+// ✅ Opción 1: Redirigir a index.php directamente
+header("Location: ../index.php");
+exit;
+
+// ✅ Opción 2 (si usas fetch con JS): devolver JSON
 // echo json_encode(['status' => 'ok']);
-?>

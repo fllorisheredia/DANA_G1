@@ -229,26 +229,70 @@ document.addEventListener("click", function (e) {
   }
 // </script>
 
+// //CERRAR SESION
+// document.getElementById('btnCerrarSesion').addEventListener('click', function () {
+//   fetch('../includes/cerrar_sesion.php', {
+//       method: 'GET'
+//   })
+//   .then(response => {
+//       if (response.redirected) {
+//           // Si PHP redirige, llevamos al usuario allí (normalmente a index.php)
+//           window.location.href = response.url;
+//       } else {
+//           // Por si quieres mostrar un mensaje sin redirigir
+//           alert("Sesión cerrada.");
+//       }
+//   })
+//   .catch(error => {
+//       console.error('Error cerrando sesión:', error);
+//       alert("Hubo un error al cerrar la sesión.");
+//   });
+// });
 
 
-//CERRAR SESION
 
-document.getElementById('btnCerrarSesion').addEventListener('click', function () {
-    fetch('../includes/cerrar_sesion.php', {
-        method: 'GET'
+
+
+//!FUNCIONES DE GESTION DE PRODUCTOS
+  function eliminarProducto(idProducto) {
+    if (!confirm("¿Estás seguro de que deseas eliminar este producto?")) return;
+
+    fetch('borrarProducto.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `id=${idProducto}`
     })
-    .then(response => {
-        if (response.redirected) {
-            // Si PHP redirige, llevamos al usuario allí (normalmente a index.php)
-            window.location.href = response.url;
-        } else {
-            // Por si quieres mostrar un mensaje sin redirigir
-            alert("Sesión cerrada.");
-        }
+    .then(response => response.text())
+    .then(data => {
+      alert(data);
+      location.reload(); // Refresca para que desaparezca el producto
     })
     .catch(error => {
-        console.error('Error cerrando sesión:', error);
-        alert("Hubo un error al cerrar la sesión.");
+      alert('❌ Error al eliminar el producto');
+      console.error(error);
     });
-});
+  }
 
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('btnCerrarSesion');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        fetch('../includes/cerrar_sesion.php') // ← Asegúrate de que esta ruta es válida
+          .then(response => {
+            if (response.redirected) {
+              window.location.href = response.url;
+            } else {
+              window.location.href = '../index.php';
+            }
+          })
+          .catch(error => {
+            console.error('Error cerrando sesión:', error);
+            alert("Hubo un error al cerrar la sesión.");
+          });
+      });
+    }
+  });

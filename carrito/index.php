@@ -1,6 +1,7 @@
 <?php
 include '../includes/db.php';
-include '../includes/header.php';
+// include '../includes/header.php';
+include '../cliente/header_cliente.php';
 
 if (!isset($_SESSION['usuario'])) {
     die("Debes iniciar sesión para ver tu carrito.");

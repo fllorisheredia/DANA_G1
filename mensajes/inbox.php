@@ -1,7 +1,7 @@
 <?php
 // session_start();
 include '../includes/db.php';
-include '../includes/header.php';
+include '../cliente/header_cliente.php';
 verificarSesion();
 
 $id_usuario = $_SESSION['usuario']['id'];
