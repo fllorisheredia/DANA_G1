@@ -30,29 +30,36 @@ $result = $conexion->query($sql);
 
             <div>
               <label class="font-semibold">Cambiar Nombre</label>
-              <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>" class="input input-bordered w-full" />
+              <input type="text" name="nombre" value="<?php echo $row['nombre']; ?>"
+                class="input input-bordered w-full" />
             </div>
 
             <div>
               <label class="font-semibold">Cambiar Descripción</label>
-              <input type="text" name="descripcion" value="<?php echo $row['descripcion']; ?>" class="input input-bordered w-full" />
+              <input type="text" name="descripcion" value="<?php echo $row['descripcion']; ?>"
+                class="input input-bordered w-full" />
             </div>
 
             <div>
               <label class="font-semibold">Precio Tokens</label>
-              <input type="number" name="precio_tonkens" value="<?php echo $row['precio_tonkens']; ?>" class="input input-bordered w-full" />
+              <input type="number" name="precio_tonkens" value="<?php echo $row['precio_tonkens']; ?>"
+                class="input input-bordered w-full" />
             </div>
 
-            <div class="flex justify-end gap-2 mt-3">
-              <button type="submit" class="btn btn-success btn-sm">Guardar</button>
-              <button type="button" onclick="eliminarProducto(<?php echo $row['id']; ?>)" class="btn btn-error btn-sm">Eliminar</button>
-            </div>
           </form>
+          <div class="flex justify-end gap-2 mt-3">
+            <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+            <button type="button" onclick="eliminarProducto(<?= $row['id']; ?>)" class="btn btn-error btn-sm">Eliminar</button>
+            </button>
+          </div>
         </div>
       </div>
     <?php endwhile; ?>
   </div>
 </div>
+
+<!-- <script src="funciones.js"></script> -->
+<script src="funcionesProductos.js"></script>
 
 <script>
   function toggleMenu(id) {
@@ -62,9 +69,11 @@ $result = $conexion->query($sql);
     }
   }
 
-  function eliminarProducto(id) {
-    if (confirm("¿Estás seguro de que quieres eliminar este producto?")) {
-      window.location.href = `eliminar_producto.php?id=${id}`;
-    }
-  }
+  // function eliminarProducto(id) {
+  //   if (confirm("¿Estás seguro de que quieres eliminar este producto?")) {
+  //     window.location.href = `borrarProducto.php?id=${id}`;
+  //   }
+  // }
 </script>
+
+

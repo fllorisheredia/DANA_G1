@@ -38,9 +38,7 @@ include '../includes/db.php';
                 </div>
             </div>
         </div>
-        <div class="card-actions justify-end mt-3">
-          <a href="usuariosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
-        </div>
+      
 
       </div>
     </div>

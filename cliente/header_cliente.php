@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@
 
     <div class="navbar bg-base-200 shadow-sm px-6 py-4">
         <div class="navbar-start">
-            <a href="solicitar_producto.php" class="flex items-center gap-2">
+            <a href="../cliente/vistaInicio.php" class="flex items-center gap-2">
                 <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
             </a>
@@ -28,10 +28,10 @@
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-                <li><a onclick="cargarVista('vistaInicio.php')"
+                <li><a onclick="cargarVista('../cliente/vistaInicio.php')"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
                 </li>
-                <li><a onclick="cargarVista('paginaProductos.php')"
+                <li><a onclick="cargarVista('../cliente/paginaProductos.php')"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Productos</a></li>
                 <li><a href="solicitar_producto.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Servicios</a>
@@ -46,14 +46,7 @@
                     <span id="theme-icon">🌙</span>
                 </button>
             </div>
-            <div class="dropdown dropdown-end mr-10"></div>
-                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                    <!-- <div class="w-10 rounded-full"> -->
-                        <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" /> -->
-                    <!-- </div> -->
-                <!-- <button href="/DANA_G1/usuarios/perfil.php"><?php echo $usuario['nombre'] ?> -->
-
-            </div>
+    
             <?php include 'deplegable_perfil.php' ?>
 
             </a>
