@@ -1,12 +1,8 @@
-<<<<<<< HEAD
-<aside
-    class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
-=======
 <?php include '../includes/cerrarSession.php'?>
 
 
-<aside class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
->>>>>>> fernando
+<aside
+    class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700">
     <a href="#">
         <h1 class="text-xl font-bold">PUEBLO <span class="text-purple-600">UNIDO</span></h1>
 
@@ -97,14 +93,17 @@
                 <span class="mx-2 text-sm font-medium">Reportes</span>
             </a> -->
 
-       
+
         </nav>
 
         <div class="mt-6">
             <div class="p-3 bg-gray-100 rounded-lg dark:bg-gray-800">
-                <h2 class="text-sm font-medium text-gray-800 dark:text-white">Gracias Por tu  <span class="text-purple-600"> Colaboración!</span></h2>
+                <h2 class="text-sm font-medium text-gray-800 dark:text-white">Gracias Por tu <span
+                        class="text-purple-600"> Colaboración!</span></h2>
 
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">            Agradecemos sinceramente tu tiempo y esfuerzo. Cada pequeña ayuda cuenta y nos acerca más a nuestra meta. ¡Gracias por formar parte de este proyecto!
+                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400"> Agradecemos sinceramente tu tiempo y esfuerzo.
+                    Cada pequeña ayuda cuenta y nos acerca más a nuestra meta. ¡Gracias por formar parte de este
+                    proyecto!
                 </p>
 
                 <img class="object-cover w-full h-32 mt-2 rounded-lg" src="../img/logoSinF.png" alt="">
@@ -112,16 +111,19 @@
 
             <div class="flex items-center justify-between mt-6">
                 <a href="#" class="flex items-center gap-x-2">
-            <?php echo htmlspecialchars($_SESSION['nombre'] ?? 'Invitado'); ?>
+                    <?php echo htmlspecialchars($_SESSION['nombre'] ?? 'Invitado'); ?>
                 </a>
-                
-                <a href="#" id="btnCerrarSesion" class="text-gray-500 transition-colors duration-200 rotate-180 dark:text-gray-400 rtl:rotate-0 hover:text-blue-500 dark:hover:text-blue-400">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+
+                <a href="#" id="btnCerrarSesion"
+                    class="text-gray-500 transition-colors duration-200 rotate-180 dark:text-gray-400 rtl:rotate-0 hover:text-blue-500 dark:hover:text-blue-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                     </svg>
 
 
-                    
+
                 </a>
             </div>
         </div>
@@ -129,24 +131,24 @@
 </aside>
 
 <script>
-document.getElementById("btnCerrarSesion").addEventListener("click", function (e) {
+document.getElementById("btnCerrarSesion").addEventListener("click", function(e) {
     e.preventDefault();
 
     fetch("../includes/cerrar_sesion.php", {
-        method: "GET"
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status === "ok") {
-            // Redirige al index tras cerrar sesión
-            window.location.href = "../index.php";
-        } else {
-            alert("No se pudo cerrar sesión.");
-        }
-    })
-    .catch(error => {
-        console.error("Error al cerrar sesión:", error);
-        alert("Error de conexión.");
-    });
+            method: "GET"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "ok") {
+                // Redirige al index tras cerrar sesión
+                window.location.href = "../index.php";
+            } else {
+                alert("No se pudo cerrar sesión.");
+            }
+        })
+        .catch(error => {
+            console.error("Error al cerrar sesión:", error);
+            alert("Error de conexión.");
+        });
 });
 </script>

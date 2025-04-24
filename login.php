@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="min-h-screen flex items-center justify-center bg-base-100">
 
-
     <div class="w-full max-w-sm mx-auto overflow-hidden rounded-lg shadow-md dark:bg-gray-800">
         <div class="px-6 py-4">
 
@@ -61,13 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <form method="POST" class="space-y-6 mt-4">
                 <div>
-                    <label for="email" class="block text-lg font-medium text-gray-700">Correo electrónico</label>
+                    <label for="email" class="block text-lg font-medium text-gray-300">Correo electrónico</label>
                     <input type="email" id="email" name="email" class="input input-bordered w-full text-lg py-3 mt-2"
                         placeholder="Ingrese su correo electrónico" required />
                 </div>
 
                 <div>
-                    <label for="password" class="block text-lg font-medium text-gray-700">Contraseña</label>
+                    <label for="password" class="block text-lg font-medium text-gray-300">Contraseña</label>
                     <input type="password" id="password" name="password"
                         class="input input-bordered w-full text-lg py-3 mt-2" placeholder="Ingrese su contraseña"
                         required />
@@ -79,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
         </div>
 
-        <div class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
+        <div class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-600">
             <span class="text-sm text-gray-600 dark:text-gray-200">¿No tienes una cuenta? </span>
             <a href="registro.php"
                 class="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline">Regístrate</a>
