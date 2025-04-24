@@ -38,73 +38,72 @@ include '../includes/db.php';
                 </div>
             </div>
         </div>
-      
-
-      </div>
-    </div>
 
     </div>
+</div>
 
-    <!-- Productos -->
-    <div class="card bg-base-100 shadow-md border border-gray-700 mt-6">
-      <div class="card-body">
+</div>
+
+<!-- Productos -->
+<div class="card bg-base-100 shadow-md border border-gray-700 mt-6">
+    <div class="card-body">
         <h2 class="card-title text-lg text-white">Últimos Productos</h2>
         <div class="overflow-x-auto">
-          <table class="table table-zebra text-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
+            <table class="table table-zebra text-sm">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
               $sqlProductos = "SELECT id, nombre, precio_tonkens FROM productos LIMIT 3";
               $resultProductos = $conexion->query($sqlProductos);
               while ($row = $resultProductos->fetch_assoc()) {
                 echo "<tr><td>{$row['id']}</td><td>{$row['nombre']}</td><td>{$row['precio_tonkens']}</td></tr>";
               }
               ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card-actions justify-end mt-3">
-                <a href="productosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
-            </div>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-actions justify-end mt-3">
+            <a href="productosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
     </div>
+</div>
 
-    <!-- Pedidos -->
-    <div class="card bg-base-100 shadow-md border border-gray-700 mt-6">
-      <div class="card-body">
+<!-- Pedidos -->
+<div class="card bg-base-100 shadow-md border border-gray-700 mt-6">
+    <div class="card-body">
         <h2 class="card-title text-lg text-white">Últimos Pedidos</h2>
         <div class="overflow-x-auto">
-          <table class="table table-zebra text-sm">
-            <thead>
-              <tr >
-                <th class="text-bold text-white">ID</th>
-                <th class="text-bold text-white">Estado</th>
-                <th class="text-bold text-white">Fecha</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
+            <table class="table table-zebra text-sm">
+                <thead>
+                    <tr>
+                        <th class="text-bold text-white">ID</th>
+                        <th class="text-bold text-white">Estado</th>
+                        <th class="text-bold text-white">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
               $sqlPedidos = "SELECT id, estado, fecha FROM pedidos LIMIT 3";
               $resultPedidos = $conexion->query($sqlPedidos);
               while ($row = $resultPedidos->fetch_assoc()) {
                 echo "<tr><td>{$row['id']}</td><td>{$row['estado']}</td><td>{$row['fecha']}</td></tr>";
               }
               ?>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card-actions justify-end mt-3">
-                <a href="pedidosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
-            </div>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-actions justify-end mt-3">
+            <a href="pedidosAdmin.php" class="btn btn-sm btn-outline btn-primary">Ver más</a>
         </div>
     </div>
+</div>
 
-  </div>
+</div>
 </div>
 </div>

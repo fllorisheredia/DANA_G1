@@ -53,7 +53,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
         <hr class="border-gray-200 dark:border-gray-700 ">
 
-        <a href="/DANA_G1/usuarios/perfil.php"
+        <a href="/DANA/usuarios/perfil.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -85,7 +85,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
         <hr class="border-gray-200 dark:border-gray-700 ">
 
-        <a href="/DANA_G1/mensajes/chat.php"
+        <a href="/DANA/mensajes/chat.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <g fill="none">
@@ -100,7 +100,7 @@ $usuario = $query->get_result()->fetch_assoc();
             </span>
         </a>
 
-        <a href="/DANA_G1/cliente/pedidosCliente.php"
+        <a href="/DANA/cliente/pedidosCliente.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor"
@@ -110,7 +110,7 @@ $usuario = $query->get_result()->fetch_assoc();
             <span class="mx-1">Mis pedidos</span>
         </a>
 
-        <a href="/DANA_G1/carrito/index.php"
+        <a href="/DANA/carrito/index.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

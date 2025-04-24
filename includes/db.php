@@ -2,8 +2,8 @@
 
 $servidor = "localhost";
 $usuario = "root";
-$password = "1234";
-$base_datos = "tiendadana";
+$password = "";
+$base_datos = "dana";
 $port = 3307;
 
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos, $port);
