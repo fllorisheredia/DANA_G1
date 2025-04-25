@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -65,4 +61,4 @@ session_start();
 
 
 
-<script src="/DANA/js/main.js"></script>
+<script src="/DANA_G1/js/main.js"></script>

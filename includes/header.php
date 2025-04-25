@@ -16,7 +16,7 @@
 
     <div class="navbar bg-base-100 shadow-sm px-6 py-4">
         <div class="navbar-start">
-            <a href="index.php" class="flex items-center gap-2">
+            <a href="/DANA_G1/index.php" class="flex items-center gap-2">
                 <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold  text-violet-700">Pueblo Unido</span>
             </a>
@@ -24,11 +24,12 @@
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-                <li><a href="index.php" class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
+                <li><a href="/DANA_G1/index.php"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
                 </li>
-                <li><a href="quienes_somos.php"
+                <li><a href="/DANA_G1/quienes_somos.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Quiénes Somos</a></li>
-                <li><a href="contacto.php"
+                <li><a href="/DANA_G1/contacto.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Contacto</a></li>
             </ul>
         </div>

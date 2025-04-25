@@ -132,11 +132,6 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
         </div>
     </div>
 
-    <footer>
-        <?php include '../includes/footer.php'; ?>
-    </footer>
-
-
     <script src="funciones.js"></script>
 
 </body>
