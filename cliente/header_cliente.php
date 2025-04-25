@@ -47,15 +47,15 @@ session_start();
                     <span id="theme-icon">🌙</span>
                 </button>
             </div>
-    
+
             <?php include 'deplegable_perfil.php' ?>
 
-        </a>
-        <!-- <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio
+            </a>
+            <!-- <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio
             </a>
             <a href="perfilUsuario.php"
                 class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-base-content">Perfil</a> -->
-    </div>
+        </div>
 
     </div>
 </body>
