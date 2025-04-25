@@ -1,5 +1,6 @@
 <?php
-// session_start();
+include '../includes/db.php';
+session_start();
 
 ?>
 <!DOCTYPE html>
@@ -16,11 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
-
-
-
-
-
 <body class="min-h-screen flex flex-col font-[Raleway]">
 
     <div class="navbar bg-base-200 shadow-sm px-6 py-4">
@@ -33,12 +29,15 @@
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-                <li><a onclick="cargarVista('../cliente/vistaInicio.php')"
-                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Inicio</a>
+             
+                
+                <li><a href="/DANA_G1/cliente/vistaInicio.php"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold"> Inicio</a>
                 </li>
-                <li><a onclick="cargarVista('../cliente/paginaProductos.php')"
-                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Productos</a></li>
-                <li><a onclick+1="cargarVista('../cliente/solicitar_producto.php')"
+                <li><a href="/DANA_G1/cliente/paginaProductos.php.php"
+                        class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Productos</a>
+                </li>
+                <li><a href="/DANA_G1/cliente/solicitar_producto.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Servicios</a>
                 </li>
             </ul>
@@ -52,7 +51,7 @@
                 </button>
             </div>
     
-            <?php include 'deplegable_perfil.php' ?>
+            <?php include '../cliente/deplegable_perfil.php' ?>
 
             </a>
             <!-- <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio

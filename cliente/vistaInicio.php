@@ -50,6 +50,8 @@ $usuario = $query->get_result()->fetch_assoc();
         </div>
     </section>
 
+    
+
     <!-- Últimos productos -->
     <section>
         <h2 class="text-2xl font-semibold mb-4">Últimos Productos</h2>
