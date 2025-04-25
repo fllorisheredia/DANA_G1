@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -47,15 +43,15 @@ session_start();
                     <span id="theme-icon">🌙</span>
                 </button>
             </div>
-    
+
             <?php include 'deplegable_perfil.php' ?>
 
-        </a>
-        <!-- <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio
+            </a>
+            <!-- <a href="solicitar_producto.php" class="btn btn-outline btn-sm hover:bg-purple-600 text-base-content">Inicio
             </a>
             <a href="perfilUsuario.php"
                 class="btn btn-sm bg-violet-700 hover:bg-violet-900 text-base-content">Perfil</a> -->
-    </div>
+        </div>
 
     </div>
 </body>
@@ -65,4 +61,4 @@ session_start();
 
 
 
-<script src="/DANA/js/main.js"></script>
+<script src="/DANA_G1/js/main.js"></script>

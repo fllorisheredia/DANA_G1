@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-white text-white">
+<body class="bg-gray-900 text-white">
 
     <div class="flex h-screen">
 

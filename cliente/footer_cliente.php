@@ -1,10 +1,10 @@
 <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-auto">
 
     <aside class="flex items-start gap-4 max-w-4xl mx-auto p-4">
-        <img src="/DANA/img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto" />
+        <img src="/DANA_G1/img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto" />
 
         <p class="text-base-content leading-relaxed">
-            Plataforma dedicada a brindar apoyo a las víctimas de la DANA. <br />
+            Plataforma dedicada a brindar apoyo a las víctimas de la DANA_G1. <br />
             Ayudamos en la recuperación de las comunidades afectadas con información y recursos.
         </p>
     </aside>
@@ -14,7 +14,7 @@
         <a href="solicitar_producto.php" class="text-base">Solicitar Porducto</a>
         <a href="quienes_somos_cliente.php" class="text-base">Quiénes Somos</a>
         <a href="contacto_cliente.php" class="text-base">Contacto</a>
-        <!-- Pendiente a cambiar!!!!!!!!!!!!!!!!!!!!!!! -->
+
     </nav>
 
     <nav>
