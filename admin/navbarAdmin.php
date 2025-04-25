@@ -1,11 +1,8 @@
 <?php
 include '../includes/db.php';
-<<<<<<< HEAD
-=======
 
 $resultado = $conexion->query("SELECT * FROM usuarios");
 ?>
->>>>>>> fernando
 
 $resultado = $conexion->query("SELECT * FROM usuarios");
 ?>

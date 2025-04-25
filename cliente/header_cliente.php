@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 <?php
 // session_start();
 
 ?>
->>>>>>> fernando
 <!DOCTYPE html>
 <html lang="es">
 
@@ -28,12 +25,7 @@
 
     <div class="navbar bg-base-200 shadow-sm px-6 py-4">
         <div class="navbar-start">
-<<<<<<< HEAD
-
-            <a href="../cliente/vistaInicio.php" class="flex items-center gap-2">
-=======
             <a onclick="cargarVista('../cliente/vistaInicio.php')" class="flex items-center gap-2">
->>>>>>> fernando
                 <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
             </a>
@@ -60,9 +52,6 @@
                     <span id="theme-icon">🌙</span>
                 </button>
             </div>
-<<<<<<< HEAD
-
-=======
             <a href="/DANA_G1/carrito/index.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +72,6 @@
             </span>
         </a>
     
->>>>>>> fernando
             <?php include 'deplegable_perfil.php' ?>
 
             </a>
