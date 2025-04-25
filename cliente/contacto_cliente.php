@@ -1,68 +1,89 @@
 <?php
-include 'header_cliente.php';
-include '../includes/db.php';
+include 'includes/header.php';
+include 'includes/db.php';
+
+$mensaje = "";
+$tipoAlerta = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (empty($_POST['name']) || empty($_POST['subject']) || empty($_POST['message']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-        http_response_code(400);
-        echo "<p>Error: Por favor, completa todos los campos correctamente.</p>";
-        exit();
-    }
+    $name = htmlspecialchars(trim($_POST['name'] ?? ''));
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $m_subject = htmlspecialchars(trim($_POST['subject'] ?? ''));
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
 
-    $name = strip_tags(htmlspecialchars($_POST['name']));
-    $email = strip_tags(htmlspecialchars($_POST['email']));
-    $m_subject = strip_tags(htmlspecialchars($_POST['subject']));
-    $message = strip_tags(htmlspecialchars($_POST['message']));
-
-    $to = "grupo1@gmail.com"; // Cambia este correo por el tuyo
-    $subject = "$m_subject: $name";
-    $body = "Has recibido un nuevo mensaje desde el formulario de contacto.\n\n" .
-            "Detalles:\n\nNombre: $name\n\nCorreo: $email\n\nAsunto: $m_subject\n\nMensaje:\n$message";
-    $header = "From: $email\r\n";
-    $header .= "Reply-To: $email\r\n";
-
-    if (mail($to, $subject, $body, $header)) {
-        echo "<p>Mensaje enviado correctamente. ¡Gracias por contactarnos!</p>";
+    if (empty($name) || empty($email) || empty($m_subject) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $mensaje = "Por favor, completa todos los campos correctamente.";
+        $tipoAlerta = "alert-error";
     } else {
-        http_response_code(500);
-        echo "<p>Error: No se pudo enviar el mensaje. Inténtalo más tarde.</p>";
+        $to = "grpdana1@gmail.com";
+        $subject = "$m_subject: $name";
+        $body = "Has recibido un nuevo mensaje desde el formulario de contacto.\n\n" .
+                "Nombre: $name\nCorreo: $email\nAsunto: $m_subject\n\nMensaje:\n$message";
+        $headers = "From: $email\r\nReply-To: $email\r\n";
+
+        if (mail($to, $subject, $body, $headers)) {
+            $mensaje = "Mensaje enviado correctamente. ¡Gracias por contactarnos!";
+            $tipoAlerta = "alert-success";
+        } else {
+            $mensaje = "Error: No se pudo enviar el mensaje. Inténtalo más tarde.";
+            $tipoAlerta = "alert-error";
+        }
     }
 }
 ?>
 
-<main>
-    <article class="info-box login-box">
-        <h1 class="text-center mb-4">Contacto</h1>
-        <form action="contacto.php" method="POST">
-            <div class="mb-3">
-                <label for="name" class="form-label">Nombre:</label>
-                <input type="text" id="name" name="name" class="form-control" required>
+<main class="min-h-screen flex items-center justify-center bg-base-100">
+
+    <section class="w-full max-w-xl bg-gray-800 p-8 rounded-xl shadow-md space-y-6">
+
+        <div class="flex justify-center mx-auto">
+            <img class="w-auto sm:h-20" src="img/logoSinF.png" alt="Logo">
+        </div>
+
+        <h1 class="text-3xl font-bold text-center text-gray-600 dark:text-gray-200">Formulario de Contacto</h1>
+
+        <?php if (!empty($mensaje)): ?>
+        <div class="alert <?= $tipoAlerta ?>">
+            <span><?= $mensaje ?></span>
+        </div>
+        <?php endif; ?>
+
+        <form action="contacto.php" method="POST" class="space-y-4">
+            <div>
+                <label for="name" class="block text-lg font-medium text-gray-300">Nombre:</label>
+                <input type="text" id="name" name="name" class="input input-bordered w-full text-lg py-3 mt-2"
+                    placeholder="Ingrese su nombre" required>
             </div>
 
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico:</label>
-                <input type="email" id="email" name="email" class="form-control" required>
+            <div>
+                <label for="email" class="block text-lg font-medium text-gray-300">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" class="input input-bordered w-full text-lg py-3 mt-2"
+                    placeholder="Ingrese su correo electrónico" required>
             </div>
 
-            <div class="mb-3">
-                <label for="subject" class="form-label">Asunto:</label>
-                <input type="text" id="subject" name="subject" class="form-control" required>
+            <div>
+                <label for="subject" class="block text-lg font-medium text-gray-300l">Asunto:</label>
+                <input type="text" id="subject" name="subject" class="input input-bordered w-full text-lg py-3 mt-2"
+                    placeholder="Ingrese el asunto de contacto" required>
             </div>
 
-            <div class="mb-3">
-                <label for="message" class="form-label">Mensaje:</label>
-                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+            <div>
+                <label for="message" class="block text-lg font-medium text-gray-300l">Mensaje:</label>
+                <textarea id="message" name="message" class="textarea textarea-bordered w-full text-lg py-3 mt-2"
+                    rows="5" placeholder="Ingrese el mensaje" required></textarea>
             </div>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary w-full">Enviar Mensaje</button>
             </div>
         </form>
-    </article>
+        <div class="w-full max-w-sm mx-auto overflow-hidden rounded-lg shadow-md dark:bg-gray-800">
+
+
+        </div>
+    </section>
 </main>
 
-
-
 <?php
-include 'footer_cliente.php';
+include 'includes/footer.php';
 ?>

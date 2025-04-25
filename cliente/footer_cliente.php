@@ -14,7 +14,7 @@
         <a href="solicitar_producto.php" class="text-base">Solicitar Porducto</a>
         <a href="quienes_somos_cliente.php" class="text-base">Quiénes Somos</a>
         <a href="contacto_cliente.php" class="text-base">Contacto</a>
-        <!-- Pendiente a cambiar!!!!!!!!!!!!!!!!!!!!!!! -->
+
     </nav>
 
     <nav>
