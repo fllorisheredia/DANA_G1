@@ -38,7 +38,7 @@
                 </li>
                 <li><a onclick="cargarVista('../cliente/paginaProductos.php')"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Productos</a></li>
-                <li><a onclick+1="cargarVista('../cliente/solicitar_producto.php')"
+                <li><a onclick="cargarVista('../cliente/solicitar_producto.php')"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Servicios</a>
                 </li>
             </ul>
