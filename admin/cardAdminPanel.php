@@ -5,7 +5,7 @@ include '../includes/db.php';
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 
-<div class=" bg-white p-6">
+<div class=" bg-base-100 p-6">
     <h1 class="text-3xl font-bold mb-6 text-black">Panel <span class="text-purple-500">Administración</span></h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

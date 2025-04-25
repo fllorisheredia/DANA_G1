@@ -100,7 +100,7 @@ $usuario = $query->get_result()->fetch_assoc();
             </span>
         </a>
 
-        <a href="/DANA_G1/cliente/pedidosCliente.php"
+        <a href="/DANA_G1/usuarios/pedidosUsuario.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor"

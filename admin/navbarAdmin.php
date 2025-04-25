@@ -1,5 +1,8 @@
-<!-- <?php session_start(); ?> -->
+<?php
+include '../includes/db.php';
 
+$resultado = $conexion->query("SELECT * FROM usuarios");
+?>
 
 
 <aside
@@ -96,6 +99,10 @@
 
 
         </nav>
+        <div class="mr-10">
+                <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
 
         <div class="mt-6">
             <div class="p-3 bg-gray-100 rounded-lg dark:bg-gray-800">
@@ -112,7 +119,7 @@
 
             <div class="flex items-center justify-between mt-6">
                 <a href="#" class="flex items-center gap-x-2">
-                    <?php echo htmlspecialchars($_SESSION['nombre'] ?? 'Invitado'); ?>
+                    <?php echo htmlspecialchars($_SESSION['usuario']['nombre'] ?? 'Invitado'); ?>
                 </a>
 
                 <button id="btnCerrarSesion"
@@ -128,6 +135,7 @@
         </div>
     </div>
 </aside>
+<script src="../js/main.js"></script>
 
 <script>
     document.getElementById('btnCerrarSesion').addEventListener('click', function () {
