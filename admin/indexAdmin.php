@@ -27,14 +27,14 @@
     <div class="flex h-screen">
 
         <!-- Sidebar (izquierda) -->
-        <aside class="w-64 bg-gray-800 text-white  flex flex-col">
+        <aside class="w-64 bg-base-100 text-white  flex flex-col">
             <?php include 'navbarAdmin.php'; ?>
         </aside>
 
         <!-- Contenido principal  -->
         <div class="flex flex-col flex-1 overflow-hidden">
             <!-- Área del iframe -->
-            <main class=" bg-white flex-1 overflow-auto">
+            <main class=" bg-base-100 flex-1 overflow-auto">
                 <iframe id="visor" src="cardAdminPanel.php"></iframe>
             </main>
         </div>

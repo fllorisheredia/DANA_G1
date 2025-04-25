@@ -56,6 +56,8 @@ include '../includes/db.php';
   </div>
 </div>
 
+<?php include 'paginaServicios.php' ?>
+
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
-session_start();
+// session_start();
 include '../includes/db.php';
+include '../includes/header_cliente.php';
 
 $id = $_SESSION['usuario']['id']; // asegúrate que exista esta sesión
 $query = $conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
@@ -95,8 +96,8 @@ $tieneMensajes = $result3->num_rows > 0;
                     <!-- <div><span class="font-semibold">Dirección:</span> Bay Area, San Francisco, CA</div> -->
                 </div>
                 <div class="mt-6">
-                    <a href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
-                        class="btn btn-info btn-sm">Editar</a>
+                    <a href="editar.php" class="btn btn-primary btn-sm">Editar Perfil</a>
+                        </a>
                 </div>
             </div>
 
@@ -163,6 +164,25 @@ $tieneMensajes = $result3->num_rows > 0;
 
 
         <?php include '../includes/footer.php'; ?>
+
+
+        
+    <script>
+        function cargarVista(pagina) {
+            document.getElementById("iframeContenido").src = pagina;
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                document.getElementById('theme-icon').textContent = '🌙';
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                document.getElementById('theme-icon').textContent = '☀️';
+            }
+        }
+    </script>
 </body>
 
 </html>

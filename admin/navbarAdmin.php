@@ -1,5 +1,11 @@
 <?php
 include '../includes/db.php';
+<<<<<<< HEAD
+=======
+
+$resultado = $conexion->query("SELECT * FROM usuarios");
+?>
+>>>>>>> fernando
 
 $resultado = $conexion->query("SELECT * FROM usuarios");
 ?>
@@ -86,6 +92,10 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
 
 
         </nav>
+        <div class="mr-10">
+                <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
+                    <span id="theme-icon">🌙</span>
+                </button>
 
         <div class="mt-6">
             <div class="p-3 bg-gray-100 rounded-lg dark:bg-gray-800">
@@ -120,6 +130,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
         </div>
     </div>
 </aside>
+<script src="../js/main.js"></script>
 
 <script>
 document.getElementById('btnCerrarSesion').addEventListener('click', function() {
