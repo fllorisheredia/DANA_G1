@@ -5,8 +5,6 @@ $usuario = "root";
 $password = "";
 $base_datos = "teledana";
 $port = 3306;
-$base_datos = "tiendadana";
-$port = 3307;
 
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos, $port);
 
