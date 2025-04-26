@@ -19,7 +19,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
     <div class="container mx-auto px-4 py-10 flex-1">
         <h1 class="text-3xl font-bold text-center mb-8">Lista de <span class="text-purple-600">Usuarios</span></h1>
 
-        <div class="overflow-x-auto bg-base-100 rounded-xl shadow-md">
+        <div class="overflow-x-auto bg-white rounded-xl shadow-md">
             <table class="table table-zebra w-full">
                 <thead class="bg-base-300 text-base font-semibold text-sm uppercase">
                     <tr>
@@ -35,7 +35,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-black">
                     <?php while ($usuario = $resultado->fetch_assoc()) { ?>
                     <tr>
                         <td><?php echo $usuario['id']; ?></td>
@@ -56,33 +56,30 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                     </tr>
 
                     <!-- Menú Opciones de susuairio -->
-                    <tr id="menu-content-<?php echo $usuario['id']; ?>" class="hidden bg-base-100">
+                    <tr id="menu-content-<?php echo $usuario['id']; ?>" class="hidden bg-white">
                         <td colspan="10">
-                            <div class="p-4 rounded-lg border border-base-300">
+                            <div class="p-4 rounded-lg border bg-white bg-gray-50border-base-300">
                                 <h2 class="text-lg font-semibold mb-4">Opciones del Usuario
                                     <?php echo $usuario['nombre'] ?></h2>
                                 <form action="editar_usuario.php" method="POST"
                                     class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <input type="hidden" name="usuario_id" value="<?php echo $usuario['id']; ?>">
 
-
                                     <div>
                                         <label class="label-text font-semibold">Cambiar Correo</label>
 
                                         <input type="email" id="email_<?php echo $usuario['id']; ?>"
                                             value="<?php echo $usuario['email']; ?>"
-                                            class="input input-bordered w-full" />
+                                            class="input input-bordered w-full text-gray-400" />
                                         <a href="#"
                                             onclick="actualizarMail(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
-
-
-                                        <!--  -->
                                     </div>
                                     <div>
                                         <label class="label-text font-semibold">Cambiar Contraseña</label>
                                         <input type="text" id="password_<?php echo $usuario['id']; ?>"
-                                            value="Nueva Contraseña..." class="input input-bordered w-full" />
+                                            value="Nueva Contraseña..."
+                                            class="input input-bordered w-full text-gray-400" />
                                         <a href="#"
                                             onclick="actualizarPassword(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
@@ -90,7 +87,8 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                     <div>
                                         <label class="label-text font-semibold">Tonkens</label>
                                         <input type="text" id="tonkens_<?php echo $usuario['id']; ?>"
-                                            value="Nueva Cantidad..." class="input input-bordered w-full" />
+                                            value="Nueva Cantidad..."
+                                            class="input input-bordered w-full text-gray-400" />
                                         <a href="#"
                                             onclick="actualizarTonkens(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
@@ -99,7 +97,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                         <label class="label-text font-semibold">Valoracion</label>
                                         <input type="text" id="valoracion_<?php echo $usuario['id']; ?>"
                                             value="<?php echo $usuario['valoracion']; ?>"
-                                            class="input input-bordered w-full" />
+                                            class="input input-bordered w-full text-gray-400" />
                                         <a href="#"
                                             onclick="actualizarValoracion(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
@@ -108,7 +106,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                     <div>
                                         <label class="label-text font-semibold">Cambiar Rol</label>
                                         <input type="text" id="rol_<?php echo $usuario['id']; ?>" value="Nuevo Rol..."
-                                            class="input input-bordered w-full" />
+                                            class="input input-bordered w-full text-gray-400" />
                                         <a href="#"
                                             onclick="actualizarRol(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>

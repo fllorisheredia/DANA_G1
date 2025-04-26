@@ -6,9 +6,10 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
 
 <aside
     class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700 ">
-    <a href="#">
-        <h1 class="text-xl font-bold">PUEBLO <span class="text-purple-600">UNIDO</span></h1>
 
+    <a class="flex items-center gap-2">
+        <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
+        <h1 class="text-xl font-bold">PUEBLO <span class="text-purple-600">UNIDO</span></h1>
     </a>
 
     <div class="flex flex-col justify-between flex-1 mt-6">
