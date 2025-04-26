@@ -1,7 +1,7 @@
 <?php 
 // include 'header_cliente.php';
 include '../includes/db.php';
-//include 'solicitar.php';
+include 'solicitar.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
