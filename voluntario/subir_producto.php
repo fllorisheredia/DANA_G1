@@ -51,6 +51,8 @@ include '../includes/db.php';
     <!-- Input manual de hora -->
     <p class="text-lg mt-4"></p>
     <input type="time" id="inputHora" class="input input-bordered w-full max-w-xs mt-2" required>
+     <!-- Textarea para destino -->
+     <textarea id="inputCiudad" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Ciudad Afectada que vas a ayudar..." required></textarea>
 
     <!-- Campo oculto para pasar al formulario -->
     <input type="hidden" name="hora" id="horaInput">
@@ -188,7 +190,51 @@ include '../includes/db.php';
   </div>
 </form>
 
-</div>
+ <!-- PRODUCTO 5 -->
+ <form id="form5" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm" onsubmit="return false;">
+    <figure class="px-10 pt-10">
+      <img src="../img/maestro.jpg" alt="transporte" class="rounded-xl w-64 h-64" />
+    </figure>
+    <div class="card-body items-center text-center">
+      <h2 class="card-title">Ofrecerse de ayudante de tareas escolares</h2>
+      <p>Apoyo escolar para niños en situación vulnerable.</p>
+      <input type="hidden" name="nombreProducto" value="Ayuda con tareas escolares">
+      <input type="hidden" name="descripcion" value="Apoyo escolar para niños en situación vulnerable.">
+      
+      <div class="card-actions mt-2">
+        <button type="button" class="btn btn-primary" onclick="mostrarModal3('modal5')">Ofrecerse</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Modal para Producto 5 -->
+  <form method="post" action="subir.php"> <!-- ajusta la ruta -->
+  <input type="checkbox" id="modal5" class="modal-toggle" />
+  <div class="modal">
+    <div class="modal-box text-center">
+      <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña información</h2>
+      <p class="text-lg font-bold">Necesitamos saber tu especialidad (ingles, matematicas, etc...)</p>
+
+      <!-- Input manual de hora -->
+      <input type="time" id="inputHora3" class="input input-bordered w-full max-w-xs mt-4" required>
+
+      <!-- Textarea para destino -->
+      <textarea id="inputEspecialidad2" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Especialidad..." required></textarea>
+
+      <!-- Mensaje para confirmar -->
+      <div class="mt-4">
+        <p id="mensajeConfirmacion" class="text-lg text-blue-600"></p>
+      </div>
+
+      <!-- Acciones -->
+      <div class="modal-action">
+        <button type="button" class="btn btn-primary" id="enviarBtn5">Enviar</button>
+        <label for="modal5" class="btn btn-success">Cerrar</label>
+      </div>
+    </div>
+  </div>
+</form>
+
 <script>
   // Mostrar el modal al activar el botón de "Ofrecerse"
   function mostrarModal() {
@@ -200,9 +246,9 @@ include '../includes/db.php';
 
   document.getElementById("enviarBtn").onclick = function() {
   const horaSeleccionada = document.getElementById("inputHora").value;
-
-  if (!horaSeleccionada) {
-    alert("Por favor, escribe una hora.");
+  const ciudadAyudar = document.getElementById("inputCiudad").value;
+  if (!horaSeleccionada || !ciudadAyudar) {
+    alert("Por favor, Completa Todos Los Campos.");
     return;
   }
 
@@ -213,6 +259,12 @@ include '../includes/db.php';
   inputHora.name = "hora";
   inputHora.value = horaSeleccionada;
   form.appendChild(inputHora); 
+
+  const inputCiudad = document.createElement("input");
+  inputCiudad.type = "hidden";
+  inputCiudad.name = "ciudad";
+  inputCiudad.value = ciudadAyudar;
+  form.appendChild(inputCiudad); 
 
   form.submit();
 };
@@ -257,6 +309,40 @@ function mostrarModal2() {
     form.submit();
   };
 }
+
+function mostrarModal3() {
+  document.getElementById("modal5").checked = true; // Abre el modal
+
+  document.getElementById("enviarBtn5").onclick = function() {
+    const hora = document.getElementById("inputHora3").value;
+    const especialidad = document.getElementById("inputEspecialidad2").value;
+
+    if (!hora || !especialidad) {
+      alert("Por favor, Completa todos los campos.");
+      return;
+    }
+
+    // Obtener el formulario original
+    const form = document.getElementById("form5");
+
+    // Crear y agregar input oculto para hora
+    const inputHoraHidden = document.createElement("input");
+    inputHoraHidden.type = "hidden";
+    inputHoraHidden.name = "hora";
+    inputHoraHidden.value = hora;
+    form.appendChild(inputHoraHidden);
+
+    // Crear y agregar input oculto para especialidad
+    const inputEspecialidadHidden = document.createElement("input");
+    inputEspecialidadHidden.type = "hidden";
+    inputEspecialidadHidden.name = "especialidad";
+    inputEspecialidadHidden.value = especialidad;
+    form.appendChild(inputEspecialidadHidden);
+    // Enviar el formulario
+    form.submit();
+  };
+}
+
 
 </script>
 </html>
