@@ -1,6 +1,6 @@
 <?php
 // Conexión a MySQL
-include 'includes/db.php';
+include '../includes/db.php';
 
 $_SESSION['pedido_id'] = 1;
 $pedido_id = $_SESSION['pedido_id']; // Asignamos a variable
@@ -33,16 +33,21 @@ if ($producto && $producto['stock'] >= $cantidad) {
         VALUES (?, ?, ?)
         ON DUPLICATE KEY UPDATE cantidad = cantidad + VALUES(cantidad)
     ");
-    $insertar->bind_param("iii", $pedido_id, $producto_id, $cantidad);
-    $insertar->execute();
-    $id = $_SESSION['usuario']['id'];
     $precioToken = $conexion->prepare("SELECT precio_tonkens FROM productos WHERE id = ?");
     $precioToken->bind_param("i", $producto_id);
-    $precioToken->execute();            //SALE ERROR EN LA LINEA 45, pero si funciona
+    $precioToken->execute();
     $resultToken = $precioToken->get_result();
-    $restarToken = $conexion->prepare("UPDATE usuarios SET tonkens = tonkens - ? WHERE id = ?");
-    $restarToken->bind_param("ii",$resultToken, $id);
-    $restarToken->execute();
+    
+    if ($fila = $resultToken->fetch_assoc()) {
+        $precio = (int)$fila['precio_tonkens'];
+    
+        $restarToken = $conexion->prepare("UPDATE usuarios SET tonkens = tonkens - ? WHERE id = ?");
+        $restarToken->bind_param("ii", $precio, $id);
+        $restarToken->execute();
+    } else {
+        echo "❌ Error: No se pudo obtener el precio del producto.";
+    }
+
     echo "✅ Producto solicitado con éxito.";
 
 } else {
