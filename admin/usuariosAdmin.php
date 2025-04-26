@@ -14,7 +14,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="bg-white text-base-content min-h-screen flex flex-col">
+<body class="bg-base-100 text-base-content min-h-screen flex flex-col">
 
     <div class="container mx-auto px-4 py-10 flex-1">
         <h1 class="text-3xl font-bold text-center mb-8">Lista de <span class="text-purple-600">Usuarios</span></h1>

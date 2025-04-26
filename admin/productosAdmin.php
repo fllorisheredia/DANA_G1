@@ -36,7 +36,7 @@ $result = $conexion->query($sql);
                 <span>🆔 <?= $row['id'] ?></span>
                 <span>💰 <?= $row['precio_tonkens'] ?> Tokens</span>
             </div>
-            <button onclick="toggleMenu(<?= $row['id'] ?>)"
+            <button onclick="toggleMenu2(<?= $row['id'] ?>)"
                 class="btn btn-sm btn-secondary mt-3 w-full">Opciones</button>
 
             <div id="menu-<?= $row['id'] ?>" class="hidden mt-4 border rounded-lg p-4 bg-gray-50 shadow-inner">
