@@ -1,7 +1,8 @@
 <?php
-include 'header_cliente.php';
+// include 'header_cliente.php';
 ?>
-
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 <main class="min-h-screen bg-base-100 flex items-center justify-center">
     <article
         class="bg-white dark:bg-neutral rounded-xl shadow-lg p-8 max-w-3xl w-full space-y-4 border border-gray-200 dark:border-gray-700">

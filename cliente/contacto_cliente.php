@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../includes/db.php';
-include '../includes/header_cliente.php';
 // session_start();
 
 $mensaje = "";

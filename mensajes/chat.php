@@ -5,14 +5,6 @@ include '../includes/db.php';
 // include '../includes/header_cliente.php';
 // verificarSesion();
 
-if ($_SESSION['usuario']['rol'] == 'cliente') {
-    include '../includes/header_cliente.php';
-} else if ($_SESSION['usuario']['rol'] == 'admin') {
-    include '../admin/navbarAdmin.php';
-} else {
-    include '../includes/headerVoluntario.php';
-}
-
 
 
 $usuario_id = $_SESSION['usuario']['id'];
@@ -39,6 +31,9 @@ if ($destinatario_id) {
     $mensajes = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 ?>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 
 <div class="flex h-screen">
     <!--Panel izquierdo: lista de usuarios -->
@@ -91,5 +86,3 @@ if ($destinatario_id) {
         <?php endif; ?>
     </div>
 </div>
-
-<?php include '../includes/footer.php'; ?>

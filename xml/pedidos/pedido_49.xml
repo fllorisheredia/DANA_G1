@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+  <id>49</id>
+  <usuario_id>3</usuario_id>
+  <fecha>2025-04-27 21:59:46</fecha>
+  <estado>pendiente</estado>
+  <total_tonkens>10025</total_tonkens>
+  <productos>
+    <producto>
+      <id>2729</id>
+      <nombre>PAN</nombre>
+      <precio_tonkens>10021</precio_tonkens>
+      <cantidad>1</cantidad>
+    </producto>
+    <producto>
+      <id>2731</id>
+      <nombre>Cobra</nombre>
+      <precio_tonkens>4</precio_tonkens>
+      <cantidad>1</cantidad>
+    </producto>
+  </productos>
+</pedido>

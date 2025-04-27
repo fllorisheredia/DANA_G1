@@ -1,8 +1,9 @@
 <?php
-include '../includes/header.php';
+// include '../includes/header.php';
 include '../includes/db.php';
 ?>
-
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 <main class="min-h-screen bg-base-100 py-12 px-4 md:px-12 lg:px-24">
     <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-xl border-l-4 border-violet-800 p-10 space-y-8">
         <h1 class="text-4xl font-extrabold text-center text-violet-800 tracking-tight mb-6">
@@ -63,6 +64,3 @@ include '../includes/db.php';
     </section>
 </main>
 
-<?php
-include '../includes/footer.php';
-?>
