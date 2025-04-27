@@ -1,7 +1,6 @@
 <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-auto leading-relaxed">
-
-    <aside class="flex items-start gap-4 max-w-4xl mx-auto p-4">
-        <img src="/DANA_G1/img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto leading-relaxed" />
+    <aside class="flex items-center gap-4 max-w-4xl mx-auto p-4">
+        <img src="/DANA_G1/img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto" />
 
         <p class="leading-relaxed font-semibold">
             Plataforma dedicada a brindar apoyo a las víctimas de la DANA_G1. <br />
@@ -13,8 +12,12 @@
         <h6 class="footer-title">Enlaces</h6>
 
         <a href="/DANA_G1/cliente/dashboardCliente.php" class="text-sm text-base-content font-semibold">Inicio</a>
-        <a href="/DANA_G1/quienes_somos.php" class="text-sm text-base-content font-semibold">Quiénes Somos</a>
-        <a href="/DANA_G1/contacto.php" class="text-sm text-base-content font-semibold">Contacto</a>
+        <a onclick="cargarVista('../cliente/paginaProductos.php')"
+            class="text-sm text-base-content font-semibold cursor-pointer">Tienda Productos</a>
+
+        <a onclick="cargarVista('../cliente/solicitarProducto.php')"
+            class="text-sm text-base-content font-semibold cursor-pointer">Tienda
+            Servicios</a>
     </nav>
 
     <nav>
