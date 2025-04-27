@@ -17,19 +17,19 @@ $registroExitoso = false;
 
 // Comprobación de nombreProducto
 if (empty($nombreProducto)) {
-    header("Location: subir_producto.php?registro=noExitoso");
+    header("Location: subir_servicio.php?registro=noExitoso");
     exit;
 }
 
 // Comprobación de descripcion
 if (empty($descripcion)) {
-    header("Location: subir_producto.php?registro=noExitoso");
+    header("Location: subir_servicio.php?registro=noExitoso");
     exit;
 }
 
 // Comprobación de hora
 if (empty($hora)) {
-    header("Location: subir_producto.php?registro=noExitoso");
+    header("Location: subir_servicio.php?registro=noExitoso");
     exit;
 }
 
@@ -38,20 +38,20 @@ $fecha = DateTime::createFromFormat('Y-m-d\TH:i', $hora);
 
 // Verificar si la fecha es válida
 if (!$fecha) {
-    header("Location: subir_producto.php?registro=noExitoso");
+    header("Location: subir_servicio.php?registro=noExitoso");
     exit;
 }
 
 // Comparar la fecha proporcionada con la fecha actual
 $fechaActual = new DateTime();
 if ($fecha < $fechaActual) {
-    header("Location: subir_producto.php?registro=noExitoso");
+    header("Location: subir_servicio.php?registro=noExitoso");
     exit;
 }
 
 // Comprobar que el año de la fecha tiene solo 4 dígitos
 if (strlen($fecha->format('Y')) !== 4) {
-    header("Location: subir_producto.php?registro=noExitoso");
+    header("Location: subir_servicio.php?registro=noExitoso");
     exit;
 }
 // Preparar consulta para especialidad y destino
@@ -63,7 +63,7 @@ if (!empty($especialidad)) {
         
         if ($stmt->execute()) {
             $registroExitoso = true;
-            header("Location: subir_producto.php?registro=exitoso");
+            header("Location: subir_servicio.php?registro=exitoso");
             exit;
         } else {
             echo "Error al insertar: " . $stmt->error;
@@ -75,7 +75,7 @@ if (!empty($especialidad)) {
         
         if ($stmt->execute()) {
             $registroExitoso = true;
-            header("Location: subir_producto.php?registro=exitoso");
+            header("Location: subir_servicio.php?registro=exitoso");
             exit;
         } else {
             echo "Error al insertar: " . $stmt->error;
@@ -89,7 +89,7 @@ if (!empty($especialidad)) {
     
     if ($stmt->execute()) {
         $registroExitoso = true;
-        header("Location: subir_producto.php?registro=exitoso");
+        header("Location: subir_servicio.php?registro=exitoso");
         exit;
     } else {
         echo "Error al insertar: " . $stmt->error;
@@ -102,7 +102,7 @@ if (!empty($especialidad)) {
     
     if ($stmt->execute()) {
         $registroExitoso = true;
-        header("Location: subir_producto.php?registro=exitoso");
+        header("Location: subir_servicio.php?registro=exitoso");
         exit;
     } else {
         echo "Error al insertar: " . $stmt->error;
@@ -115,7 +115,7 @@ if (!empty($especialidad)) {
     
     if ($stmt->execute()) {
         $registroExitoso = true;
-        header("Location: subir_producto.php?registro=exitoso");
+        header("Location: subir_servicio.php?registro=exitoso");
         exit;
     } else {
         echo "Error al insertar: " . $stmt->error;
