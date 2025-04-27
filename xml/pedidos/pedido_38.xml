@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pedido id="38">
-  <usuario_id>18</usuario_id>
-  <fecha>2025-04-27 19:01:45</fecha>
-  <estado>pendiente</estado>
-  <total_tonkens>0</total_tonkens>
-  <productos/>
-</pedido>
