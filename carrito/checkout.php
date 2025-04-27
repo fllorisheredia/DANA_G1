@@ -29,35 +29,6 @@ function mostrarMensaje($mensaje, $exito = false) {
     exit();
 }
 
-// Función para mostrar mensaje bonito
-function mostrarMensaje($mensaje, $exito = false) {
-    ?>
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title><?= $exito ? '¡Éxito!' : 'Error' ?></title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" />
-</head>
-
-<body class="min-h-screen bg-base-200 flex items-center justify-center">
-    <div class="modal-box bg-base-300 p-6 rounded-xl text-center">
-        <h2 class="text-3xl font-bold mb-4 <?= $exito ? 'text-green-500' : 'text-red-500' ?>">
-            <?= $exito ? '¡Pedido realizado!' : 'Error' ?>
-        </h2>
-        <p class="mb-6"><?= $mensaje ?></p>
-        <a href="../carrito/index.php" class="btn btn-primary">Volver</a>
-    </div>
-</body>
-
-</html>
-<?php
-    exit();
-}
-
-// 1. Validaciones básicas
 if (!isset($_SESSION['usuario'])) {
     mostrarMensaje('⚠️ Debes iniciar sesión primero.');
 }
@@ -81,8 +52,7 @@ while ($item = $resultadoCarrito->fetch_assoc()) {
     $id_producto = $item['producto_id'];
     $cantidad = $item['cantidad'];
 
-    // Consultar precio del producto
-    $consultaProducto = $conexion->prepare("SELECT nombre, precio_tonkens FROM productos WHERE id = ?");
+    $consultaProducto = $conexion->prepare("SELECT nombre, precio_tonkens, stock FROM productos WHERE id = ?");
     $consultaProducto->bind_param("i", $id_producto);
     $consultaProducto->execute();
     $producto = $consultaProducto->get_result()->fetch_assoc();
@@ -93,12 +63,13 @@ while ($item = $resultadoCarrito->fetch_assoc()) {
             'id' => $id_producto,
             'nombre' => $producto['nombre'],
             'precio_tonkens' => $producto['precio_tonkens'],
-            'cantidad' => $cantidad
+            'cantidad' => $cantidad,
+            'stock' => $producto['stock']
         ];
     }
 }
 
-// 4. Verificar saldo de usuario
+// 2. Verificar saldo del usuario
 $querySaldo = $conexion->prepare("SELECT tonkens FROM usuarios WHERE id = ?");
 $querySaldo->bind_param("i", $id_usuario);
 $querySaldo->execute();
@@ -106,49 +77,54 @@ $usuario = $querySaldo->get_result()->fetch_assoc();
 $saldo_actual = $usuario['tonkens'];
 
 if ($saldo_actual < $total_tonkens) {
-    mostrarMensaje('❌ No tienes suficientes tokens para realizar el pedido.');
+    mostrarMensaje('❌ No tienes suficientes tonkens para realizar el pedido.');
 }
 
-// 5. Descontar tokens
+// 3. Descontar tonkens
 $nuevoSaldo = $saldo_actual - $total_tonkens;
 $updateSaldo = $conexion->prepare("UPDATE usuarios SET tonkens = ? WHERE id = ?");
 $updateSaldo->bind_param("di", $nuevoSaldo, $id_usuario);
 $updateSaldo->execute();
 
-// 6. Crear pedido
+// 4. Crear pedido
 $insertPedido = $conexion->prepare("INSERT INTO pedidos (usuario_id, fecha, estado, total_tonkens) VALUES (?, NOW(), 'pendiente', ?)");
 $insertPedido->bind_param("ii", $id_usuario, $total_tonkens);
 $insertPedido->execute();
 $pedido_id = $conexion->insert_id;
 
-// 7. Guardar detalle productos y descontar stock
+// 5. Insertar detalles del pedido
 foreach ($productos as $producto) {
-    // Insertar en pedidos_productos
     $insertDetalle = $conexion->prepare("INSERT INTO pedidos_productos (pedido_id, producto_id, cantidad) VALUES (?, ?, ?)");
     $insertDetalle->bind_param("iii", $pedido_id, $producto['id'], $producto['cantidad']);
     $insertDetalle->execute();
 
-    // Descontar stock en productos
+    // Actualizar stock
     $updateStock = $conexion->prepare("UPDATE productos SET stock = stock - ? WHERE id = ?");
     $updateStock->bind_param("ii", $producto['cantidad'], $producto['id']);
     $updateStock->execute();
+}
 
-    // Comprobar el nuevo stock
+// 6. Vaciar el carrito (primero SIEMPRE antes de eliminar productos)
+$vaciarCarrito = $conexion->prepare("DELETE FROM carrito WHERE usuario_id = ?");
+$vaciarCarrito->bind_param("i", $id_usuario);
+$vaciarCarrito->execute();
+
+// 7. Eliminar productos cuyo stock ya es 0
+foreach ($productos as $producto) {
     $checkStock = $conexion->prepare("SELECT stock FROM productos WHERE id = ?");
     $checkStock->bind_param("i", $producto['id']);
     $checkStock->execute();
     $resultado = $checkStock->get_result();
-    $productoStock = $resultado->fetch_assoc();
+    $stockRestante = $resultado->fetch_assoc();
 
-    // Si el stock es 0 o menos, eliminar producto
-    if ($productoStock['stock'] <= 0) {
+    if ($stockRestante && $stockRestante['stock'] <= 0) {
         $eliminarProducto = $conexion->prepare("DELETE FROM productos WHERE id = ?");
         $eliminarProducto->bind_param("i", $producto['id']);
         $eliminarProducto->execute();
     }
 }
 
-// 8. Crear XML
+// 8. Crear archivo XML
 $xml = new DOMDocument('1.0', 'UTF-8');
 $xml->formatOutput = true;
 
@@ -173,18 +149,11 @@ foreach ($productos as $producto) {
 $root->appendChild($productosElement);
 $xml->appendChild($root);
 
-// 9. Guardar XML en carpeta
 if (!file_exists('../xml/pedidos')) {
     mkdir('../xml/pedidos', 0777, true);
 }
 $xml->save("../xml/pedidos/pedido_$pedido_id.xml");
 
-// 10. Vaciar carrito en base de datos
-$vaciarCarrito = $conexion->prepare("DELETE FROM carrito WHERE usuario_id = ?");
-$vaciarCarrito->bind_param("i", $id_usuario);
-$vaciarCarrito->execute();
-
-// 11. Confirmación
+// 9. Confirmación
 mostrarMensaje('✅ Tu pedido ha sido procesado correctamente.', true);
-
 ?>
