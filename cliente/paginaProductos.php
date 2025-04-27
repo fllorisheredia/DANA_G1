@@ -91,6 +91,7 @@ if (isset($_POST['guardar'])) {
                         <option value="limpieza">Limpieza</option>
                         <option value="bricolaje">Bricolaje</option>
                         <option value="transp">Transporte</option>
+                        <option value="alimentos">Alimento</option>
                     </select>
                 </div>
 

@@ -13,10 +13,10 @@ include '../includes/db.php';
         <!-- Usuarios -->
         <div class="card bg-white shadow-md border border-gray-700">
             <div class="card-body">
-                <h2 class="card-title text-lg text-black">Últimos Usuarios</h2>
+                <h2 class="card-title text-lg text-violet-900">Últimos Usuarios</h2>
                 <div class="overflow-x-auto">
-                    <table class="table table-zebra text-sm">
-                        <thead>
+                    <table class="table text-sm text-black">
+                        <thead class="text-black">
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
@@ -42,10 +42,10 @@ include '../includes/db.php';
         <!-- Productos -->
         <div class="card bg-white shadow-md border border-gray-700">
             <div class="card-body">
-                <h2 class="card-title text-lg text-black">Últimos Productos</h2>
-                <div class="overflow-x-auto">
-                    <table class="table table-zebra text-sm">
-                        <thead>
+                <h2 class="card-title text-lg text-violet-900">Últimos Productos</h2>
+                <div class="overflow-x-auto ">
+                    <table class="table text-sm text-black">
+                        <thead class="text-black">
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
@@ -72,9 +72,9 @@ include '../includes/db.php';
         <!-- Pedidos -->
         <div class="card bg-white shadow-md border border-gray-700">
             <div class="card-body">
-                <h2 class="card-title text-lg text-black">Últimos Pedidos</h2>
+                <h2 class="card-title text-lg text-violet-900">Últimos Pedidos</h2>
                 <div class="overflow-x-auto">
-                    <table class="table table-zebra text-sm">
+                    <table class="table text-sm text-black">
                         <thead>
                             <tr>
                                 <th class="text-bold text-black">ID</th>
