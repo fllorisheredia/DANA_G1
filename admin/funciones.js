@@ -237,24 +237,28 @@ function eliminarPedido(pedidoId) {
 // });
 
 //!FUNCIONES DE GESTION DE PRODUCTOS
-function eliminarProducto(idProducto) {
-  if (!confirm("¿Estás seguro de que deseas eliminar este producto?")) return;
+function eliminarProducto(id) {
+  if (!confirm("¿Estás seguro de que deseas eliminar este producto?")) {
+    return;
+  }
 
-  fetch("borrarProducto.php", {
+  const formData = new FormData();
+  formData.append("id", id);
+
+  fetch("eliminar_producto.php", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: `id=${idProducto}`,
+    body: formData,
   })
     .then((response) => response.text())
     .then((data) => {
       alert(data);
-      location.reload(); // Refresca para que desaparezca el producto
+      location.reload();
+      if (data.includes("✅ Producto eliminado correctamente")) {
+        document.getElementById(`producto-${id}`).remove();
+      }
     })
     .catch((error) => {
-      alert("❌ Error al eliminar el producto");
-      console.error(error);
+      console.error("Error al eliminar el producto:", error);
     });
 }
 
@@ -303,12 +307,6 @@ function guardarProducto(event, id) {
         alert("Error al actualizar");
       }
     });
-}
-
-function eliminarProducto(id) {
-  if (confirm("¿Estás seguro de que quieres eliminar este producto?")) {
-    window.location.href = `borrarProducto.php?id=${id}`;
-  }
 }
 
 function cerrarPopup() {

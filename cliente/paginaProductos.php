@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include '../includes/db.php';
 
-// CONSULTA DE PRODUCTOS (ojo, ahora traemos también el id y el stock)
+// CONSULTA DE PRODUCTOS
 $productos = $conexion->query("SELECT id, nombre, descripcion, imagen, precio_tonkens, categoria, stock FROM productos ORDER BY id DESC");
 
 // AÑADIR PRODUCTO
@@ -23,27 +23,54 @@ if (isset($_POST['guardar'])) {
     $categoria = $_POST['categoria'];
     $stock = $_POST['stock'];  // Aquí recogemos el stock
 
-    $imagenNombre = $_FILES['imagen']['name'];
-    $imagenTmp = $_FILES['imagen']['tmp_name'];
+    // Asignamos una imagen predeterminada según la categoría
+    $imagenPredeterminada = getImagenPorCategoria($categoria);
 
-    $rutaDestino = '../img_productos/' . basename($imagenNombre);
-    $rutaBD = 'img_productos/' . basename($imagenNombre);
+    // Verificar si se subió una imagen
+    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
+        $imagenNombre = $_FILES['imagen']['name'];
+        $imagenTmp = $_FILES['imagen']['tmp_name'];
 
-    if (move_uploaded_file($imagenTmp, $rutaDestino)) {
-        $stmt = $conexion->prepare("INSERT INTO productos (usuario_id, nombre, descripcion, precio_tonkens, imagen, categoria, stock) VALUES (?, ?, ?, ?, ?, ?, ?)"); // Añadimos stock aquí
-        $stmt->bind_param("issdssi", $usuario_id, $nombre, $descripcion, $precio, $rutaBD, $categoria, $stock); // Y aquí lo vinculamos
+        $rutaDestino = '../img_productos/' . basename($imagenNombre);
+        $rutaBD = 'img_productos/' . basename($imagenNombre);
 
-        if ($stmt->execute()) {
-            $_SESSION['mensaje_exito'] = "✅ Producto añadido correctamente.";
+        if (move_uploaded_file($imagenTmp, $rutaDestino)) {
+            $imagenPredeterminada = $rutaBD; // Usar la imagen subida si se cargó correctamente
         } else {
-            $_SESSION['mensaje_error'] = "❌ Error al guardar en la base de datos: " . $stmt->error;
+            $_SESSION['mensaje_error'] = "❌ Error al subir la imagen";
+            header("Location: " . $_SERVER['PHP_SELF']);
+            exit();
         }
+    }
+
+    // Insertar el producto en la base de datos
+    $stmt = $conexion->prepare("INSERT INTO productos (usuario_id, nombre, descripcion, precio_tonkens, imagen, categoria, stock) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("issdssi", $usuario_id, $nombre, $descripcion, $precio, $imagenPredeterminada, $categoria, $stock);
+
+    if ($stmt->execute()) {
+        $_SESSION['mensaje_exito'] = "✅ Producto añadido correctamente.";
     } else {
-        $_SESSION['mensaje_error'] = "❌ Error al subir la imagen";
+        $_SESSION['mensaje_error'] = "❌ Error al guardar en la base de datos: " . $stmt->error;
     }
 
     header("Location: " . $_SERVER['PHP_SELF']);
     exit();
+}
+
+// Función que asigna la imagen predeterminada según la categoría
+function getImagenPorCategoria($categoria) {
+    switch ($categoria) {
+        case 'limpieza':
+            return 'img/img_productos/limpieza.png';
+        case 'bricolaje':
+            return 'img/img_productos/bricolaje.png';
+        case 'transp':
+            return 'img/img_productos/trasporte.png';
+        case 'alimentos':
+            return 'img/img_productos/alimento.png';
+        default:
+            return 'img/logoSinF.png'; // Imagen por defecto general
+    }
 }
 ?>
 

@@ -48,7 +48,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                         <td><?php echo $usuario['perfil_publico']; ?></td>
                         <td><?php echo $usuario['valoracion']; ?></td>
                         <td>
-                            <a href="#" onclick="toggleMenu(<?php echo $usuario['id']; ?>); return false;"
+                            <a onclick="toggleMenu(<?php echo $usuario['id']; ?>); return false;"
                                 class="btn btn-sm btn-secondary">
                                 Editar
                             </a>
@@ -71,26 +71,23 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                         <input type="email" id="email_<?php echo $usuario['id']; ?>"
                                             value="<?php echo $usuario['email']; ?>"
                                             class="input input-bordered w-full text-gray-400" />
-                                        <a href="#"
-                                            onclick="actualizarMail(<?php echo $usuario['id']; ?>); return false;"
+                                        <a onclick="actualizarMail(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
                                     </div>
                                     <div>
                                         <label class="label-text font-semibold">Cambiar Contraseña</label>
                                         <input type="text" id="password_<?php echo $usuario['id']; ?>"
-                                            value="Nueva Contraseña..."
+                                            placeholder="Nueva Contraseña..."
                                             class="input input-bordered w-full text-gray-400" />
-                                        <a href="#"
-                                            onclick="actualizarPassword(<?php echo $usuario['id']; ?>); return false;"
+                                        <a onclick="actualizarPassword(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
                                     </div>
                                     <div>
                                         <label class="label-text font-semibold">Tonkens</label>
                                         <input type="text" id="tonkens_<?php echo $usuario['id']; ?>"
-                                            value="Nueva Cantidad..."
+                                            placeholder="Nueva Cantidad..."
                                             class="input input-bordered w-full text-gray-400" />
-                                        <a href="#"
-                                            onclick="actualizarTonkens(<?php echo $usuario['id']; ?>); return false;"
+                                        <a onclick="actualizarTonkens(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
                                     </div>
                                     <div>
@@ -98,17 +95,20 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                         <input type="text" id="valoracion_<?php echo $usuario['id']; ?>"
                                             value="<?php echo $usuario['valoracion']; ?>"
                                             class="input input-bordered w-full text-gray-400" />
-                                        <a href="#"
-                                            onclick="actualizarValoracion(<?php echo $usuario['id']; ?>); return false;"
+                                        <a onclick="actualizarValoracion(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
 
                                     </div>
                                     <div>
                                         <label class="label-text font-semibold">Cambiar Rol</label>
-                                        <input type="text" id="rol_<?php echo $usuario['id']; ?>" value="Nuevo Rol..."
-                                            class="input input-bordered w-full text-gray-400" />
-                                        <a href="#"
-                                            onclick="actualizarRol(<?php echo $usuario['id']; ?>); return false;"
+                                        <select id="rol_<?php echo $usuario['id']; ?>"
+                                            class="select select-bordered w-full text-gray-400">
+                                            <option value="" disabled selected>Selecciona tu rol</option>
+                                            <option value="cliente">Cliente</option>
+                                            <option value="voluntario">Voluntario</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
+                                        <a onclick="actualizarRol(<?php echo $usuario['id']; ?>); return false;"
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
                                     </div>
 
@@ -118,7 +118,6 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                             type="button" class="btn btn-error">
                                             Eliminar Usuario
                                         </button>
-                                        <button type="submit" class="btn btn-error">Eliminar</button>
                                     </div>
                                 </form>
                             </div>
