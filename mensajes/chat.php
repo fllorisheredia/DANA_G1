@@ -2,8 +2,18 @@
 session_start();
 include '../includes/db.php';
 // include '../includes/header.php';
-include '../cliente/header_cliente.php';
+// include '../includes/header_cliente.php';
 // verificarSesion();
+
+if ($_SESSION['usuario']['rol'] == 'cliente') {
+    include '../includes/header_cliente.php';
+} else if ($_SESSION['usuario']['rol'] == 'admin') {
+    include '../admin/navbarAdmin.php';
+} else {
+    include '../includes/headerVoluntario.php';
+}
+
+
 
 $usuario_id = $_SESSION['usuario']['id'];
 $destinatario_id = $_GET['id'] ?? null;
