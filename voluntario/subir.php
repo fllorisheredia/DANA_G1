@@ -1,6 +1,7 @@
 <?php
 include '../includes/db.php';
 session_start();
+
 // Datos del formulario
 $usuario_ofrece_id = $_SESSION['usuario']['id'] ?? null;
 $nombreProducto = $_POST['nombreProducto'] ?? '';
@@ -8,6 +9,7 @@ $descripcion = $_POST['descripcion'] ?? '';
 $hora = $_POST['hora'] ?? null;
 $destino = $_POST['destino'] ?? null;
 $llegada = $_POST['llegada'] ?? null;
+
 $especialidad = $_POST['especialidad'] ?? null;
 $ciudadAyudar = $_POST['ciudad'] ?? null;
 $categoria = $_POST['categoria'] ?? null;
@@ -52,7 +54,6 @@ if (strlen($fecha->format('Y')) !== 4) {
     header("Location: subir_producto.php?registro=noExitoso");
     exit;
 }
-
 // Preparar consulta para especialidad y destino
 if (!empty($especialidad)) {
     // Si hay especialidad, también puede ir el destino (pero no la llegada)

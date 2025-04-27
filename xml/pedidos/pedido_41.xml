@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pedido id="13">
-  <usuario_id>11</usuario_id>
-  <fecha>2025-04-18 16:19:32</fecha>
+<pedido id="41">
+  <usuario_id>3</usuario_id>
+  <fecha>2025-04-27 20:32:37</fecha>
   <estado>pendiente</estado>
   <total_tonkens>0</total_tonkens>
   <productos/>

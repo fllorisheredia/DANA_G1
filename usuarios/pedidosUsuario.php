@@ -3,7 +3,6 @@
 session_start();
 include_once '../includes/db.php';
 
-include_once '../includes/header_cliente.php';
 $usuario_id = $_SESSION['usuario']['id'];
 
 $query = "SELECT p.id, p.fecha, p.estado, p.total_tonkens, u.nombre AS nombre_proveedor, p.usuario_id AS proveedor_id

@@ -10,8 +10,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST['password'] ?? '');
     $rol = trim($_POST['rol'] ?? 'cliente');
 
-    $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)");
-    $consulta->bind_param("ssss", $nombre, $email, $password, $rol);
+    $foto_perfil = 'img/usuario.png'; // Imagen por defecto
+
+    if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === 0) {
+        $directorioDestino = 'img/img_perfil/';
+        
+        // Crear carpeta si no existe
+        if (!file_exists($directorioDestino)) {
+            mkdir($directorioDestino, 0777, true);
+        }
+
+        $nombreUnico = time() . '_' . basename($_FILES['imagen']['name']);
+        $rutaRelativa = $directorioDestino . $nombreUnico; // Ruta para guardar en la BD
+        $rutaServidor = __DIR__ . '/' . $rutaRelativa; // Ruta absoluta en servidor
+
+        if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaServidor)) {
+            $foto_perfil = $rutaRelativa; // Guardamos ruta relativa
+        }
+    }
+
+    $consulta = $conexion->prepare("INSERT INTO usuarios (nombre, email, password, rol, foto_perfil) VALUES (?, ?, ?, ?, ?)");
+    $consulta->bind_param("sssss", $nombre, $email, $password, $rol, $foto_perfil);
 
     if ($consulta->execute()) {
         $registroExitoso = true;
@@ -20,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <input type="checkbox" id="registroExitosoModal" class="modal-toggle" <?php if ($registroExitoso) echo 'checked'; ?> />
 <div class="modal">
@@ -35,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="min-h-screen flex items-center justify-center bg-base-100">
     <div class="w-full max-w-sm mx-auto overflow-hidden rounded-lg shadow-md dark:bg-gray-800">
         <div class="px-6 py-4">
+
             <!-- Logo -->
             <div class="flex justify-center mx-auto">
                 <img class="w-auto sm:h-20" src="img/logoSinF.png" alt="Logo">
@@ -42,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <h3 class="mt-3 text-3xl font-bold text-center text-gray-600 dark:text-gray-200">Registro</h3>
 
-            <form method="POST" class="space-y-6 mt-4">
+            <form method="POST" enctype="multipart/form-data" class="space-y-6 mt-4">
                 <div>
                     <label for="nombre" class="block text-lg font-medium text-gray-300">Nombre</label>
                     <input type="text" id="nombre" name="nombre" class="input input-bordered w-full text-lg py-3 mt-2"
@@ -72,6 +93,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                 </div>
 
+                <!-- Subir imagen de perfil -->
+                <div class="form-control">
+                    <label class="label">Imagen de Perfil</label>
+                    <input type="file" name="imagen" class="file-input file-input-bordered w-full" accept="image/*" />
+                </div>
+
                 <div class="flex items-center justify-between mt-4">
                     <button type="submit" class="btn btn-primary w-full py-3 text-xl">Registrarse</button>
                 </div>
@@ -80,8 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="flex items-center justify-center py-4 text-center bg-gray-50 dark:bg-gray-700">
             <span class="text-sm text-gray-600 dark:text-gray-200">¿Ya tienes una cuenta? </span>
-            <a href="login.php" class="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline">Inicia
-                sesión</a>
+            <a href="login.php" class="mx-2 text-sm font-bold text-blue-500 dark:text-blue-400 hover:underline">Inicia sesión</a>
         </div>
     </div>
 </div>

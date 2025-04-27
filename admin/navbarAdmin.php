@@ -4,32 +4,16 @@ include '../includes/db.php';
 $resultado = $conexion->query("SELECT * FROM usuarios");
 ?>
 
-$resultado = $conexion->query("SELECT * FROM usuarios");
-?>
-
 <aside
     class="flex flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-white border-r rtl:border-r-0 rtl:border-l dark:bg-gray-900 dark:border-gray-700 ">
-    <a href="#">
-        <h1 class="text-xl font-bold">PUEBLO <span class="text-purple-600">UNIDO</span></h1>
 
+    <a class="flex items-center gap-2">
+        <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
+        <h1 class="text-xl font-bold">PUEBLO <span class="text-purple-600">UNIDO</span></h1>
     </a>
 
     <div class="flex flex-col justify-between flex-1 mt-6">
         <nav class="flex-1 -mx-3 space-y-3 ">
-            <div class="relative mx-3">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                    <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-                        <path
-                            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        </path>
-                    </svg>
-                </span>
-
-                <input type="text"
-                    class="w-full py-1.5 pl-10 pr-4 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring"
-                    placeholder="Search" />
-            </div>
 
             <a onclick="cargarPagina('cardAdminPanel.php')" href="javascript:void(0);"
                 class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
@@ -90,42 +74,43 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
 
         </nav>
         <div class="mr-10">
-                <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
-                    <span id="theme-icon">🌙</span>
-                </button>
+            <button class="btn btn-sm btn-outline" onclick="toggleTheme()">
+                <span id="theme-icon">🌙</span>
+            </button>
 
-        <div class="mt-6">
-            <div class="p-3 bg-gray-100 rounded-lg dark:bg-gray-800">
-                <h2 class="text-sm font-medium text-gray-800 dark:text-white">Gracias Por tu <span
-                        class="text-purple-600"> Colaboración!</span></h2>
+            <div class="mt-6">
+                <div class="p-3 bg-gray-100 rounded-lg dark:bg-gray-800">
+                    <h2 class="text-sm font-medium text-gray-800 dark:text-white">Gracias Por tu <span
+                            class="text-purple-600"> Colaboración!</span></h2>
 
-                <p class="mt-1 text-xs text-gray-500 dark:text-gray-400"> Agradecemos sinceramente tu tiempo y esfuerzo.
-                    Cada pequeña ayuda cuenta y nos acerca más a nuestra meta. ¡Gracias por formar parte de este
-                    proyecto!
-                </p>
+                    <p class="mt-1 text-xs text-gray-500 dark:text-gray-400"> Agradecemos sinceramente tu tiempo y
+                        esfuerzo.
+                        Cada pequeña ayuda cuenta y nos acerca más a nuestra meta. ¡Gracias por formar parte de este
+                        proyecto!
+                    </p>
 
-                <img class="object-cover w-full h-32 mt-2 rounded-lg" src="../img/logoSinF.png" alt="">
+                    <img class="object-cover w-full h-32 mt-2 rounded-lg" src="../img/logoSinF.png" alt="">
+                </div>
+
+                <div class="flex items-center justify-between mt-6">
+                    <a href="#" class="flex items-center gap-x-2">
+                        <?php echo htmlspecialchars($_SESSION['usuario']['nombre'] ?? 'Invitado'); ?>
+                    </a>
+
+
+                    <button id="btnCerrarSesion"
+                        class="text-gray-500 transition-colors duration-200 rotate-180 dark:text-gray-400 rtl:rotate-0 hover:text-blue-500 dark:hover:text-blue-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                        </svg>
+                    </button>
+
+                </div>
+
             </div>
-
-            <div class="flex items-center justify-between mt-6">
-                <a href="#" class="flex items-center gap-x-2">
-                    <?php echo htmlspecialchars($_SESSION['usuario']['nombre'] ?? 'Invitado'); ?>
-                </a>
-
-
-                <button id="btnCerrarSesion"
-                    class="text-gray-500 transition-colors duration-200 rotate-180 dark:text-gray-400 rtl:rotate-0 hover:text-blue-500 dark:hover:text-blue-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-5 h-5">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
-                    </svg>
-                </button>
-
-            </div>
-
         </div>
-    </div>
 </aside>
 <script src="../js/main.js"></script>
 

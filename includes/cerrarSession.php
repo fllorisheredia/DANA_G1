@@ -16,7 +16,7 @@ if (ini_get("session.use_cookies")) {
 // Destruye completamente la sesión
 session_destroy();
 
-// ✅ Opción 1: Redirigir a index.php directamente
+
 header("Location: ../index.php");
 exit;
 

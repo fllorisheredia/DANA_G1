@@ -51,7 +51,7 @@ if ($producto && $producto['stock'] >= $cantidad) {
     echo "✅ Producto solicitado con éxito.";
 
 } else {
-    echo "❌ No hay suficiente stock.";
+    // echo "❌ No hay suficiente stock.";
 }
 
 $conexion->close();

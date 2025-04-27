@@ -15,6 +15,7 @@ function actualizarMail(idUsuario) {
     .then((response) => response.text())
     .then((data) => {
       alert(data);
+      location.reload();
     })
     .catch((error) => {
       alert("Error al actualizar el correo");
@@ -37,6 +38,7 @@ function actualizarRol(idUsuario) {
     .then((response) => response.text())
     .then((data) => {
       alert(data);
+      location.reload();
     })
     .catch((error) => {
       alert("Error al actualizar el Rol");
@@ -82,6 +84,7 @@ function actualizarValoracion(idUsuario) {
     .then((response) => response.text())
     .then((data) => {
       alert(data);
+      location.reload();
     })
     .catch((error) => {
       alert("Error al actualizar la valoración del usuario");
@@ -105,6 +108,7 @@ function actualizarPassword(idUsuario) {
     .then((response) => response.text())
     .then((data) => {
       alert(data);
+      location.reload();
     })
     .catch((error) => {
       alert("Error al actualizar la contraseña del usuario");
@@ -128,6 +132,7 @@ function actualizarTonkens(idUsuario) {
     .then((response) => response.text())
     .then((data) => {
       alert(data);
+      location.reload();
     })
     .catch((error) => {
       alert("Error al actualizar los tonkens");
@@ -275,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //!FUNCIONES PARA ACTUALIZAR LAS COSAS DE LOS PRODUCTOS
 
-function toggleMenu(id) {
+function toggleMenu2(id) {
   const menu = document.getElementById(`menu-${id}`);
   if (menu) menu.classList.toggle("hidden");
 }

@@ -7,20 +7,25 @@ include '../includes/db.php';
 <head>
   <meta charset="UTF-8">
   <title>Subir Producto</title>
-  </head>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
 
 <?php if (isset($_GET['registro']) && $_GET['registro'] === 'exitoso'): ?>
 <input type="checkbox" id="registroExitosoModal" class="modal-toggle" checked />
 <div class="modal">
     <div class="modal-box text-center">
-        <h2 class="text-2xl font-bold text-green-600 mb-4">Ayuda añadida!</h2>
-        <p class="text-lg">La ayuda ha sido agregada correctamente, Gracias por tu aportación! </p>
+        <h2 class="text-2xl font-bold text-green-600 mb-4">¡Ayuda añadida!</h2>
+        <p class="text-lg">Gracias por tu aportación ❤️</p>
         <div class="modal-action">
             <label for="registroExitosoModal" class="btn btn-success">Cerrar</label>
         </div>
     </div>
 </div>
 <?php endif; ?>
+
 <?php if (isset($_GET['registro']) && $_GET['registro'] !== 'exitoso'): ?>
 <input type="checkbox" id="registroExitosoModal" class="modal-toggle" checked />
 <div class="modal">
@@ -37,12 +42,43 @@ include '../includes/db.php';
 <body>
 <div class="flex gap-4 justify-center flex-wrap">
 
-  <!-- PRODUCTO 1 -->
-  <form id="form1" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm" onsubmit="return false;">
+
+<div class="flex gap-8 justify-center flex-wrap p-8">
+
+  <!-- PRODUCTOS -->
+  <?php
+  $productos = [
+    [
+      'nombre' => 'Limpieza',
+      'descripcion' => 'Ofrezco ayuda con mis conocimientos en limpieza',
+      'imagen' => '../img/servicios.jfif'
+    ],
+    [
+      'nombre' => 'Reparto de comida',
+      'descripcion' => 'Distribuyo víveres en zonas afectadas por la DANA',
+      'imagen' => '../img/repartidorcomida.jpg'
+    ],
+    [
+      'nombre' => 'Bricolaje',
+      'descripcion' => 'Ayudo con mis conocimientos de bricolaje',
+      'imagen' => '../img/bricolaje.png'
+    ],
+    [
+      'nombre' => 'Transporte solidario',
+      'descripcion' => 'Ofrezco transporte solidario hasta el siguiente destino',
+      'imagen' => '../img/coche.webp'
+    ]
+  ];
+
+  foreach ($productos as $index => $producto): 
+  ?>
+
+  <form id="form<?= $index ?>" action="subir.php" method="POST" class="card bg-base-100 w-80 shadow-md" onsubmit="return false;">
     <figure class="px-10 pt-10">
-      <img src="../img/servicios.jfif" alt="Limpieza" class="rounded-xl w-64 h-64" />
+      <img src="<?= htmlspecialchars($producto['imagen']) ?>" alt="Imagen" class="rounded-xl w-64 h-64" />
     </figure>
     <div class="card-body items-center text-center">
+
       <h2 class="card-title">Ofrecerse de Limpieza</h2>
       <p>Ofrecete de limpiador</p>
       <input type="hidden" name="nombreProducto" value="Limpieza">
@@ -51,14 +87,20 @@ include '../includes/db.php';
       
       <div class="card-actions mt-2">
         <button type="button" class="btn btn-primary" onclick="mostrarModal('modal1')">Ofrecerse</button>
+
       </div>
     </div>
   </form>
 
-<!-- Modal para Producto 1 -->
-<input type="checkbox" id="modal1" class="modal-toggle" />
+  <?php endforeach; ?>
+
+</div>
+
+<!-- Modal genérico -->
+<input type="checkbox" id="modalGeneral" class="modal-toggle" />
 <div class="modal">
   <div class="modal-box text-center">
+
     <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña informacion</h2>
     <p class="text-lg font-bold">Necesitamos Saber La Fecha Y La Hora En La Que Puede Asistir</p>
 
@@ -69,21 +111,18 @@ include '../includes/db.php';
      <!-- Textarea para destino -->
      <textarea id="inputCiudad" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Ciudad Afectada que vas a ayudar..." required></textarea>
 
-    <!-- Campo oculto para pasar al formulario -->
-    <input type="hidden" name="hora" id="horaInput">
-
-    <!-- Mensaje para confirmar -->
-    <div class="mt-4">
-      <p id="horaSeleccionada" class="text-lg text-blue-600"></p>
+    <div id="extraCampos" class="hidden mt-4">
+      <textarea id="inputDestino" class="textarea textarea-bordered w-full mb-2" placeholder="Zona afectada..."></textarea>
+      <textarea id="inputLlegada" class="textarea textarea-bordered w-full" placeholder="Destino final..."></textarea>
     </div>
 
-    <!-- Acciones -->
     <div class="modal-action">
-      <button type="button" class="btn btn-primary" id="enviarBtn">Enviar</button>
-      <label for="modal1" class="btn btn-success">Cerrar</label>
+      <button type="button" id="btnEnviarGeneral" class="btn btn-primary">Enviar</button>
+      <label for="modalGeneral" class="btn btn-success">Cancelar</label>
     </div>
   </div>
 </div>
+
 
   <!-- PRODUCTO 2 -->
   <form id="form2" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm">
@@ -301,12 +340,11 @@ include '../includes/db.php';
 function mostrarModal2() {
   document.getElementById("modal4").checked = true; // Abre el modal
 
-  document.getElementById("enviarBtn4").onclick = function() {
-    const hora = document.getElementById("inputHora2").value;
-    const destino = document.getElementById("inputDestino2").value;
+
+  if (extraCampos) {
+    const destino = document.getElementById("inputDestino").value;
     const llegada = document.getElementById("inputLlegada").value;
     
-  
     // Obtener el formulario original
     const form = document.getElementById("form4");
 
@@ -318,22 +356,20 @@ function mostrarModal2() {
     form.appendChild(inputHoraHidden);
 
     // Crear y agregar input oculto para destino
+
     const inputDestinoHidden = document.createElement("input");
     inputDestinoHidden.type = "hidden";
     inputDestinoHidden.name = "destino";
     inputDestinoHidden.value = destino;
-    form.appendChild(inputDestinoHidden);
+    formActual.appendChild(inputDestinoHidden);
 
-    // Crear y agregar input oculto para llegada
     const inputLlegadaHidden = document.createElement("input");
     inputLlegadaHidden.type = "hidden";
     inputLlegadaHidden.name = "llegada";
     inputLlegadaHidden.value = llegada;
-    form.appendChild(inputLlegadaHidden);
-    // Enviar el formulario
-    form.submit();
-  };
-}
+    formActual.appendChild(inputLlegadaHidden);
+  }
+
 
 function mostrarModal3() {
   document.getElementById("modal5").checked = true; // Abre el modal
@@ -427,8 +463,9 @@ function mostrarModal7() {
   };
 };
 
+
 </script>
+
+<?php include 'footer_voluntario.php'; ?>
+</body>
 </html>
-<?php
-include 'footer_voluntario.php'
-?>
