@@ -54,24 +54,23 @@ $usuario = $query->get_result()->fetch_assoc();
 
 
 
-    <!-- Últimos productos -->
-    <section>
-        <h2 class="text-2xl font-bold mb-4 text-purple-700">Productos Añadidos Recientemente</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <?php while ($p = $productos->fetch_assoc()): ?>
-            <div class="card bg-base-100 shadow">
-                <figure class="flex items-center justify-center h-32 bg-white rounded-t-xl p-2">
-                    <img src="../<?= htmlspecialchars($p['imagen']) ?>" alt="<?= htmlspecialchars($p['nombre']) ?>"
-                        class="max-h-full max-w-full object-contain">
-                </figure>
-                <div class="card-body">
-                    <h3 class="card-title"><?= htmlspecialchars($p['nombre']) ?></h3>
-                    <p class="text-lg font-bold text-success">🪙<?= number_format($p['precio_tonkens']) ?></p>
-                </div>
-            </div>
+<!-- Últimos productos -->
+<section>
+  <h2 class="text-2xl font-bold mb-4 text-purple-700">Productos Añadidos Recientemente</h2>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <?php while ($p = $productos->fetch_assoc()): ?>
+      <div class="card bg-base-100 shadow">
+        <figure class="flex items-center justify-center h-32 bg-white rounded-t-xl p-2">
+          <img src="../<?= htmlspecialchars($p['imagen']) ?>" alt="<?= htmlspecialchars($p['nombre']) ?>" 
+            class="max-h-full max-w-full object-contain">
+        </figure>
+        <div class="card-body">
+          <h3 class="card-title"><?= htmlspecialchars($p['nombre']) ?></h3>
+          <p class="text-lg font-bold text-success">🪙<?= number_format($p['precio_tonkens']) ?></p>
         </div>
-        <?php endwhile; ?>
-        </div>
-    </section>
+      </div>
+    <?php endwhile; ?>
+  </div> <!-- 👈 Aquí correctamente, cerramos después del while -->
 
-</main>
+</section>

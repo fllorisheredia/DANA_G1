@@ -25,20 +25,21 @@ session_start();
 
 
     <script>
-    function cargarVista(pagina) {
-        document.getElementById("iframeContenido").src = pagina;
-    }
+        function cargarVista(pagina) {
+    document.getElementById("iframeContenido").src = pagina;
+}
 
-    function toggleTheme() {
-        const html = document.documentElement;
-        if (html.getAttribute('data-theme') === 'dark') {
-            html.setAttribute('data-theme', 'light');
-            document.getElementById('theme-icon').textContent = '🌙';
-        } else {
-            html.setAttribute('data-theme', 'dark');
-            document.getElementById('theme-icon').textContent = '☀️';
-        }
+function toggleTheme() {
+    const html = document.documentElement;
+    if (html.getAttribute('data-theme') === 'dark') {
+        html.setAttribute('data-theme', 'light');
+        document.getElementById('theme-icon').textContent = '🌙';
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        document.getElementById('theme-icon').textContent = '☀️';
     }
+}
+ 
     </script>
 </body>
 
@@ -46,5 +47,5 @@ session_start();
 
 
 <?php
-include '../includes/footer.php'
+include 'footer_cliente.php'
 ?>
