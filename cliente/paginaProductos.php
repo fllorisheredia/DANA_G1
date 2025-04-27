@@ -5,7 +5,8 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include '../includes/db.php';
 
-$productos = $conexion->query("SELECT nombre, descripcion, imagen, precio_tonkens, categoria FROM productos ORDER BY id DESC");
+// CONSULTA DE PRODUCTOS (ojo, ahora traemos también el id)
+$productos = $conexion->query("SELECT id, nombre, descripcion, imagen, precio_tonkens, categoria FROM productos ORDER BY id DESC");
 
 // AÑADIR PRODUCTO
 if (isset($_POST['guardar'])) {
@@ -45,6 +46,7 @@ if (isset($_POST['guardar'])) {
 }
 ?>
 
+<!-- Estilos y scripts -->
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -53,12 +55,14 @@ if (isset($_POST['guardar'])) {
 
     <h2 class="text-4xl font-bold text-center text-primary">Productos Disponibles</h2>
 
+    <!-- Botón para añadir producto -->
     <div class="text-center">
         <button class="btn btn-primary shadow-md hover:scale-105 transition-transform" onclick="document.getElementById('modal_producto').showModal()">
             + Añadir Producto
         </button>
     </div>
 
+    <!-- Modal para nuevo producto -->
     <dialog id="modal_producto" class="modal">
         <div class="modal-box max-w-md">
             <h3 class="font-bold text-xl mb-4 text-center">+ Nuevo Producto</h3>
@@ -103,6 +107,17 @@ if (isset($_POST['guardar'])) {
         </div>
     </dialog>
 
+    <!-- Mensajes de sesión -->
+    <?php if (isset($_SESSION['mensaje_exito'])): ?>
+        <div class="alert alert-success"><?= $_SESSION['mensaje_exito'] ?></div>
+        <?php unset($_SESSION['mensaje_exito']); ?>
+    <?php endif; ?>
+    <?php if (isset($_SESSION['mensaje_error'])): ?>
+        <div class="alert alert-error"><?= $_SESSION['mensaje_error'] ?></div>
+        <?php unset($_SESSION['mensaje_error']); ?>
+    <?php endif; ?>
+
+    <!-- Productos -->
     <?php if ($productos->num_rows > 0): ?>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             <?php while ($producto = $productos->fetch_assoc()): ?>
@@ -116,7 +131,11 @@ if (isset($_POST['guardar'])) {
                         <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span> <?= htmlspecialchars($producto['categoria']) ?></p>
                         <div class="mt-3 flex items-center justify-between">
                             <span class="text-success font-bold">💰 <?= number_format($producto['precio_tonkens'], 2) ?> Tonkens</span>
-                            <button class="btn btn-primary btn-sm">Comprar</button>
+                            <form method="POST" action="../carrito/agregarCarrito.php">
+                                <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
+                                <input type="hidden" name="cantidad" value="1">
+                                <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
+                            </form>
                         </div>
                     </div>
                 </div>
