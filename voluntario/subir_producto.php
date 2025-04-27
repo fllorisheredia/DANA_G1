@@ -71,7 +71,7 @@ include '../includes/db.php';
 </div>
 
   <!-- PRODUCTO 2 -->
-  <form id="form2" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm" onsubmit="return false;">
+  <form id="form2" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm">
     <figure class="px-10 pt-10">
       <img src="../img/repartidorcomida.jpg" alt="Comida" class="rounded-xl w-64 h-64" />
     </figure>
@@ -82,33 +82,43 @@ include '../includes/db.php';
       <input type="hidden" name="descripcion" value="Distribuyo víveres en zonas afectadas por la DANA">
       
       <div class="card-actions mt-2">
-        <button type="button" class="btn btn-primary" onclick="mostrarModal('modal2')">Ofrecerse</button>
+        <button type="button" class="btn btn-primary" onclick="mostrarModal6('modal2')">Ofrecerse</button>
       </div>
     </div>
   </form>
 
   <!-- Modal para Producto 2 -->
   <input type="checkbox" id="modal2" class="modal-toggle" />
-  <div class="modal">
-    <div class="modal-box text-center">
-      <h2 class="text-2xl font-bold text-green-600 mb-4">¡Producto añadido!</h2>
-      <p class="text-lg">El producto ha sido agregado correctamente, gracias por tu aportación!</p>
-      
-      <!-- Bloque de texto para información adicional -->
-      <textarea id="informacion_adicional_2" placeholder="Escribe más detalles sobre el reparto de comida..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
-      
-      <!-- Bloque de texto para comentarios -->
-      <textarea id="comentarios_2" placeholder="Comentarios adicionales..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
-      
-      <div class="modal-action">
-        <button type="button" class="btn btn-primary" onclick="enviarFormulario('form2', 'informacion_adicional_2', 'comentarios_2')">Enviar</button>
-        <label for="modal2" class="btn btn-success">Cerrar</label>
-      </div>
+<div class="modal">
+  <div class="modal-box text-center">
+    <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña informacion</h2>
+    <p class="text-lg font-bold">Necesitamos Saber La Hora Que Puede Asistir</p>
+
+    <!-- Input manual de hora -->
+    <p class="text-lg mt-4"></p>
+    <input type="time" id="inputHora6" class="input input-bordered w-full max-w-xs mt-2" required>
+     <!-- Textarea para destino -->
+     <textarea id="inputCiudad6" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Ciudad Afectada que vas a repartir comida..." required></textarea>
+
+    <!-- Campo oculto para pasar al formulario -->
+    <input type="hidden" name="hora" id="horaInput6">
+
+    <!-- Mensaje para confirmar -->
+    <div class="mt-4">
+      <p id="horaSeleccionada" class="text-lg text-blue-600"></p>
+    </div>
+
+    <!-- Acciones -->
+    <div class="modal-action">
+      <button type="button" class="btn btn-primary" id="enviarBtn6">Enviar</button>
+      <label for="modal2" class="btn btn-success">Cerrar</label>
     </div>
   </div>
+</div>
+
 
   <!-- PRODUCTO 3 -->
-  <form id="form3" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm" onsubmit="return false;">
+  <form id="form3" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm">
     <figure class="px-10 pt-10">
       <img src="../img/bricolaje.png" alt="servicios" class="rounded-xl w-64 h-64" />
     </figure>
@@ -119,7 +129,7 @@ include '../includes/db.php';
       <input type="hidden" name="descripcion" value="Ayudo con mis conocimientos de bricolaje">
       
       <div class="card-actions mt-2">
-        <button type="button" class="btn btn-primary" onclick="mostrarModal('modal3')">Ofrecerse</button>
+        <button type="button" class="btn btn-primary" onclick="mostrarModal7('modal3')">Ofrecerse</button>
       </div>
     </div>
   </form>
@@ -131,14 +141,15 @@ include '../includes/db.php';
       <h2 class="text-2xl font-bold text-green-600 mb-4">¡Producto añadido!</h2>
       <p class="text-lg">El producto ha sido agregado correctamente, gracias por tu aportación!</p>
       
-      <!-- Bloque de texto para información adicional -->
-      <textarea id="informacion_adicional_3" placeholder="Escribe más detalles sobre el servicio de bricolaje..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
-      
+      <!-- Input manual de hora -->
+    <p class="text-lg mt-4"></p>
+    <input type="time" id="inputHora7" class="input input-bordered w-full max-w-xs mt-2" required>
+
       <!-- Bloque de texto para comentarios -->
-      <textarea id="comentarios_3" placeholder="Comentarios adicionales..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
+      <textarea id="inputCiudad7" placeholder="Comentarios adicionales..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
       
       <div class="modal-action">
-        <button type="button" class="btn btn-primary" onclick="enviarFormulario('form3', 'informacion_adicional_3', 'comentarios_3')">Enviar</button>
+        <button type="button" class="btn btn-primary" id="enviarBtn7">Enviar</button>
         <label for="modal3" class="btn btn-success">Cerrar</label>
       </div>
     </div>
@@ -208,7 +219,7 @@ include '../includes/db.php';
   </form>
 
   <!-- Modal para Producto 5 -->
-  <form method="post" action="subir.php"> <!-- ajusta la ruta -->
+  <form method="post" action="subir.php"> 
   <input type="checkbox" id="modal5" class="modal-toggle" />
   <div class="modal">
     <div class="modal-box text-center">
@@ -238,8 +249,8 @@ include '../includes/db.php';
 <script>
   // Mostrar el modal al activar el botón de "Ofrecerse"
   function mostrarModal() {
-    document.getElementById("modal1").checked = true;
-  }
+  document.getElementById("modal1").checked = true;
+  
 
   // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
   const horaSeleccionada = document.getElementById("inputHora").value;
@@ -267,7 +278,7 @@ include '../includes/db.php';
   form.appendChild(inputCiudad); 
 
   form.submit();
-};
+  }};
   
 function mostrarModal2() {
   document.getElementById("modal4").checked = true; // Abre el modal
@@ -343,6 +354,68 @@ function mostrarModal3() {
   };
 }
 
+function mostrarModal6() {
+    document.getElementById("modal2").checked = true;
+  
+
+  // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
+  document.getElementById("enviarBtn6").onclick = function() {
+  const horaSeleccionada = document.getElementById("inputHora6").value;
+  const ciudadAyudar = document.getElementById("inputCiudad6").value;
+
+  if (!horaSeleccionada || !ciudadAyudar) {
+    alert("Por favor, Completa Todos Los Campos.");
+    return;
+  }
+
+  const form = document.getElementById("form2");
+
+  const inputHora = document.createElement("input");
+  inputHora.type = "hidden";
+  inputHora.name = "hora";
+  inputHora.value = horaSeleccionada;
+  form.appendChild(inputHora); 
+
+  const inputCiudad = document.createElement("input");
+  inputCiudad.type = "hidden";
+  inputCiudad.name = "ciudad";
+  inputCiudad.value = ciudadAyudar;
+  form.appendChild(inputCiudad); 
+
+  form.submit();
+  }
+};
+function mostrarModal7() {
+    document.getElementById("modal3").checked = true;
+  
+
+  // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
+  document.getElementById("enviarBtn7").onclick = function() {
+  const horaSeleccionada = document.getElementById("inputHora7").value;
+  const ciudadAyudar = document.getElementById("inputCiudad7").value;
+
+  if (!horaSeleccionada || !ciudadAyudar) {
+    alert("Por favor, Completa Todos Los Campos.");
+    return;
+  }
+
+  const form = document.getElementById("form3");
+
+  const inputHora = document.createElement("input");
+  inputHora.type = "hidden";
+  inputHora.name = "hora";
+  inputHora.value = horaSeleccionada;
+  form.appendChild(inputHora); 
+
+  const inputCiudad = document.createElement("input");
+  inputCiudad.type = "hidden";
+  inputCiudad.name = "ciudad";
+  inputCiudad.value = ciudadAyudar;
+  form.appendChild(inputCiudad); 
+
+  form.submit();
+  }
+};
 
 </script>
 </html>
