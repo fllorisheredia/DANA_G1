@@ -37,6 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_SESSION['mensaje_error'] = "⚠️ Método no permitido.";
 }
 
-header("Location: ../cliente/vistaInicio.php"); // Redirige después de agregar
+header("Location: ../cliente/paginaProductos.php"); // Redirige después de agregar
 exit();
 ?>
