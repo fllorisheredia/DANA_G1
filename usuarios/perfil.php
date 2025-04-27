@@ -72,14 +72,38 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
         </div>
 
         <!-- Redes -->
-        <div class="card bg-base-100 shadow-md p-4">
-            <ul class="menu">
-                <h2 class="font-semibold text-lg mb-4">🐙 REDES SOCIALES</h2>
-                <li><a><span>🐦 Twitter</span> <span class="text-sm text-gray-500 ml-auto">@pepe1DANA</span></a></li>
-                <li><a><span>📸 Instagram</span> <span class="text-sm text-gray-500 ml-auto">pepe1DANA</span></a></li>
-                <li><a><span>📘 Facebook</span> <span class="text-sm text-gray-500 ml-auto">pepe1DANA</span></a></li>
-            </ul>
-        </div>
+              <!-- Pedidos -->
+              <div class="card bg-base-100 shadow-md p-6">
+                <h2 class="font-semibold text-lg mb-4">📊 ULTIMOS PEDIDOS</h2>
+                <div class="overflow-x-auto">
+                    <?php if ($tienePedidos): ?>
+                        <table class="table w-full">
+                            <thead>
+                                <tr>
+                                    <th>ID Pedido</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php while ($pedido = $resultPedidos->fetch_assoc()): ?>
+                                <tr>
+                                    <td>#<?php echo $pedido['id']; ?></td>
+                                    <td><?php echo ucfirst($pedido['estado']); ?></td>
+                                 
+                                </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                         
+                        </table>
+                        <a href="../usuarios/pedidosUsuario.php?id=<?php echo $mensaje['id']; ?>" class="btn btn-primary btn-sm">
+                                            Ver Todos los Pedidos
+                                        </a>
+                    <?php else: ?>
+                        <div class="alert alert-info">🚫 No tienes pedidos registrados todavía.</div>
+                    <?php endif; ?>
+                </div>
+            </div>
+
     </div>
 
     <!-- Columna derecha -->
@@ -133,7 +157,7 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                 </div>
             </div>
 
-            <!-- Pedidos -->
+            <!-- Pedidos
             <div class="card bg-base-100 shadow-md p-6">
                 <h2 class="font-semibold text-lg mb-4">📊 ULTIMOS PEDIDOS</h2>
                 <div class="overflow-x-auto">
@@ -163,7 +187,7 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                         <div class="alert alert-info">🚫 No tienes pedidos registrados todavía.</div>
                     <?php endif; ?>
                 </div>
-            </div>
+            </div> -->
 
         </div>
 
@@ -171,7 +195,7 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
 
 </div>
 
-<?php include '../includes/footer.php'; ?>
+<?php include 'footerUsuario.php'; ?>
 
 </body>
 </html>

@@ -92,5 +92,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </main>
 
 <?php
-include '../includes/footer.php';
+include 'footer_cliente.php';
 ?>

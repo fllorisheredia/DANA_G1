@@ -61,7 +61,7 @@
                     <span id="theme-icon">🌙</span>
                 </button>
             </div>
-            <a href="/DANA_G1/carrito/index.php"
+            <a onclick="cargarVista('../carrito/index.php')"
                 class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
                 <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -89,10 +89,5 @@
 
     </div>
 </body>
-
-
-
-
-
 
 <script src="/DANA_G1/js/main.js"></script>

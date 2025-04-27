@@ -1,4 +1,6 @@
 // 2main.js
+// Cargar vistas dinámicamente (desde dentro de iframe)
+
 /* Archivo JavaScript para validaciones y funciones interactivas */
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript cargado correctamente");
