@@ -34,7 +34,7 @@ include_once '../includes/db.php';
                 <li><a href="../cliente/dashboardCliente.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold"> Inicio</a>
                 </li>
-                <li><a href="../cliente/paginaProductos.php.php"
+                <li><a href="../cliente/paginaProductos.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold">Tienda Productos</a>
                 </li>
                 <li><a href="../cliente/solicitar_producto.php"
