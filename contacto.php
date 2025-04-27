@@ -1,9 +1,16 @@
 <?php
 include 'includes/header.php';
 include 'includes/db.php';
+// session_start();
 
 $mensaje = "";
 $tipoAlerta = "";
+
+
+
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = htmlspecialchars(trim($_POST['name'] ?? ''));

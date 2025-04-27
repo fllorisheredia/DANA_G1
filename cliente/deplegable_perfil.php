@@ -23,7 +23,7 @@ $usuario = $query->get_result()->fetch_assoc();
     <button @click="isOpen = !isOpen"
         class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
         <div class="w-10 h-10 rounded-full overflow-hidden">
-        <img src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto Perfil" class="w-32 h-32 rounded-full mb-4">
+        <img src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto Perfil" class="w-10 h-10 rounded-full mb-4">
                 alt="Foto de perfil">
         </div>
         <span class="mx-1"><?php echo $usuario['nombre'] ?></span>
@@ -132,7 +132,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
         <hr class="border-gray-200 dark:border-gray-700 ">
 
-        <a href="#"
+        <a href="/DANA_G1/cliente/contacto_cliente.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

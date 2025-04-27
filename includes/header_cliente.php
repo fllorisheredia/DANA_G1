@@ -21,7 +21,7 @@ include_once '../includes/db.php';
 
     <div class="navbar bg-base-200 shadow-sm px-6 py-4">
         <div class="navbar-start">
-            <a href="../cliente/vistaInicio.php" class="flex items-center gap-2">
+            <a href="../cliente/dashboardCliente.php" class="flex items-center gap-2">
                 <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
                 <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
             </a>

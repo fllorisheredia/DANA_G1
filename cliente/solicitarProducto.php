@@ -16,7 +16,6 @@ include 'solicitar.php';
 <!-- Contenedor general -->
 <?php include 'paginaServicios.php'; ?>
 
-<!-- Footer o servicios dinámicos -->
 
 </body>
 </html>
