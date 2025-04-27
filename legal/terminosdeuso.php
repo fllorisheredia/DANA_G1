@@ -40,7 +40,7 @@ include '../includes/db.php';
                 <h2 class="text-2xl font-semibold text-violet-700 mb-2">3. Responsabilidad</h2>
                 <p class="text-gray-800 text-justify">
                     Los creadores de este proyecto no se hacen responsables del uso que se haga del contenido aquí
-                    publicado. Se trata de un entorno simulado para fines de formación académica.
+                    publicado. Se trata de un entorno simulado para fines de formación académica  .
                 </p>
             </div>
 
