@@ -1,5 +1,5 @@
 <?php
- session_start();
+ //session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -84,7 +84,7 @@
             <?php include 'deplegable_perfil.php' ?>
 
             </a>
-            
+
         </div>
 
     </div>

@@ -4,7 +4,6 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include '../includes/db.php';
-include '../cliente/header_cliente.php';
 
 $servicios = $conexion->query("
     SELECT s.nombre, s.descripcion, s.fecha, u.nombre AS oferente
