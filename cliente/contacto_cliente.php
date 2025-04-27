@@ -1,9 +1,17 @@
 <?php
-include 'includes/header.php';
-include 'includes/db.php';
+session_start();
+include '../includes/db.php';
+include '../includes/header_cliente.php';
+// session_start();
 
 $mensaje = "";
 $tipoAlerta = "";
+
+
+
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = htmlspecialchars(trim($_POST['name'] ?? ''));
@@ -32,12 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 ?>
 
+<link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+
 <main class="min-h-screen flex items-center justify-center bg-base-100">
 
     <section class="w-full max-w-xl bg-gray-800 p-8 rounded-xl shadow-md space-y-6">
 
         <div class="flex justify-center mx-auto">
-            <img class="w-auto sm:h-20" src="img/logoSinF.png" alt="Logo">
+            <img class="w-auto sm:h-20" src="../img/logoSinF.png" alt="Logo">
         </div>
 
         <h1 class="text-3xl font-bold text-center text-gray-600 dark:text-gray-200">Formulario de Contacto</h1>
@@ -51,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form action="contacto.php" method="POST" class="space-y-4">
             <div>
                 <label for="name" class="block text-lg font-medium text-gray-300">Nombre:</label>
-                <input type="text" id="name" name="name" class="input input-bordered w-full text-lg py-3 mt-2"
+                <input type="text" id="name" name="name" class="input input-bordered border-violet-700 w-full text-lg py-3 mt-2"
                     placeholder="Ingrese su nombre" required>
             </div>
 
@@ -85,5 +96,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </main>
 
 <?php
-include 'includes/footer.php';
+include '../includes/footer.php';
 ?>

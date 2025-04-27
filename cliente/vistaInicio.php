@@ -37,7 +37,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
     <!-- Últimos servicios -->
     <section>
-        <h2 class="text-2xl font-semibold mb-4">Últimos Servicios Añadidos</h2>
+        <h2 class="text-2xl font-bold mb-4 text-purple-700">Servicios Añadidos Recientemente</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <?php while ($s = $servicios->fetch_assoc()): ?>
             <div class="card bg-white shadow-md">
@@ -57,7 +57,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
     <!-- Últimos productos -->
     <section>
-        <h2 class="text-2xl font-semibold mb-4">Últimos Productos</h2>
+        <h2 class="text-2xl font-bold mb-4 text-purple-700">Productos Añadidos Recientemente</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <?php while ($p = $productos->fetch_assoc()): ?>
             <div class="card bg-base-100 shadow">
@@ -67,10 +67,11 @@ $usuario = $query->get_result()->fetch_assoc();
                 </figure>
                 <div class="card-body">
                     <h3 class="card-title"><?= htmlspecialchars($p['nombre']) ?></h3>
-                    <p class="text-lg font-bold text-success">€<?= number_format($p['precio_tonkens'], 2) ?></p>
+                    <p class="text-lg font-bold text-success">🪙<?= number_format($p['precio_tonkens']) ?></p>
                 </div>
             </div>
-            <?php endwhile; ?>
+        </div>
+        <?php endwhile; ?>
         </div>
     </section>
 
