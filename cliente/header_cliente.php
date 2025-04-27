@@ -5,7 +5,7 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-zzzzzzzz8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DANA - Tienda</title>
 
