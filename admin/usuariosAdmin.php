@@ -130,6 +130,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
         </div>
     </div>
 
+    <!-- <script src="funciones.js"></script> -->
     <script src="funciones.js"></script>
 
 </body>

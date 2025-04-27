@@ -12,7 +12,7 @@
     <nav>
         <h6 class="footer-title">Enlaces</h6>
 
-        <a href="/DANA_G1/cliente/dashboardCliente.php" class="text-sm text-base-content font-semibold">Inicio</a>
+        <a href="../cliente/dashboardCliente.php" class="text-sm text-base-content font-semibold">Inicio</a>
         <a href="/DANA_G1/quienes_somos.php" class="text-sm text-base-content font-semibold">Quiénes Somos</a>
         <a href="/DANA_G1/contacto.php" class="text-sm text-base-content font-semibold">Contacto</a>
     </nav>
