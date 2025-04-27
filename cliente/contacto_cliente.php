@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
         <?php endif; ?>
 
-        <form action="contacto.php" method="POST" class="space-y-4">
+        <form action="contacto_cliente.php" method="POST" class="space-y-4">
             <div>
                 <label for="name" class="block text-lg font-medium text-gray-300">Nombre:</label>
                 <input type="text" id="name" name="name"
