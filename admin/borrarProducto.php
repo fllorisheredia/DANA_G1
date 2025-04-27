@@ -1,26 +1,42 @@
 <?php
-include '../includes/db.php';
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    echo "❌ Método inválido. Usa POST.";
-    exit;
-}
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Content-Type: text/plain; charset=utf-8');
 
-if (!isset($_POST['id']) || !is_numeric($_POST['id'])) {
-    echo "❌ ID inválido.";
-    exit;
-}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-$id = intval($_POST['id']);
+    $idProducto = $_POST['id'] ?? null;
 
-$stmt = $conexion->prepare("DELETE FROM productos WHERE id = ?");
-$stmt->bind_param("i", $id);
+    if ($idProducto) {
+        // 👉 Aquí conectamos a la base de datos correcta
+        $conn = new mysqli('localhost', 'root', '', 'tiendadana'); // <- Cambiado aquí
 
-if ($stmt->execute()) {
-    echo "✅ Producto eliminado correctamente.";
+        if ($conn->connect_error) {
+            http_response_code(500);
+            die("❌ Error de conexión a la base de datos: " . $conn->connect_error);
+        }
+
+        $idProducto = intval($idProducto); // Seguridad: convertir a número
+
+        // 👉 Aquí hacemos la eliminación
+        $query = "DELETE FROM productos WHERE id = $idProducto";
+
+        if ($conn->query($query)) {
+            echo "✅ Producto eliminado correctamente.";
+        } else {
+            http_response_code(500);
+            echo "❌ Error al eliminar el producto: " . $conn->error;
+        }
+
+        $conn->close();
+    } else {
+        http_response_code(400);
+        echo "❌ ID de producto no proporcionado.";
+    }
 } else {
-    echo "❌ Error al eliminar: " . $stmt->error;
+    http_response_code(405);
+    echo "❌ Método no permitido.";
 }
-
-$stmt->close();
-$conexion->close();
+?>

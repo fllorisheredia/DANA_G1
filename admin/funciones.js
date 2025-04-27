@@ -237,6 +237,7 @@ function eliminarPedido(pedidoId) {
 // });
 
 //!FUNCIONES DE GESTION DE PRODUCTOS
+
 function eliminarProducto(idProducto) {
   if (!confirm("¿Estás seguro de que deseas eliminar este producto?")) return;
 
@@ -245,12 +246,12 @@ function eliminarProducto(idProducto) {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `id=${idProducto}`,
+    body: `id=${encodeURIComponent(idProducto)}`,
   })
     .then((response) => response.text())
     .then((data) => {
       alert(data);
-      location.reload(); // Refresca para que desaparezca el producto
+      location.reload();
     })
     .catch((error) => {
       alert("❌ Error al eliminar el producto");
@@ -258,25 +259,7 @@ function eliminarProducto(idProducto) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const btn = document.getElementById("btnCerrarSesion");
-  if (btn) {
-    btn.addEventListener("click", function () {
-      fetch("../includes/cerrar_sesion.php") // ← Asegúrate de que esta ruta es válida
-        .then((response) => {
-          if (response.redirected) {
-            window.location.href = response.url;
-          } else {
-            window.location.href = "../index.php";
-          }
-        })
-        .catch((error) => {
-          console.error("Error cerrando sesión:", error);
-          alert("Hubo un error al cerrar la sesión.");
-        });
-    });
-  }
-});
+
 
 //!FUNCIONES PARA ACTUALIZAR LAS COSAS DE LOS PRODUCTOS
 
@@ -305,11 +288,11 @@ function guardarProducto(event, id) {
     });
 }
 
-function eliminarProducto(id) {
-  if (confirm("¿Estás seguro de que quieres eliminar este producto?")) {
-    window.location.href = `borrarProducto.php?id=${id}`;
-  }
-}
+// function eliminarProducto(id) {
+//   if (confirm("¿Estás seguro de que quieres eliminar este producto?")) {
+//     window.location.href = `borrarProducto.php?id=${id}`;
+//   }
+// }
 
 function cerrarPopup() {
   document.getElementById("popup").classList.add("hidden");
