@@ -36,6 +36,7 @@
                         class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
                         Inicio
                     </button>
+
                 </li>
                 <li>
                     <button onclick="cargarVista('../cliente/paginaProductos.php')"

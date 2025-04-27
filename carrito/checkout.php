@@ -21,7 +21,7 @@ function mostrarMensaje($mensaje, $exito = false) {
                 <?= $exito ? '¡Pedido realizado!' : 'Error' ?>
             </h2>
             <p class="mb-6"><?= $mensaje ?></p>
-            <a href="../cliente/dashboardCliente.php" class="btn btn-primary">Volver</a>
+            <a href="../cliente/vistaInicio.php" class="btn btn-primary">Volver</a>
         </div>
     </body>
     </html>

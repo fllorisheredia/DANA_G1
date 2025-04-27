@@ -11,24 +11,23 @@
     <nav>
         <h6 class="footer-title">Enlaces</h6>
 
-        <a href="/DANA_G1/cliente/dashboardCliente.php" class="text-sm text-base-content font-semibold">Inicio</a>
-        <a onclick="cargarVista('../cliente/paginaProductos.php')"
-            class="text-sm text-base-content font-semibold cursor-pointer">Tienda Productos</a>
+ Servicios</a>
 
-        <a onclick="cargarVista('../cliente/solicitarProducto.php')"
-            class="text-sm text-base-content font-semibold cursor-pointer">Tienda
-            Servicios</a>
+        <a onclick="parent.cargarVista('vistaInicio.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Inicio</a>
+        <a onclick="parent.cargarVista('quienes_somos_cliente.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Quiénes Somos</a>
+        <a onclick="parent.cargarVista('contacto_cliente.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Contacto</a>
+
     </nav>
 
     <nav>
         <h6 class="footer-title">Legal</h6>
-        <a href="/DANA_G1/legal/terminosdeuso.php" class="text-sm text-base-content font-semibold">Términos de uso</a>
-        <a href="/DANA_G1/legal/privacidad.php" class="text-sm text-base-content font-semibold">Política de
+        <a onclick="parent.cargarVista('../cliente/quienes_somos_cliente.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Términos de uso</a>
+        <a onclick="parent.cargarVista('../legal/privacidad.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Política de
             privacidad</a>
-        <a href="/DANA_G1/legal/condiciones.php" class="text-sm text-base-content font-semibold">Condiciones de uso y
+        <a onclick="parent.cargarVista('../legal/condiciones.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Condiciones de uso y
             venta</a>
-        <a href="/DANA_G1/legal/cookies.php" class="text-sm text-base-content font-semibold">Política de cookies</a>
-        <a href="/DANA_G1/legal/legal.php" class="text-sm text-base-content font-semibold">Aviso Legal</a>
+        <a onclick="parent.cargarVista('../legal/cookies.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Política de cookies</a>
+        <a onclick="parent.cargarVista('../legal/legal.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer" >Aviso Legal</a>
     </nav>
 </footer>
 
