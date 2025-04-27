@@ -2,9 +2,9 @@
 
 $servidor = "localhost";
 $usuario = "root";
-$password = "";
+$password = "1234";
 $base_datos = "teledana";
-$port = 3306;
+$port = 3307;
 
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos, $port);
 

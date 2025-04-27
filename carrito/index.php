@@ -46,8 +46,10 @@ $total = 0;
     ?>
     <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
       <div class="flex w-full space-x-4">
-        <img src="<?php echo $fila['imagen']; ?>" alt="<?php echo $fila['nombre']; ?>" 
-             class="object-cover w-24 h-24 rounded-lg shadow-md">
+      <!-- <img src="../<?= htmlspecialchars($fila['imagen']) ?>" alt="<?= htmlspecialchars($fila['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl"> -->
+
+      <img src="../<?= htmlspecialchars($fila['imagen']) ?>" alt="<?= htmlspecialchars($fila['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl">
+       
         <div class="flex flex-col justify-between w-full">
           <div class="flex justify-between w-full">
             <div>
@@ -71,7 +73,7 @@ $total = 0;
   </div>
 
   <div class="flex justify-end gap-4">
-    <a href="../index.php" class="btn btn-outline">← Volver a la tienda</a>
+    <a href="../cliente/dashboardCliente.php" class="btn btn-outline">← Volver a la tienda</a>
     <a href="checkout.php" class="btn btn-primary">Finalizar compra</a>
   </div>
 </div>
