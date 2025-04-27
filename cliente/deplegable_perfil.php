@@ -1,5 +1,4 @@
 <?php
-session_start();
 include '../includes/db.php';
 //$resultado = $conexion->query("SELECT * FROM usuarios");
 
@@ -23,8 +22,9 @@ $usuario = $query->get_result()->fetch_assoc();
     <!-- Dropdown toggle button -->
     <button @click="isOpen = !isOpen"
         class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
-        <div class="w-10 rounded-full">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" />
+        <div class="w-10 h-10 rounded-full overflow-hidden">
+        <img src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto Perfil" class="w-32 h-32 rounded-full mb-4">
+                alt="Foto de perfil">
         </div>
         <span class="mx-1"><?php echo $usuario['nombre'] ?></span>
         <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@ $usuario = $query->get_result()->fetch_assoc();
         <a href="#"
             class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
             <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
-                src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="jane avatar">
+            src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="jane avatar">
             <div class="mx-1">
                 <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200"><?php echo $usuario['nombre'] ?></h1>
                 <p class="text-sm text-gray-500 dark:text-gray-400"><?php echo $usuario['email'] ?></p>
