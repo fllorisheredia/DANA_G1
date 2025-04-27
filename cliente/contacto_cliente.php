@@ -8,11 +8,6 @@ $mensaje = "";
 $tipoAlerta = "";
 
 
-
-
-
-
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = htmlspecialchars(trim($_POST['name'] ?? ''));
     $email = htmlspecialchars(trim($_POST['email'] ?? ''));
@@ -62,7 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form action="contacto.php" method="POST" class="space-y-4">
             <div>
                 <label for="name" class="block text-lg font-medium text-gray-300">Nombre:</label>
-                <input type="text" id="name" name="name" class="input input-bordered border-violet-700 w-full text-lg py-3 mt-2"
+                <input type="text" id="name" name="name"
+                    class="input input-bordered border-violet-700 w-full text-lg py-3 mt-2"
                     placeholder="Ingrese su nombre" required>
             </div>
 
