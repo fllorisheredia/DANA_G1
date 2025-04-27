@@ -21,6 +21,19 @@ include '../includes/db.php';
     </div>
 </div>
 <?php endif; ?>
+<?php if (isset($_GET['registro']) && $_GET['registro'] !== 'exitoso'): ?>
+<input type="checkbox" id="registroExitosoModal" class="modal-toggle" checked />
+<div class="modal">
+    <div class="modal-box text-center">
+        <h2 class="text-2xl font-bold text-red-600 mb-4">TU AYUDA NO HA SIDO AÑADIDA!</h2>
+        <p class="text-lg">Tu ayuda no ha sido añadida, verifica bien los datos! </p>
+        <div class="modal-action">
+            <label for="registroExitosoModal" class="btn btn-success">Cerrar</label>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
 <body>
 <div class="flex gap-4 justify-center flex-wrap">
 
@@ -34,6 +47,7 @@ include '../includes/db.php';
       <p>Ofrecete de limpiador</p>
       <input type="hidden" name="nombreProducto" value="Limpieza">
       <input type="hidden" name="descripcion" value="Ofrezco ayuda con mis conocimientos en limpieza">
+      <input type="hidden" name="categoria" value="Limpieza">
       
       <div class="card-actions mt-2">
         <button type="button" class="btn btn-primary" onclick="mostrarModal('modal1')">Ofrecerse</button>
@@ -46,11 +60,12 @@ include '../includes/db.php';
 <div class="modal">
   <div class="modal-box text-center">
     <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña informacion</h2>
-    <p class="text-lg font-bold">Necesitamos Saber La Hora Que Puede Asistir</p>
+    <p class="text-lg font-bold">Necesitamos Saber La Fecha Y La Hora En La Que Puede Asistir</p>
 
     <!-- Input manual de hora -->
     <p class="text-lg mt-4"></p>
-    <input type="time" id="inputHora" class="input input-bordered w-full max-w-xs mt-2" required>
+    <input type="datetime-local" id="inputHora" class="input input-bordered w-full max-w-xs mt-2" required>
+
      <!-- Textarea para destino -->
      <textarea id="inputCiudad" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Ciudad Afectada que vas a ayudar..." required></textarea>
 
@@ -80,7 +95,7 @@ include '../includes/db.php';
       <p>Ofrecete a llevar alimentos a las casas de los más necesitados</p>
       <input type="hidden" name="nombreProducto" value="Reparto de comida">
       <input type="hidden" name="descripcion" value="Distribuyo víveres en zonas afectadas por la DANA">
-      
+      <input type="hidden" name="categoria" value="Alimento">
       <div class="card-actions mt-2">
         <button type="button" class="btn btn-primary" onclick="mostrarModal6('modal2')">Ofrecerse</button>
       </div>
@@ -92,11 +107,12 @@ include '../includes/db.php';
 <div class="modal">
   <div class="modal-box text-center">
     <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña informacion</h2>
-    <p class="text-lg font-bold">Necesitamos Saber La Hora Que Puede Asistir</p>
+    <p class="text-lg font-bold">Necesitamos Saber La Fecha Y La Hora En La Que Puede Asistir</p>
 
     <!-- Input manual de hora -->
     <p class="text-lg mt-4"></p>
-    <input type="time" id="inputHora6" class="input input-bordered w-full max-w-xs mt-2" required>
+    <input type="datetime-local" id="inputHora6" class="input input-bordered w-full max-w-xs mt-2" required>
+
      <!-- Textarea para destino -->
      <textarea id="inputCiudad6" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Ciudad Afectada que vas a repartir comida..." required></textarea>
 
@@ -127,7 +143,7 @@ include '../includes/db.php';
       <p>Usa tus conocimientos para ayudar a otros</p>
       <input type="hidden" name="nombreProducto" value="Bricolaje">
       <input type="hidden" name="descripcion" value="Ayudo con mis conocimientos de bricolaje">
-      
+      <input type="hidden" name="categoria" value="Bricolaje">
       <div class="card-actions mt-2">
         <button type="button" class="btn btn-primary" onclick="mostrarModal7('modal3')">Ofrecerse</button>
       </div>
@@ -138,18 +154,19 @@ include '../includes/db.php';
   <input type="checkbox" id="modal3" class="modal-toggle" />
   <div class="modal">
     <div class="modal-box text-center">
-      <h2 class="text-2xl font-bold text-green-600 mb-4">¡Producto añadido!</h2>
-      <p class="text-lg">El producto ha sido agregado correctamente, gracias por tu aportación!</p>
+      <h2 class="text-2xl font-bold text-green-600 mb-4">Perfecto, solo falta una pequeña información</h2>
+      <p class="text-lg">Necesitamos Saber La Fecha Y La Hora En La Que Puede Asistir y el destino</p>
       
       <!-- Input manual de hora -->
     <p class="text-lg mt-4"></p>
-    <input type="time" id="inputHora7" class="input input-bordered w-full max-w-xs mt-2" required>
+    <input type="datetime-local" id="inputHora7" class="input input-bordered w-full max-w-xs mt-2" required>
+
 
       <!-- Bloque de texto para comentarios -->
-      <textarea id="inputCiudad7" placeholder="Comentarios adicionales..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
+      <textarea id="inputCiudad7" placeholder="Ciudad Afectada Que Vas A Ayudar..." class="textarea textarea-bordered w-full mt-4" rows="3"></textarea>
       
       <div class="modal-action">
-        <button type="button" class="btn btn-primary" id="enviarBtn7">Enviar</button>
+        <button type="button" class="btn btn-primary" id="enviarBtn7" >Enviar</button>
         <label for="modal3" class="btn btn-success">Cerrar</label>
       </div>
     </div>
@@ -165,6 +182,7 @@ include '../includes/db.php';
       <p>Ayuda transportando personas o cosas</p>
       <input type="hidden" name="nombreProducto" value="Transporte solidario">
       <input type="hidden" name="descripcion" value="Ofrezco transporte solidario hasta el siguiente destino:">
+      <input type="hidden" name="categoria" value="Transporte">
       
       <div class="card-actions mt-2">
         <button type="button" class="btn btn-primary" onclick="mostrarModal2('modal4')">Ofrecerse</button>
@@ -178,10 +196,11 @@ include '../includes/db.php';
   <div class="modal">
     <div class="modal-box text-center">
       <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña información</h2>
-      <p class="text-lg font-bold">Necesitamos saber la hora que puede asistir y el destino</p>
+      <p class="text-lg font-bold">Necesitamos Saber La Fecha Y La Hora En La Que Puede Asistir y el destino</p>
 
       <!-- Input manual de hora -->
-      <input type="time" id="inputHora2" class="input input-bordered w-full max-w-xs mt-4" required>
+      <input type="datetime-local" id="inputHora2" class="input input-bordered w-full max-w-xs mt-2" required>
+
 
       <!-- Textarea para destino -->
       <textarea id="inputDestino2" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Escribe Zona Afectada..." required></textarea>
@@ -202,15 +221,16 @@ include '../includes/db.php';
 </form>
 
  <!-- PRODUCTO 5 -->
- <form id="form5" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm" onsubmit="return false;">
+ <form id="form5" action="subir.php" method="POST" class="card bg-base-100 w-96 shadow-sm">
     <figure class="px-10 pt-10">
-      <img src="../img/maestro.jpg" alt="transporte" class="rounded-xl w-64 h-64" />
+      <img src="../img/maestro.jpg" alt="maestro" class="rounded-xl w-64 h-64" />
     </figure>
     <div class="card-body items-center text-center">
       <h2 class="card-title">Ofrecerse de ayudante de tareas escolares</h2>
       <p>Apoyo escolar para niños en situación vulnerable.</p>
       <input type="hidden" name="nombreProducto" value="Ayuda con tareas escolares">
       <input type="hidden" name="descripcion" value="Apoyo escolar para niños en situación vulnerable.">
+      <input type="hidden" name="categoria" value="Enseñanza">
       
       <div class="card-actions mt-2">
         <button type="button" class="btn btn-primary" onclick="mostrarModal3('modal5')">Ofrecerse</button>
@@ -224,11 +244,13 @@ include '../includes/db.php';
   <div class="modal">
     <div class="modal-box text-center">
       <h2 class="text-2xl font-bold text-white-600 mb-4">Perfecto, solo falta una pequeña información</h2>
-      <p class="text-lg font-bold">Necesitamos saber tu especialidad (ingles, matematicas, etc...)</p>
-
+      
+      <p class="text-lg font-bold">Necesitamos Saber La Fecha Y La Hora En La Que Puede Asistir y el destino</p>
       <!-- Input manual de hora -->
-      <input type="time" id="inputHora3" class="input input-bordered w-full max-w-xs mt-4" required>
-
+      <input type="datetime-local" id="inputHora3" class="input input-bordered w-full max-w-xs mt-2" required>
+      <textarea id="inputDestino32" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Escribe Zona Afectada..." required></textarea>
+      
+      <p class="text-lg font-bold">Necesitamos saber tu especialidad (ingles, matematicas, etc...)</p>
       <!-- Textarea para destino -->
       <textarea id="inputEspecialidad2" class="textarea textarea-bordered w-full mt-4" rows="3" placeholder="Especialidad..." required></textarea>
 
@@ -239,8 +261,8 @@ include '../includes/db.php';
 
       <!-- Acciones -->
       <div class="modal-action">
-        <button type="button" class="btn btn-primary" id="enviarBtn5">Enviar</button>
-        <label for="modal5" class="btn btn-success">Cerrar</label>
+      <button type="button" class="btn btn-primary" id="enviarBtn5">Enviar</button>
+      <label for="modal5" class="btn btn-success">Cerrar</label>
       </div>
     </div>
   </div>
@@ -250,35 +272,31 @@ include '../includes/db.php';
   // Mostrar el modal al activar el botón de "Ofrecerse"
   function mostrarModal() {
   document.getElementById("modal1").checked = true;
-  
 
-  // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
-  const horaSeleccionada = document.getElementById("inputHora").value;
+
 
   document.getElementById("enviarBtn").onclick = function() {
-  const horaSeleccionada = document.getElementById("inputHora").value;
-  const ciudadAyudar = document.getElementById("inputCiudad").value;
-  if (!horaSeleccionada || !ciudadAyudar) {
-    alert("Por favor, Completa Todos Los Campos.");
-    return;
+    const horaSeleccionada = document.getElementById("inputHora").value;
+    const ciudadAyudar = document.getElementById("inputCiudad").value;
+
+    
+    const form = document.querySelector("form");
+
+    const inputHora = document.createElement("input");
+    inputHora.type = "hidden";
+    inputHora.name = "hora";
+    inputHora.value = horaSeleccionada;
+    form.appendChild(inputHora);
+
+    const inputCiudad = document.createElement("input");
+    inputCiudad.type = "hidden";
+    inputCiudad.name = "ciudad";
+    inputCiudad.value = ciudadAyudar;
+    form.appendChild(inputCiudad);
+
+    form.submit();
   }
-
-  const form = document.querySelector("form");
-
-  const inputHora = document.createElement("input");
-  inputHora.type = "hidden";
-  inputHora.name = "hora";
-  inputHora.value = horaSeleccionada;
-  form.appendChild(inputHora); 
-
-  const inputCiudad = document.createElement("input");
-  inputCiudad.type = "hidden";
-  inputCiudad.name = "ciudad";
-  inputCiudad.value = ciudadAyudar;
-  form.appendChild(inputCiudad); 
-
-  form.submit();
-  }};
+};
   
 function mostrarModal2() {
   document.getElementById("modal4").checked = true; // Abre el modal
@@ -287,12 +305,8 @@ function mostrarModal2() {
     const hora = document.getElementById("inputHora2").value;
     const destino = document.getElementById("inputDestino2").value;
     const llegada = document.getElementById("inputLlegada").value;
-
-    if (!hora || !destino || !llegada) {
-      alert("Por favor, Completa todos los campos.");
-      return;
-    }
-
+    
+  
     // Obtener el formulario original
     const form = document.getElementById("form4");
 
@@ -327,14 +341,19 @@ function mostrarModal3() {
   document.getElementById("enviarBtn5").onclick = function() {
     const hora = document.getElementById("inputHora3").value;
     const especialidad = document.getElementById("inputEspecialidad2").value;
+    const ciudadAyudar = document.getElementById("inputDestino32").value; // Corregir el error tipográfico
 
-    if (!hora || !especialidad) {
-      alert("Por favor, Completa todos los campos.");
-      return;
-    }
-
+  
+     
     // Obtener el formulario original
     const form = document.getElementById("form5");
+
+    // Crear y agregar input oculto para ciudad
+    const inputCiudad = document.createElement("input");
+    inputCiudad.type = "hidden";
+    inputCiudad.name = "ciudad";
+    inputCiudad.value = ciudadAyudar;
+    form.appendChild(inputCiudad);
 
     // Crear y agregar input oculto para hora
     const inputHoraHidden = document.createElement("input");
@@ -355,66 +374,57 @@ function mostrarModal3() {
 }
 
 function mostrarModal6() {
-    document.getElementById("modal2").checked = true;
-  
+  document.getElementById("modal2").checked = true;
 
-  // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
+
+
   document.getElementById("enviarBtn6").onclick = function() {
-  const horaSeleccionada = document.getElementById("inputHora6").value;
-  const ciudadAyudar = document.getElementById("inputCiudad6").value;
+    const horaSeleccionada = document.getElementById("inputHora6").value;
+    const ciudadAyudar = document.getElementById("inputCiudad6").value;
 
-  if (!horaSeleccionada || !ciudadAyudar) {
-    alert("Por favor, Completa Todos Los Campos.");
-    return;
-  }
 
-  const form = document.getElementById("form2");
+    const form = document.getElementById("form2");
 
-  const inputHora = document.createElement("input");
-  inputHora.type = "hidden";
-  inputHora.name = "hora";
-  inputHora.value = horaSeleccionada;
-  form.appendChild(inputHora); 
+    const inputHora = document.createElement("input");
+    inputHora.type = "hidden";
+    inputHora.name = "hora";
+    inputHora.value = horaSeleccionada;
+    form.appendChild(inputHora);
 
-  const inputCiudad = document.createElement("input");
-  inputCiudad.type = "hidden";
-  inputCiudad.name = "ciudad";
-  inputCiudad.value = ciudadAyudar;
-  form.appendChild(inputCiudad); 
+    const inputCiudad = document.createElement("input");
+    inputCiudad.type = "hidden";
+    inputCiudad.name = "ciudad";
+    inputCiudad.value = ciudadAyudar;
+    form.appendChild(inputCiudad);
 
-  form.submit();
+    form.submit();
   }
 };
 function mostrarModal7() {
-    document.getElementById("modal3").checked = true;
-  
+  document.getElementById("modal3").checked = true;
 
   // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
   document.getElementById("enviarBtn7").onclick = function() {
-  const horaSeleccionada = document.getElementById("inputHora7").value;
-  const ciudadAyudar = document.getElementById("inputCiudad7").value;
+    const horaSeleccionada = document.getElementById("inputHora7").value;
+    const ciudadAyudar = document.getElementById("inputCiudad7").value; 
 
-  if (!horaSeleccionada || !ciudadAyudar) {
-    alert("Por favor, Completa Todos Los Campos.");
-    return;
-  }
+    // Crear el formulario oculto para enviar los datos
+    const form = document.getElementById("form3");
 
-  const form = document.getElementById("form3");
+    const inputHora = document.createElement("input");
+    inputHora.type = "hidden";
+    inputHora.name = "hora";
+    inputHora.value = horaSeleccionada;
+    form.appendChild(inputHora);
 
-  const inputHora = document.createElement("input");
-  inputHora.type = "hidden";
-  inputHora.name = "hora";
-  inputHora.value = horaSeleccionada;
-  form.appendChild(inputHora); 
+    const inputCiudad = document.createElement("input");
+    inputCiudad.type = "hidden";
+    inputCiudad.name = "ciudad";
+    inputCiudad.value = ciudadAyudar;
+    form.appendChild(inputCiudad);
 
-  const inputCiudad = document.createElement("input");
-  inputCiudad.type = "hidden";
-  inputCiudad.name = "ciudad";
-  inputCiudad.value = ciudadAyudar;
-  form.appendChild(inputCiudad); 
-
-  form.submit();
-  }
+    form.submit();
+  };
 };
 
 </script>
