@@ -1,5 +1,4 @@
 <?php
-include 'header_voluntario.php';
 include '../includes/db.php';
 ?>
 <!DOCTYPE html>
@@ -8,6 +7,11 @@ include '../includes/db.php';
 <head>
     <meta charset="UTF-8">
     <title>Subir Servicio</title>
+
+    <!-- DaisyUI + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <?php if (isset($_GET['registro']) && $_GET['registro'] === 'exitoso'): ?>
@@ -45,7 +49,7 @@ include '../includes/db.php';
                 <img src="../img/servicios.jfif" alt="Limpieza" class="rounded-xl w-64 h-64" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Ofrecerse de Limpieza</h2>
+                <h2 class="card-title text-violet-600">Ofrecer servicios de limpieza</h2>
                 <p>Ofrecete de limpiador</p>
                 <input type="hidden" name="nombreProducto" value="Limpieza">
                 <input type="hidden" name="descripcion" value="Ofrezco ayuda con mis conocimientos en limpieza">
@@ -94,7 +98,7 @@ include '../includes/db.php';
                 <img src="../img/repartidorcomida.jpg" alt="Comida" class="rounded-xl w-64 h-64" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Ofrecerse a repartir alimento</h2>
+                <h2 class="card-title">Ofrecer servicios de reparto de alimentos</h2>
                 <p>Ofrecete a llevar alimentos a las casas de los más necesitados</p>
                 <input type="hidden" name="nombreProducto" value="Reparto de comida">
                 <input type="hidden" name="descripcion" value="Distribuyo víveres en zonas afectadas por la DANA">
@@ -143,7 +147,7 @@ include '../includes/db.php';
                 <img src="../img/bricolaje.png" alt="servicios" class="rounded-xl w-64 h-64" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Ofrecerse de bricolaje</h2>
+                <h2 class="card-title">Ofrecer servicios de bricolaje</h2>
                 <p>Usa tus conocimientos para ayudar a otros</p>
                 <input type="hidden" name="nombreProducto" value="Bricolaje">
                 <input type="hidden" name="descripcion" value="Ayudo con mis conocimientos de bricolaje">
@@ -184,7 +188,7 @@ include '../includes/db.php';
                 <img src="../img/coche.webp" alt="transporte" class="rounded-xl w-64 h-64" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Ofrecerse de Transporte</h2>
+                <h2 class="card-title">Ofrecer servicios de transporte</h2>
                 <p>Ayuda transportando personas o cosas</p>
                 <input type="hidden" name="nombreProducto" value="Transporte solidario">
                 <input type="hidden" name="descripcion"
@@ -238,7 +242,7 @@ include '../includes/db.php';
                 <img src="../img/maestro.jpg" alt="maestro" class="rounded-xl w-64 h-64" />
             </figure>
             <div class="card-body items-center text-center">
-                <h2 class="card-title">Ofrecerse de ayudante de tareas escolares</h2>
+                <h2 class="card-title">Ofrecer servicios de ayudan en tareas escolares</h2>
                 <p>Apoyo escolar para niños en situación vulnerable.</p>
                 <input type="hidden" name="nombreProducto" value="Ayuda con tareas escolares">
                 <input type="hidden" name="descripcion" value="Apoyo escolar para niños en situación vulnerable.">
@@ -287,6 +291,3 @@ include '../includes/db.php';
         <script src="funciones.js"></script>
 
 </html>
-<?php
-include 'footer_voluntario.php'
-?>
