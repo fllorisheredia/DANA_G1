@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: cliente/dashboardCliente.php");
                 break;
             case 'voluntario':
-                header("Location: voluntario/subir_producto.php");
+                header("Location: voluntario/dashboardVoluntario.php");
                 break;
             default:
                 $error = "Rol desconocido.";

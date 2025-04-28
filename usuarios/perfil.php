@@ -36,101 +36,101 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Perfil de <?php echo htmlspecialchars($usuario['nombre']); ?></title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Perfil de <?php echo htmlspecialchars($usuario['nombre']); ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" />
 </head>
 
 <body class="bg-base-200 p-6">
 
-<div class="text-sm breadcrumbs mb-6">
-    <ul>
-        <li><a href="#">Inicio</a></li>
-        <li class="text-primary">Perfil</li>
-    </ul>
-</div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Columna izquierda -->
+        <div class="flex flex-col gap-6">
 
-    <!-- Columna izquierda -->
-    <div class="flex flex-col gap-6">
+            <!-- Perfil -->
+            <div class="card bg-base-100 shadow-md p-6 items-center text-center">
 
-        <!-- Perfil -->
-        <div class="card bg-base-100 shadow-md p-6 items-center text-center">
-            
 
-        <!-- IMAgend de perfilk -->
-        <img src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto Perfil" class="w-32 h-32 rounded-full mb-4">
-          
-            <h2 class="text-xl font-bold"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
-            <p class="text-sm text-gray-500 font-bold">ROL: <?php echo htmlspecialchars($usuario['rol']); ?></p>
-            <div class="mt-4 flex gap-2">
-                <button class="btn btn-primary btn-sm">Seguir</button>
-                <a href="../mensajes/chat.php" class="btn btn-outline btn-sm">Mensaje</a>
+                <!-- IMAgend de perfilk -->
+                <img src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto Perfil"
+                    class="w-32 h-32 rounded-full mb-4">
+
+                <h2 class="text-xl font-bold"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
+                <p class="text-sm text-gray-500 font-bold">ROL: <?php echo htmlspecialchars($usuario['rol']); ?></p>
+                <div class="mt-4 flex gap-2">
+                    <button class="btn btn-primary btn-sm">Seguir</button>
+                    <a href="../mensajes/chat.php" class="btn btn-outline btn-sm">Mensaje</a>
+                </div>
             </div>
-        </div>
 
-        <!-- Redes -->
-              <!-- Pedidos -->
-              <div class="card bg-base-100 shadow-md p-6">
+            <!-- Redes -->
+            <!-- Pedidos -->
+            <div class="card bg-base-100 shadow-md p-6">
                 <h2 class="font-semibold text-lg mb-4">📊 ULTIMOS PEDIDOS</h2>
                 <div class="overflow-x-auto">
                     <?php if ($tienePedidos): ?>
-                        <table class="table w-full">
-                            <thead>
-                                <tr>
-                                    <th>ID Pedido</th>
-                                    <th>Estado</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php while ($pedido = $resultPedidos->fetch_assoc()): ?>
-                                <tr>
-                                    <td>#<?php echo $pedido['id']; ?></td>
-                                    <td><?php echo ucfirst($pedido['estado']); ?></td>
-                                 
-                                </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                         
-                        </table>
-                        <a href="../usuarios/pedidosUsuario.php?id=<?php echo $mensaje['id']; ?>" class="btn btn-primary btn-sm">
-                                            Ver Todos los Pedidos
-                                        </a>
+                    <table class="table w-full">
+                        <thead>
+                            <tr>
+                                <th>ID Pedido</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while ($pedido = $resultPedidos->fetch_assoc()): ?>
+                            <tr>
+                                <td>#<?php echo $pedido['id']; ?></td>
+                                <td><?php echo ucfirst($pedido['estado']); ?></td>
+
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+
+                    </table>
+                    <a href="../usuarios/pedidosUsuario.php?id=<?php echo $mensaje['id']; ?>"
+                        class="btn btn-primary btn-sm">
+                        Ver Todos los Pedidos
+                    </a>
                     <?php else: ?>
-                        <div class="alert alert-info">🚫 No tienes pedidos registrados todavía.</div>
+                    <div class="alert alert-info">🚫 No tienes pedidos registrados todavía.</div>
                     <?php endif; ?>
                 </div>
             </div>
 
-    </div>
-
-    <!-- Columna derecha -->
-    <div class="md:col-span-2 flex flex-col gap-6">
-
-        <!-- Información Personal -->
-        <div class="card bg-base-100 shadow-md p-6">
-            <h2 class="text-xl font-bold mb-4">Información Personal de <?php echo htmlspecialchars($usuario['nombre']); ?></h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-                <div><span class="font-semibold">Nombre:</span> <?php echo htmlspecialchars($usuario['nombre']); ?></div>
-                <div><span class="font-semibold">Email:</span> <?php echo htmlspecialchars($usuario['email']); ?></div>
-                <div><span class="font-semibold">Cantidad de Tonkens:</span> <?php echo htmlspecialchars($usuario['tonkens']); ?></div>
-                <div><span class="font-semibold">Valoración:</span> <?php echo htmlspecialchars($usuario['valoracion']); ?></div>
-            </div>
-            <div class="mt-6">
-                <a href="editar.php" class="btn btn-primary btn-sm">Editar Perfil</a>
-            </div>
         </div>
 
-        <!-- Mensajes y Pedidos -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Columna derecha -->
+        <div class="md:col-span-2 flex flex-col gap-6">
 
-            <!-- Mensajes -->
+            <!-- Información Personal -->
             <div class="card bg-base-100 shadow-md p-6">
-                <h2 class="font-semibold text-lg mb-4">📥 MENSAJES</h2>
-                <div class="overflow-x-auto">
-                    <?php if ($tieneMensajes): ?>
+                <h2 class="text-xl font-bold mb-4">Información Personal de
+                    <?php echo htmlspecialchars($usuario['nombre']); ?></h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                    <div><span class="font-semibold">Nombre:</span> <?php echo htmlspecialchars($usuario['nombre']); ?>
+                    </div>
+                    <div><span class="font-semibold">Email:</span> <?php echo htmlspecialchars($usuario['email']); ?>
+                    </div>
+                    <div><span class="font-semibold">Cantidad de Tonkens:</span>
+                        <?php echo htmlspecialchars($usuario['tonkens']); ?></div>
+                    <div><span class="font-semibold">Valoración:</span>
+                        <?php echo htmlspecialchars($usuario['valoracion']); ?></div>
+                </div>
+                <div class="mt-6">
+                    <a href="editar.php" class="btn btn-primary btn-sm">Editar Perfil</a>
+                </div>
+            </div>
+
+            <!-- Mensajes y Pedidos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Mensajes -->
+                <div class="card bg-base-100 shadow-md p-6">
+                    <h2 class="font-semibold text-lg mb-4">📥 MENSAJES</h2>
+                    <div class="overflow-x-auto">
+                        <?php if ($tieneMensajes): ?>
                         <table class="table w-full">
                             <thead>
                                 <tr>
@@ -143,7 +143,8 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                                 <tr>
                                     <td><?php echo htmlspecialchars($mensaje['nombre']); ?></td>
                                     <td>
-                                        <a href="../mensajes/chat.php?id=<?php echo $mensaje['id']; ?>" class="btn btn-primary btn-sm">
+                                        <a href="../mensajes/chat.php?id=<?php echo $mensaje['id']; ?>"
+                                            class="btn btn-primary btn-sm">
                                             Ver conversación
                                         </a>
                                     </td>
@@ -151,13 +152,13 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                                 <?php endwhile; ?>
                             </tbody>
                         </table>
-                    <?php else: ?>
+                        <?php else: ?>
                         <div class="alert alert-info">📥 No tienes ningún mensaje todavía.</div>
-                    <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
 
-            <!-- Pedidos
+                <!-- Pedidos
             <div class="card bg-base-100 shadow-md p-6">
                 <h2 class="font-semibold text-lg mb-4">📊 ULTIMOS PEDIDOS</h2>
                 <div class="overflow-x-auto">
@@ -189,13 +190,14 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                 </div>
             </div> -->
 
+            </div>
+
         </div>
 
     </div>
 
-</div>
-
-<?php include 'footerUsuario.php'; ?>
+    <?php include 'footerUsuario.php'; ?>
 
 </body>
+
 </html>
