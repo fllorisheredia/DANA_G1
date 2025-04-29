@@ -166,16 +166,16 @@ function actualizarTonkens(idUsuario) {
 
 // FUNCION DE MOSTRAR EL MENU DE OPCIONES
 
-function toggleMenu(id) {
-  document.querySelectorAll("tr[id^='menu-content-']").forEach((menu) => {
-    if (menu.id !== `menu-content-${id}`) {
-      menu.classList.add("hidden");
-    }
-  });
+// function toggleMenu(id) {
+//   document.querySelectorAll("tr[id^='menu-content-']").forEach((menu) => {
+//     if (menu.id !== `menu-content-${id}`) {
+//       menu.classList.add("hidden");
+//     }
+//   });
 
-  const menu = document.getElementById(`menu-content-${id}`);
-  menu.classList.toggle("hidden");
-}
+//   const menu = document.getElementById(`menu-content-${id}`);
+//   menu.classList.toggle("hidden");
+// }
 
 document.addEventListener("click", function (e) {
   const clickedMenuButton = e.target.closest("a.btn-secondary");
