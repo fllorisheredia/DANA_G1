@@ -1,5 +1,10 @@
 <?php
 include '../includes/db.php';
+$query = "SELECT * FROM servicios ORDER BY hora_realizar ASC";
+$servicios = $conexion->query($query);
+if (!$servicios) {
+    die("Error al obtener los servicios: " . $conexion->error);
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,7 +45,12 @@ include '../includes/db.php';
 </div>
 <?php endif; ?>
 
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mt-4">
+<div class="text-center my-6">
+    <h2 class="text-3xl font-semibold text-violet-600">Añade tus servicios</h2>
+    <p class="text-lg text-white">Aquí puedes añadir los servicios que quieras ofrecer</p>
+</div>
+
+<div class="grid grid-cols-4 gap-6 mt-4">
 
     <!-- SERVICIO 1: Limpieza -->
     <form id="form1" action="subir.php" method="POST" class="card bg-white shadow-xl border border-gray-300 rounded-xl">
@@ -182,6 +192,61 @@ include '../includes/db.php';
     </div>
 
 </div>
+
+<!-- Mensajes de sesión -->
+<?php if (isset($_SESSION['mensaje_exito'])): ?>
+<div class="alert alert-success"><?= $_SESSION['mensaje_exito'] ?></div>
+<?php unset($_SESSION['mensaje_exito']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['mensaje_error'])): ?>
+<div class="alert alert-error"><?= $_SESSION['mensaje_error'] ?></div>
+<?php unset($_SESSION['mensaje_error']); ?>
+<?php endif; ?>
+
+
+<div class="text-center my-6">
+    <h2 class="text-3xl font-semibold text-violet-600">Servicios recientes</h2>
+    <p class="text-lg text-white">Aquí puedes ver los servicios más recientes ofrecidos</p>
+</div>
+
+<!-- Servicios -->
+<?php if ($servicios->num_rows > 0): ?>
+<div class="grid grid-cols-4 gap-6 mt-4">
+    <?php while ($servicio = $servicios->fetch_assoc()): ?>
+    <div class="card bg-white shadow-xl border border-gray-300 rounded-xl">
+        <figure>
+            <img src="../<?= htmlspecialchars($servicio['imagen']) ?>"
+                alt="<?= htmlspecialchars($servicio['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl">
+        </figure>
+        <div class="card-body p-4">
+            <h3 class="text-lg font-semibold text-violet-800"><?= htmlspecialchars($servicio['nombre']) ?></h3>
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold text-black">Categoría:</span>
+                <?= htmlspecialchars($servicio['categoria']) ?>
+            </p>
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold text-black">Fecha y hora:</span>
+                <?= date("d/m/Y H:i", strtotime($servicio['hora_realizar'])) ?>
+            </p>
+            <?php if (!empty($servicio['origen'])): ?>
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold text-black">Origen:</span> <?= htmlspecialchars($servicio['origen']) ?>
+            </p>
+            <?php endif; ?>
+            <?php if (!empty($servicio['destino'])): ?>
+            <p class="text-sm text-gray-600">
+                <span class="font-semibold text-black">Destino:</span> <?= htmlspecialchars($servicio['destino']) ?>
+            </p>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php endwhile; ?>
+</div>
+<?php else: ?>
+<div class="alert alert-warning mt-6">🚫 No hay servicios disponibles actualmente.</div>
+<?php endif; ?>
+
 
 
 <script src="funciones.js"></script>
