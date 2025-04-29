@@ -78,7 +78,7 @@ while ($s = $servicios->fetch_assoc()) {
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <?php foreach ($servicios as $s): ?>
                 <div class="flex flex-col items-center bg-violet-50 rounded-2xl p-4 hover:bg-violet-100 transition">
-                    <img src="<?= htmlspecialchars(!empty($s['imagen']) ? "../img/" . $s['imagen'] : '../img/servicio_default.png') ?>"
+                    <img src="<?= htmlspecialchars(!empty($s['imagen']) ? "../img/" . $s['imagen'] : '../img/logoSinF.png') ?>"
                         alt="Servicio" class="w-24 h-24 rounded-lg object-cover shadow-md mb-3" />
                     <h4 class="text-lg font-semibold text-violet-800"><?= htmlspecialchars($s['nombre']) ?></h4>
                     <p class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['descripcion']) ?></p>
