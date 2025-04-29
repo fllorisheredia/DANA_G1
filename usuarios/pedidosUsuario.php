@@ -54,15 +54,10 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
             </div>
             <?php endforeach; ?>
         </div>
-        <?php endforeach; ?>
-
-    </div>
-    <?php endforeach; ?>
     </div>
     <?php else: ?>
     <p class="text-gray-700">No tienes pedidos aún.</p>
     <?php endif; ?>
-    </div>
 
     <!-- Popup de valoración -->
     <dialog id="popupValoracion" class="modal">

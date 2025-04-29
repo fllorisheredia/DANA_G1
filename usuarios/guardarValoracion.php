@@ -37,10 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update->execute();
     }
 
-    echo "ok";
+    // Recargar la página anterior
+    header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
 } else {
     echo "Acceso no autorizado.";
 }
-
-?>

@@ -157,7 +157,7 @@ function getImagenPorCategoria($categoria)
 
     <!-- Productos -->
     <?php if ($productos->num_rows > 0): ?>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-4 gap-6">
         <?php while ($producto = $productos->fetch_assoc()): ?>
         <div
             class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-200 rounded-xl">
@@ -168,29 +168,32 @@ function getImagenPorCategoria($categoria)
             <div class="card-body p-4">
                 <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($producto['nombre']) ?></h3>
                 <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($producto['descripcion']) ?></p>
-                <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span>
-                    <?= htmlspecialchars($producto['categoria']) ?></p>
-                <p class="text-sm text-gray-600"><span class="font-semibold">Stock:</span>
-                    <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
+                <p class="text-sm text-gray-600">
+                    <span class="font-semibold">Categoría:</span> <?= htmlspecialchars($producto['categoria']) ?>
+                </p>
+                <p class="text-sm text-gray-600">
+                    <span class="font-semibold">Stock:</span> <?= htmlspecialchars($producto['stock']) ?> unidades
+                </p>
                 <div class="mt-3 flex items-center justify-between">
                     <span class="text-success font-bold">💰
-                        <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?>
-                        Tonkens</span>
+                        <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?> Tonkens
+                    </span>
                     <form method="POST" action="../carrito/agregarCarrito.php">
                         <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
                         <input type="hidden" name="cantidad" value="1">
                         <button type="submit"
-                            class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
+                            class="mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">
+                            Comprar
+                        </button>
                     </form>
-<<<<<<< HEAD
-=======
-
->>>>>>> b0dec31e38a9c894e5786e989831174dd0cfa225
                 </div>
-                <?php endwhile; ?>
             </div>
-            <?php else: ?>
-            <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
-            <?php endif; ?>
+        </div>
+        <?php endwhile; ?>
+    </div> <!-- Aquí se cierra correctamente el grid -->
+    <?php else: ?>
+    <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
+    <?php endif; ?>
+
 
 </main>

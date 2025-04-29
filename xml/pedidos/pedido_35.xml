@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+  <id>35</id>
+  <usuario_id>11</usuario_id>
+  <fecha>2025-04-29 20:38:52</fecha>
+  <estado>pendiente</estado>
+  <total_tonkens>12</total_tonkens>
+  <productos>
+    <producto>
+      <id>2723</id>
+      <nombre>aaaa</nombre>
+      <precio_tonkens>12</precio_tonkens>
+      <cantidad>1</cantidad>
+    </producto>
+  </productos>
+</pedido>
