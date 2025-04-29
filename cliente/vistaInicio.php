@@ -67,7 +67,7 @@ $usuario = $query->get_result()->fetch_assoc();
         </figure>
         <div class="card-body">
           <h3 class="card-title"><?= htmlspecialchars($p['nombre']) ?></h3>
-          <p class="text-lg font-bold text-success">🪙<?= number_format($p['precio_tonkens']) ?></p>
+          <p class="text-lg font-bold text-success">💰<?= number_format($p['precio_tonkens']) ?></p>
         </div>
       </div>
     <?php endwhile; ?>

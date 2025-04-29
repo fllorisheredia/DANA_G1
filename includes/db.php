@@ -3,8 +3,8 @@
 $servidor = "localhost";
 $usuario = "root";
 $password = "";
-$base_datos = "tiendadana";
-$port = 3307;
+$base_datos = "teledana";
+$port = 3306;
 
 $conexion = new mysqli($servidor, $usuario, $password, $base_datos, $port);
 
