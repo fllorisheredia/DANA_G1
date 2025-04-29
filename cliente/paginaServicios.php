@@ -50,7 +50,7 @@ while ($s = $servicios->fetch_assoc()) {
 </div>
 <?php endif; ?>
 <?php foreach ($servicios as $s): ?>
-    <?php 
+<?php 
         $fechaHoraFormateada = (new DateTime($s['hora_realizar']))->format('d-m-Y H:i');
     ?>
 <?php endforeach ?>
@@ -85,40 +85,40 @@ while ($s = $servicios->fetch_assoc()) {
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <?php foreach ($servicios as $s): ?>
                 <div class="flex flex-col items-center bg-violet-50 rounded-2xl p-4 hover:bg-violet-100 transition">
-                    <img src="<?= htmlspecialchars(!empty($s['imagen']) ? "../img/" . $s['imagen'] : '../img/logoSinF.png') ?>"
+                    <img src="<?= htmlspecialchars(!empty($s['imagen']) ? "../" . $s['imagen'] : '../img/logoSinF.png') ?>"
                         alt="Servicio" class="w-24 h-24 rounded-lg object-cover shadow-md mb-3" />
                     <h4 class="text-lg font-semibold text-violet-800"><?= htmlspecialchars($s['nombre']) ?></h4>
                     <p class="text-sm text-black">Hora del servicio: <span
                             class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($fechaHoraFormateada) ?></span>
                     </p>
-                <?php switch ($categoria): 
+                    <?php switch ($categoria): 
                         case 'transporte': ?>
-                            <p class="text-sm text-black">Origen del servicio: 
-                                <span class="text-gray-500"><?= htmlspecialchars($s['origen'] ?? null) ?></span>
-                            </p>
-                            <p class="text-sm text-black">Destino del servicio: 
-                                <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
-                            </p>
+                    <p class="text-sm text-black">Origen del servicio:
+                        <span class="text-gray-500"><?= htmlspecialchars($s['origen'] ?? null) ?></span>
+                    </p>
+                    <p class="text-sm text-black">Destino del servicio:
+                        <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                    </p>
                     <?php break; ?>
 
                     <?php case 'alimento': ?>
-                        <p class="text-sm text-black">Destino del servicio: 
-                            <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
-                        </p>
+                    <p class="text-sm text-black">Destino del servicio:
+                        <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                    </p>
                     <?php break; ?>
 
                     <?php case 'bricolaje': ?>
-                        <p class="text-sm text-black">Centro de atención: 
-                            <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
-                        </p>
+                    <p class="text-sm text-black">Centro de atención:
+                        <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                    </p>
                     <?php break; ?>
 
                     <?php case 'limpieza': ?>
-                        <p class="text-sm text-black">Ubicación: 
-                            <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
-                        </p>
+                    <p class="text-sm text-black">Ubicación:
+                        <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                    </p>
                     <?php break; ?>
-                <?php endswitch; ?>
+                    <?php endswitch; ?>
 
                     <form action="solicitarServicio.php" method="POST" class="w-full">
                         <input type="hidden" name="servicio_id" value="<?= htmlspecialchars($s['id']) ?>">

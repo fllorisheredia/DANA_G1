@@ -166,7 +166,6 @@ function getImagenPorCategoria($categoria) {
             </figure>
             <div class="card-body p-4">
                 <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($servicio['nombre']) ?></h3>
-                <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($servicio['descripcion']) ?></p>
                 <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span>
                     <?= htmlspecialchars($servicio['categoria']) ?></p>
                 <p class="text-sm text-gray-600"><span class="font-semibold">Fecha/Hora:</span>

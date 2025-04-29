@@ -157,44 +157,32 @@ function getImagenPorCategoria($categoria)
 
     <!-- Productos -->
     <?php if ($productos->num_rows > 0): ?>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <?php while ($producto = $productos->fetch_assoc()): ?>
-                <div
-                    class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-200 rounded-xl">
-                    <figure>
-                        <img src="../<?= htmlspecialchars($producto['imagen']) ?>"
-                            alt="<?= htmlspecialchars($producto['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl">
-                    </figure>
-                    <div class="card-body p-4">
-                        <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($producto['nombre']) ?></h3>
-                        <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($producto['descripcion']) ?></p>
-                        <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span>
-                            <?= htmlspecialchars($producto['categoria']) ?></p>
-                        <p class="text-sm text-gray-600"><span class="font-semibold">Stock:</span>
-                            <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
-                        <div class="mt-3 flex items-center justify-between">
-                            <span class="text-success font-bold">💰 <?= number_format($producto['precio_tonkens'], 2) ?>
-                                Tonkens</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <?php while ($producto = $productos->fetch_assoc()): ?>
+        <div
+            class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-200 rounded-xl">
+            <figure>
+                <img src="../<?= htmlspecialchars($producto['imagen']) ?>"
+                    alt="<?= htmlspecialchars($producto['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl">
+            </figure>
+            <div class="card-body p-4">
+                <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($producto['nombre']) ?></h3>
+                <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($producto['descripcion']) ?></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span>
+                    <?= htmlspecialchars($producto['categoria']) ?></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold">Stock:</span>
+                    <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
+                <div class="mt-3 flex items-center justify-between">
+                    <span class="text-success font-bold">💰
+                        <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?>
+                        Tonkens</span>
+                    <form method="POST" action="../carrito/agregarCarrito.php">
+                        <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
+                        <input type="hidden" name="cantidad" value="1">
+                        <button type="submit"
+                            class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
+                    </form>
 
-                                <!-- FUNCION DE AGREGAR AL CARRITO CON LA OPCION DE NO DEJAR COMPRAR UN PRODUCTRO SIN STOCK -->
-                            <?php if ($producto['stock'] > 0): ?>
-                                <form method="POST" action="../carrito/agregarCarrito.php">
-                                    <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
-                                    <input type="hidden" name="cantidad" value="1">
-                                    <button type="submit"
-                                        class="mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">
-                                        Comprar
-                                    </button>
-                                </form>
-                            <?php else: ?>
-                                <button class="mt-4 btn-sm bg-red-700 text-white font-bold py-2 px-4 rounded cursor-not-allowed"
-                                    disabled>
-                                    Agotado
-                                </button>
-                            <?php endif; ?>
-
-                        </div>
-                    </div>
                 </div>
             <?php endwhile; ?>
         </div>

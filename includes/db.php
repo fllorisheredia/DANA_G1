@@ -2,7 +2,7 @@
 
 $servidor = "localhost";
 $usuario = "root";
-$password = "1234";
+$password = "";
 $base_datos = "tiendadana";
 $port = 3307;
 

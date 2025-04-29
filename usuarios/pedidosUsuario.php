@@ -30,6 +30,7 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.2/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 
+
 <body class=" min-h-screen p-6">
     <div class="container mx-auto">
         <h1 class="text-3xl font-bold mb-6 text-violet-700">Mis Pedidos</h1>
@@ -53,10 +54,11 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>
-
             </div>
+            <?php endforeach; ?>
+        </div>
         <?php else: ?>
-            <p class="text-gray-700">No tienes pedidos aún.</p>
+        <p class="text-gray-700">No tienes pedidos aún.</p>
         <?php endif; ?>
     </div>
 
@@ -76,11 +78,11 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
     </dialog>
 
     <script>
-        function openPopup(pedidoId, proveedorId) {
-            document.getElementById('popup_pedido_id').value = pedidoId;
-            document.getElementById('popup_proveedor_id').value = proveedorId;
-            document.getElementById('popupValoracion').showModal();
-        }
+    function openPopup(pedidoId, proveedorId) {
+        document.getElementById('popup_pedido_id').value = pedidoId;
+        document.getElementById('popup_proveedor_id').value = proveedorId;
+        document.getElementById('popupValoracion').showModal();
+    }
     </script>
 </body>
 
