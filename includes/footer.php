@@ -25,7 +25,7 @@
         <a href="/DANA_G1/legal_sin_Usuario/condiciones.php" class="text-sm text-base-content font-semibold">Condiciones de uso y
             venta</a>
         <a href="/DANA_G1/legal_sin_Usuario/cookies.php" class="text-sm text-base-content font-semibold">Política de cookies</a>
-        <a href="/DANA_G1/legal_sin_Usuario/legal.php" class="text-sm text-base-content font-semibold">Aviso Legal</a>
+        <a href="/DANA_G1/legal_sin_Usuario/legal.php" class="text-sm text-base-content font-semibold">Aviso Legal  </a>
     </nav>
 </footer>
 
