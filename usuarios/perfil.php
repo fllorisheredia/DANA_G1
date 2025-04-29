@@ -61,7 +61,8 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                 <h2 class="text-xl font-bold"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
                 <p class="text-sm text-gray-500 font-bold">ROL: <?php echo htmlspecialchars($usuario['rol']); ?></p>
                 <div class="mt-4 flex gap-2">
-                    <a href="../mensajes/chat.php" class="btn btn-outline btn-sm">Mensaje</a>
+                    <a href="../mensajes/chat.php"
+                        class="btn  bg-violet-700  btn-sm hover:scale-125 hover:bg-violet-800">Ver Mensajes</a>
                 </div>
             </div>
 
@@ -89,8 +90,8 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                         </tbody>
 
                     </table>
-                    <a href="../usuarios/pedidosUsuario.php?id=<?php echo $mensaje['id']; ?>"
-                        class="btn btn-primary btn-sm">
+                    <a href="pedidosUsuario.php?id=<?php echo $mensaje['id']; ?>"
+                        class="btn bg-violet-700  btn-sm  hover:bg-violet-800">
                         Ver Todos los Pedidos
                     </a>
                     <?php else: ?>
@@ -119,7 +120,8 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                         <?php echo htmlspecialchars($usuario['valoracion']); ?></div>
                 </div>
                 <div class="mt-6">
-                    <a href="editar.php" class="btn btn-primary btn-sm">Editar Perfil</a>
+                    <a href="editar.php" class="btn  btn-sm bg-violet-700  hover:bg-violet-800 hover:scale-125">Editar
+                        Perfil</a>
                 </div>
             </div>
 
@@ -144,8 +146,9 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                                     <td><?php echo htmlspecialchars($mensaje['nombre']); ?></td>
                                     <td>
                                         <a href="../mensajes/chat.php?id=<?php echo $mensaje['id']; ?>"
-                                            class="btn btn-primary btn-sm">
-                                            Ver conversación
+                                            class="btn bg-violet-700  btn-sm  hover:bg-violet-800 hover:scale-125"></a>
+                                        ">
+                                        Ver conversación
                                         </a>
                                     </td>
                                 </tr>
