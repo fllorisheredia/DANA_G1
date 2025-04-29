@@ -85,7 +85,8 @@ function getImagenPorCategoria($categoria) {
 
     <!-- Botón para añadir producto -->
     <div class="text-center">
-        <button class="btn btn-md bg-violet-700 text-white hover:scale-105 transition-transform"
+        <button
+            class="btn btn-md bg-violet-700 text-white hover:scale-105 transition-transform transition hover:scale-125"
             onclick="document.getElementById('modal_producto').showModal()">
             Añadir Producto
         </button>
@@ -94,7 +95,7 @@ function getImagenPorCategoria($categoria) {
     <!-- Modal para nuevo producto -->
     <dialog id="modal_producto" class="modal">
         <div class="modal-box max-w-md">
-            <h3 class="font-bold text-xl mb-4 text-center">+ Nuevo Producto</h3>
+            <h3 class="font-bold text-xl mb-4 text-center">Nuevo Producto</h3>
             <form method="POST" enctype="multipart/form-data" class="space-y-4">
                 <div class="form-control">
                     <label class="label">Nombre</label>

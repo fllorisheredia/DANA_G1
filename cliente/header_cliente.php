@@ -7,7 +7,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANA - Tienda</title>
 
     <!-- DaisyUI + Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
@@ -25,8 +24,8 @@
     <div class="navbar bg-base-200 shadow-sm px-6 py-4">
         <div class="navbar-start">
             <a onclick="cargarVista('../cliente/vistaInicio.php')" class="flex items-center gap-2">
-                <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20">
-                <span class="text-xl font-bold text-violet-700">Pueblo Unido</span>
+                <img src="/DANA_G1/img/logoSinF.png" alt="Logo" class="w-auto sm:h-20 cursor-pointer">
+                <span class="text-xl font-bold text-violet-700 cursor-pointer">Pueblo Unido</span>
             </a>
         </div>
         <div class="navbar-center">

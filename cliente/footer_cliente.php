@@ -13,8 +13,10 @@
 
         <a onclick="parent.cargarVista('vistaInicio.php'); return false;"
             class="text-sm text-base-content font-semibold cursor-pointer">Inicio</a>
-        <a onclick="parent.cargarVista('quienes_somos_cliente.php'); return false;"
-            class="text-sm text-base-content font-semibold cursor-pointer">Quiénes Somos</a>
+        <a onclick="parent.cargarVista('../cliente/paginaProductos.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Tienda Productos</a>
+        <a onclick="parent.cargarVista('../cliente/paginaServicios.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Tienda Servicios</a>
         <a onclick="parent.cargarVista('contacto_cliente.php'); return false;"
             class="text-sm text-base-content font-semibold cursor-pointer">Contacto</a>
 

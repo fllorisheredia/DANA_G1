@@ -85,7 +85,8 @@ function getImagenPorCategoria($categoria) {
 
     <!-- Botón para añadir producto -->
     <div class="text-center">
-        <button class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125"
+        <button
+            class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125"
             onclick="document.getElementById('modal_producto').showModal()">
             + Añadir Producto
         </button>
@@ -171,12 +172,14 @@ function getImagenPorCategoria($categoria) {
                 <p class="text-sm text-gray-600"><span class="font-semibold">Stock:</span>
                     <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
                 <div class="mt-3 flex items-center justify-between">
-                    <span class="text-success font-bold">💰 <?= number_format($producto['precio_tonkens'], 2) ?>
+                    <span class="text-success font-bold">💰
+                        <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?>
                         Tonkens</span>
                     <form method="POST" action="../carrito/agregarCarrito.php">
                         <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
                         <input type="hidden" name="cantidad" value="1">
-                        <button type="submit" class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
+                        <button type="submit"
+                            class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
                     </form>
                 </div>
             </div>
