@@ -76,7 +76,7 @@ $total = 0;
     </div>
 
     <div class="flex justify-end gap-4">
-      <a href="#" onclick="parent.cargarVista('../cliente/dashboardCliente.php'); return false;" class="btn btn-outline btn-sm">← Volver a la tienda</a>
+      <a onclick="parent.cargarVista('../cliente/dashboardCliente.php'); return false;" class="btn btn-outline btn-sm">← Volver a la tienda</a>
       <a href="#" onclick="parent.cargarVista('../carrito/checkout.php'); return false;" class="btn btn-primary btn-sm">Finalizar compra</a>
     </div>
 

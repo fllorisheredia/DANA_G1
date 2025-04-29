@@ -2,7 +2,6 @@
 ob_start();
 session_start();
 include '../includes/db.php';
-include '../includes/header_cliente.php';
 
 $id = $_SESSION['usuario']['id'];
 $query = $conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
@@ -32,9 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Si cambia contraseña, actualiza
     if (!empty($password)) {
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
         $query = $conexion->prepare("UPDATE usuarios SET nombre = ?, email = ?, password = ?, foto_perfil = ? WHERE id = ?");
-        $query->bind_param("ssssi", $nombre, $email, $passwordHash, $foto_perfil, $id);
+        $query->bind_param("ssssi", $nombre, $email, $password, $foto_perfil, $id);
     } else {
         // No cambia contraseña
         $query = $conexion->prepare("UPDATE usuarios SET nombre = ?, email = ?, foto_perfil = ? WHERE id = ?");

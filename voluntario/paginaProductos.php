@@ -173,6 +173,11 @@ function getImagenPorCategoria($categoria) {
                 <div class="mt-3 flex items-center justify-between">
                     <span class="text-success font-bold">💰 <?= number_format($producto['precio_tonkens'], 2) ?>
                         Tonkens</span>
+                    <form method="POST" action="../carrito/agregarCarrito.php">
+                        <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
+                        <input type="hidden" name="cantidad" value="1">
+                        <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
+                    </form>
                 </div>
             </div>
         </div>

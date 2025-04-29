@@ -82,7 +82,9 @@ while ($s = $servicios->fetch_assoc()) {
                         alt="Servicio" class="w-24 h-24 rounded-lg object-cover shadow-md mb-3" />
                     <h4 class="text-lg font-semibold text-violet-800"><?= htmlspecialchars($s['nombre']) ?></h4>
                     <p class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['descripcion']) ?></p>
-                    <p class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['hora_realizar']) ?></p>
+                    <p class="text-sm text-gray-500">Hora del servicio: <span
+                            class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['hora_realizar']) ?></span>
+                    </p>
                     <form action="solicitarServicio.php" method="POST" class="w-full">
                         <input type="hidden" name="servicio_id" value="<?= htmlspecialchars($s['id']) ?>">
                         <button type="submit" class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white w-full">
