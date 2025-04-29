@@ -6,14 +6,14 @@ include '../includes/db.php';
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 
 <div class="bg-base-100 p-6">
-    <h1 class="text-3xl font-bold text-center mb-8">Panel de <span class="text-purple-600">Administración</span></h1>
+    <h1 class="text-3xl font-bold text-white text-center mb-8">Panel de <span class="text-violet-700">Administración</span></h1>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Usuarios -->
         <div class="card bg-white shadow-md border border-gray-700">
             <div class="card-body">
-                <h2 class="card-title text-lg text-violet-900">Últimos Usuarios</h2>
+                <h2 class="card-title text-lg text-violet-700 font-bold">Últimos Usuarios</h2>
                 <div class="overflow-x-auto">
                     <table class="table text-sm text-black">
                         <thead class="text-black">
@@ -34,7 +34,7 @@ include '../includes/db.php';
                     </table>
                 </div>
                 <div class="card-actions justify-end mt-3">
-                    <a href="usuariosAdmin.php" class="btn btn-sm btn-secondary">Ver más</a>
+                    <a href="usuariosAdmin.php" class="btn btn-sm text-white bg-violet-700 hover:bg-violet-800 hover:scale-125">Ver más</a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@ include '../includes/db.php';
         <!-- Productos -->
         <div class="card bg-white shadow-md border border-gray-700">
             <div class="card-body">
-                <h2 class="card-title text-lg text-violet-900">Últimos Productos</h2>
+                <h2 class="card-title text-lg text-violet-700 font-bold">Últimos Productos</h2>
                 <div class="overflow-x-auto ">
                     <table class="table text-sm text-black">
                         <thead class="text-black">
@@ -64,7 +64,7 @@ include '../includes/db.php';
                     </table>
                 </div>
                 <div class="card-actions justify-end mt-3">
-                    <a href="productosAdmin.php" class="btn btn-sm btn-secondary">Ver más</a>
+                    <a href="productosAdmin.php" class="btn btn-sm text-white bg-violet-700 hover:bg-violet-800 hover:scale-125">Ver más</a>
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@ include '../includes/db.php';
         <!-- Pedidos -->
         <div class="card bg-white shadow-md border border-gray-700">
             <div class="card-body">
-                <h2 class="card-title text-lg text-violet-900">Últimos Pedidos</h2>
+                <h2 class="card-title text-lg text-violet-700 font-bold">Últimos Pedidos</h2>
                 <div class="overflow-x-auto">
                     <table class="table text-sm text-black">
                         <thead>
@@ -94,7 +94,36 @@ include '../includes/db.php';
                     </table>
                 </div>
                 <div class="card-actions justify-end mt-3">
-                    <a href="pedidosAdmin.php" class="btn btn-sm btn-secondary">Ver más</a>
+                    <a href="pedidosAdmin.php" class="btn btn-sm text-white bg-violet-700 hover:bg-violet-800 hover:scale-125">Ver más</a>
+                </div>
+            </div>
+        </div>
+        <!-- Servicios -->
+        <div class="card bg-white shadow-md border border-gray-700">
+            <div class="card-body">
+                <h2 class="card-title text-lg text-violet-700 font-bold">Últimos Servicios</h2>
+                <div class="overflow-x-auto">
+                    <table class="table text-sm text-black">
+                        <thead>
+                            <tr>
+                                <th class="text-bold text-black">ID</th>
+                                <th class="text-bold text-black">Estado</th>
+                                <th class="text-bold text-black">Fecha</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+              $sqlPedidos = "SELECT id, categoria, fecha FROM servicios LIMIT 3 ";
+              $resultPedidos = $conexion->query($sqlPedidos);
+              while ($row = $resultPedidos->fetch_assoc()) {
+                echo "<tr><td>{$row['id']}</td><td>{$row['categoria']}</td><td>{$row['fecha']}</td></tr>";
+              }
+              ?>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-actions justify-end mt-3">
+                    <a href="pedidosAdmin.php" class="btn btn-sm text-white bg-violet-700 hover:bg-violet-800 hover:scale-125">Ver más</a>
                 </div>
             </div>
         </div>

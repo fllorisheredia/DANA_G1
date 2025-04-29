@@ -17,12 +17,12 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
 <body class="bg-base-100 text-base-content min-h-screen flex flex-col">
 
     <div class="container mx-auto px-4 py-10 flex-1">
-        <h1 class="text-3xl font-bold text-center mb-8">Lista de <span class="text-purple-600">Usuarios</span></h1>
+        <h1 class="text-3xl text-white font-bold text-center mb-8">Lista de <span class="text-violet-700">Usuarios</span></h1>
 
         <div class="overflow-x-auto bg-white rounded-xl shadow-md">
-            <table class="table table-zebra w-full">
+            <table class="table table-zebra w-full text-white">
                 <thead class="bg-base-300 text-base font-semibold text-sm uppercase">
-                    <tr>
+                    <tr class="text-white">
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Email</th>
@@ -49,7 +49,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                         <td><?php echo $usuario['valoracion']; ?></td>
                         <td>
                             <a onclick="toggleMenu(<?php echo $usuario['id']; ?>); return false;"
-                                class="btn btn-sm btn-secondary">
+                                class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white ">
                                 Editar
                             </a>
                         </td>
