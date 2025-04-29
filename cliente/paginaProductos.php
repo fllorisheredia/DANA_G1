@@ -58,7 +58,8 @@ if (isset($_POST['guardar'])) {
 }
 
 // Función que asigna la imagen predeterminada según la categoría
-function getImagenPorCategoria($categoria) {
+function getImagenPorCategoria($categoria)
+{
     switch ($categoria) {
         case 'limpieza':
             return 'img/img_productos/limpieza.png';
@@ -182,12 +183,10 @@ function getImagenPorCategoria($categoria) {
                             class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
                     </form>
                 </div>
+                <?php endwhile; ?>
             </div>
-        </div>
-        <?php endwhile; ?>
-    </div>
-    <?php else: ?>
-    <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
-    <?php endif; ?>
+            <?php else: ?>
+            <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
+            <?php endif; ?>
 
 </main>
