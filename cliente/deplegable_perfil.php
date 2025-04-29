@@ -53,7 +53,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
         <hr class="border-gray-200 dark:border-gray-700 ">
 
-        <a onclick="parent.cargarVista('../usuarios/perfil.php'); return false;" 
+        <a @click="isOpen = false" onclick="parent.cargarVista('../usuarios/perfil.php'); return false;" 
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -73,7 +73,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
         <hr class="border-gray-200 dark:border-gray-700 ">
 
-        <a onclick="parent.cargarVista('../mensajes/chat.php'); return false;" 
+        <a @click="isOpen = false" onclick="parent.cargarVista('../mensajes/chat.php'); return false;" 
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <g fill="none">
@@ -88,7 +88,7 @@ $usuario = $query->get_result()->fetch_assoc();
             </span>
         </a>
 
-        <a onclick="parent.cargarVista('../usuarios/pedidosUsuario.php'); return false;" 
+        <a @click="isOpen = false" onclick="parent.cargarVista('../usuarios/pedidosUsuario.php'); return false;" 
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor"
@@ -97,19 +97,19 @@ $usuario = $query->get_result()->fetch_assoc();
 
             <span class="mx-1">Mis Pedidos</span>
         </a>
-        <a onclick="parent.cargarVista('serviciosCliente.php'); return false;" 
+        <a @click="isOpen = false" onclick="parent.cargarVista('serviciosCliente.php'); return false;" 
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path fill="currentColor"
                     d="M5 19V8.1L3.242 4.234l.916-.426L6.084 8.05h11.832l1.926-4.242l.916.427L19 8.1V19zm5-6.5h4q.213 0 .356-.144t.144-.357t-.144-.356T14 11.5h-4q-.213 0-.356.144t-.144.357t.144.356t.356.143M6 18h12V9.05H6zm0 0V9.05z" />
             </svg>
 
-            <span class="mx-1">Mis Serivios</span>
+            <span class="mx-1">Mis Servicios</span>
         </a>
       <!-- <a href="#" onclick="parent.cargarVista('../usuarios/pedidosUsuario.php'); return false;" class="btn btn-outline btn-sm">MIS PEDIDOS</a> -->
 
 
-        <a onclick="parent.cargarVista('../carrito/index.php'); return false;" 
+        <a @click="isOpen = false" onclick="parent.cargarVista('../carrito/index.php'); return false;" 
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -131,7 +131,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
         <hr class="border-gray-200 dark:border-gray-700 ">
 
-        <a onclick="parent.cargarVista('../cliente/contacto_cliente.php'); return false;" 
+        <a @click="isOpen = false" onclick="parent.cargarVista('../cliente/contacto_cliente.php'); return false;" 
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -143,7 +143,7 @@ $usuario = $query->get_result()->fetch_assoc();
                 Contactar con Servico
             </span>
         </a>
-        <a href="/DANA_G1/usuarios/logout.php"
+        <a @click="isOpen = false" href="/DANA_G1/usuarios/logout.php"
             class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white cursor-pointer">
             <svg class="w-5 h-5 mx-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path

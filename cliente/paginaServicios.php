@@ -25,6 +25,9 @@ $servicios = $conexion->query("
            u.nombre AS oferente
     FROM servicios s
     JOIN usuarios u ON s.usuario_ofrece_id = u.id
+    WHERE s.id NOT IN (
+        SELECT servicio_id FROM servicios_solicitados
+    )
     ORDER BY s.categoria ASC, s.fecha DESC
 ");
 

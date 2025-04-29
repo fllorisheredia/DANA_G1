@@ -16,6 +16,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $pedidos = $result->fetch_all(MYSQLI_ASSOC);
 ?>
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
 
 <!DOCTYPE html>
 <html lang="es">

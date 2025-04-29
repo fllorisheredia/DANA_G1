@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ob_end_flush();
 ?>
 
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.0.7/dist/full.css" rel="stylesheet" />

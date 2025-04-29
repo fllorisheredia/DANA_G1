@@ -81,11 +81,11 @@ function getImagenPorCategoria($categoria) {
 
 <main class="p-6 space-y-8 max-w-7xl mx-auto">
 
-    <h2 class="text-4xl font-bold text-center text-primary">Productos Disponibles</h2>
+    <h2 class="text-4xl font-bold text-center text-violet-700 ">Productos Disponibles</h2>
 
     <!-- Botón para añadir producto -->
     <div class="text-center">
-        <button class="btn btn-primary shadow-md hover:scale-105 transition-transform"
+        <button class="bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125"
             onclick="document.getElementById('modal_producto').showModal()">
             + Añadir Producto
         </button>
@@ -176,7 +176,7 @@ function getImagenPorCategoria($categoria) {
                     <form method="POST" action="../carrito/agregarCarrito.php">
                         <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
                         <input type="hidden" name="cantidad" value="1">
-                        <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
+                        <button type="submit" class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
                     </form>
                 </div>
             </div>
