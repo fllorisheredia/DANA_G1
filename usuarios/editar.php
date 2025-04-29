@@ -2,7 +2,6 @@
 ob_start();
 session_start();
 include '../includes/db.php';
-include '../includes/header_cliente.php';
 
 $id = $_SESSION['usuario']['id'];
 $query = $conexion->prepare("SELECT * FROM usuarios WHERE id = ?");
