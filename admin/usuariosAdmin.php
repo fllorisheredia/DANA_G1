@@ -49,7 +49,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                         <td><?php echo $usuario['valoracion']; ?></td>
                         <td>
                             <a onclick="toggleMenu(<?php echo $usuario['id']; ?>); return false;"
-                                class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white ">
+                                class="btn btn-sm btn-primary  text-white ">
                                 Editar
                             </a>
                         </td>
@@ -138,8 +138,17 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
         </div>
     </div>
 
+    <script src="funcionesEditarUsuario.js"></script>
+
     <!-- <script src="funciones.js"></script> -->
-    <script src="funciones.js"></script>
+
+
+
+
+
+
+
+    <!-- <script src="funciones.js"></script> -->
 
 </body>
 

@@ -31,7 +31,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
 <main class="p-6 space-y-12">
 
-    <h1 class="text-xl font-bold">BIENVENIDO DE NUEVO <span class="text-purple-600"><?= $usuario['nombre'] ?></span>
+    <h1 class="text-xl light:text-black dark:text-white font-bold">BIENVENIDO DE NUEVO <span class="text-purple-600"><?= $usuario['nombre'] ?></span>
     </h1>
 
     <!-- Últimos servicios -->
