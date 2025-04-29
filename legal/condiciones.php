@@ -1,7 +1,4 @@
-<?php
-// include '../includes/header.php';
-include '../includes/db.php';
-?>
+
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 <main class="min-h-screen bg-base-100 py-12 px-4 md:px-12 lg:px-24">

@@ -84,7 +84,7 @@ $total = 0;
             </div>
 
             <div class="flex justify-end gap-4">
-                <a onclick="parent.cargarVista('../cliente/vistaInicio.php'); return false;"
+                <a onclick="parent.cargarVista('../cliente/paginaProductos.php'); return false;"
                     class="btn btn-outline btn-sm text-black hover:scale-125 hover:mr-5">← Volver a la tienda</a>
                 <a href="#" onclick="parent.cargarVista('../carrito/checkout.php'); return false;"
                     class="btn btn-primary btn-sm hover:scale-125 hover:ml-5">Finalizar compra</a>

@@ -34,7 +34,7 @@ $solicitudes = $result->fetch_all(MYSQLI_ASSOC);
 </head>
 <body class=" min-h-screen p-6">
     <div class="container mx-auto">
-        <h1 class="text-3xl font-bold mb-6">Mis Servicios Solicitados</h1>
+        <h1 class="text-3xl font-bold mb-6 text-violet-700">Mis Servicios Solicitados</h1>
 
         <?php if (count($solicitudes) > 0): ?>
             <div class="grid gap-6">
