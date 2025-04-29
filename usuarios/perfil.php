@@ -146,9 +146,8 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                                     <td><?php echo htmlspecialchars($mensaje['nombre']); ?></td>
                                     <td>
                                         <a href="../mensajes/chat.php?id=<?php echo $mensaje['id']; ?>"
-                                            class="btn bg-violet-700  btn-sm  hover:bg-violet-800 hover:scale-125"></a>
-                                        ">
-                                        Ver conversación
+                                            class="btn bg-violet-700  btn-sm  hover:bg-violet-800 hover:scale-125">
+                                            Ver conversación</a>
                                         </a>
                                     </td>
                                 </tr>

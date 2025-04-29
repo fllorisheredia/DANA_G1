@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pedido>
   <id>24</id>
-  <usuario_id>11</usuario_id>
-  <fecha>2025-04-27 20:57:05</fecha>
+  <usuario_id>13</usuario_id>
+  <fecha>2025-04-29 22:19:06</fecha>
   <estado>pendiente</estado>
-  <total_tonkens>50</total_tonkens>
+  <total_tonkens>0</total_tonkens>
   <productos>
     <producto>
-      <id>2724</id>
-      <nombre>sss</nombre>
-      <precio_tonkens>50</precio_tonkens>
+      <id>2737</id>
+      <nombre>MAXI</nombre>
+      <precio_tonkens>0</precio_tonkens>
       <cantidad>1</cantidad>
     </producto>
   </productos>
