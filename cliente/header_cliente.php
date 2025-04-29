@@ -77,7 +77,8 @@
                 </svg>
 
 
-                <span class="mx-1 font-bold text-base-content">
+                <span class="mx-1 font-bold text-base-content cursor-pointer
+">
                     Carrito
                 </span>
             </a>
