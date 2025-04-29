@@ -194,9 +194,6 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
         </div>
 
     </div>
-
-    <?php include 'footerUsuario.php'; ?>
-
 </body>
 
 </html>
