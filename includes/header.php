@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
 
 <head>
     <meta charset="UTF-8">

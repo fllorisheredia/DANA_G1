@@ -1,5 +1,5 @@
 <?php
- //session_start();
+//session_start();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -33,20 +33,20 @@
             <ul class="menu menu-horizontal px-4 space-x-6">
                 <li>
                     <button onclick="cargarVista('../cliente/vistaInicio.php')"
-                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
+                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 transform hover:scale-125 border-none">
                         Inicio
                     </button>
 
                 </li>
                 <li>
                     <button onclick="cargarVista('../cliente/paginaProductos.php')"
-                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
+                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 transform hover:scale-125 border-none">
                         Tienda Productos
                     </button>
                 </li>
                 <li>
-                    <button onclick="cargarVista('../cliente/solicitarProducto.php')"
-                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
+                    <button onclick="cargarVista('../cliente/paginaServicios.php')"
+                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 transform hover:scale-125 border-none">
                         Tienda Servicios
                     </button>
                 </li>

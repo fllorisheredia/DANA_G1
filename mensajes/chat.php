@@ -31,6 +31,7 @@ if ($destinatario_id) {
     $mensajes = $query->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 ?>
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
