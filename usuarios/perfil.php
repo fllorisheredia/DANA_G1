@@ -60,7 +60,6 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                 <h2 class="text-xl font-bold"><?php echo htmlspecialchars($usuario['nombre']); ?></h2>
                 <p class="text-sm text-gray-500 font-bold">ROL: <?php echo htmlspecialchars($usuario['rol']); ?></p>
                 <div class="mt-4 flex gap-2">
-                    <button class="btn btn-primary btn-sm">Seguir</button>
                     <a href="../mensajes/chat.php" class="btn btn-outline btn-sm">Mensaje</a>
                 </div>
             </div>
