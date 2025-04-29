@@ -1,7 +1,13 @@
-<?php
-include 'header_cliente.php';
-include '../includes/db.php';
-?>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DANA - Tienda</title>
+
+    <!-- DaisyUI + Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
 
 <main class="min-h-screen bg-base-100 py-10 px-4 md:px-12 lg:px-24">
     <section
@@ -62,6 +68,3 @@ include '../includes/db.php';
     </section>
 </main>
 
-<?php
-include 'footer_cliente.php';
-?>
