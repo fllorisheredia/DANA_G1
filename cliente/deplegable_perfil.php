@@ -21,6 +21,7 @@ $usuario = $query->get_result()->fetch_assoc();
 <div x-data="{ isOpen: false }" class="relative inline-block ">
     <!-- Dropdown toggle button -->
     <button @click="isOpen = !isOpen"
+
         class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
         <div class="w-10 h-10 rounded-full overflow-hidden">
         <img src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="Foto Perfil" class="w-10 h-10 rounded-full mb-4">
@@ -41,10 +42,12 @@ $usuario = $query->get_result()->fetch_assoc();
         x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-90"
         class="absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden origin-top-right bg-white dark:bg-black rounded-md shadow-xl ">
-        <a href="#"
+        <a @click="isOpen = false"
+        onclick="parent.cargarVista('../usuarios/perfil.php'); return false;" 
+
         class="flex items-center p-3 text-sm text-gray-600 capitalize transition-colors duration-300 transform dark:text-gray-300 hover:bg-violet-700 hover:text-white dark:hover:bg-violet-700 dark:hover:text-white cursor-pointer"
         >
-            <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9"
+            <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" 
             src="../<?php echo htmlspecialchars($usuario['foto_perfil']); ?>" alt="jane avatar">
             <div class="mx-1">
                 <h1 class="text-sm font-semibold text-gray-700 dark:text-gray-200"><?php echo $usuario['nombre'] ?></h1>

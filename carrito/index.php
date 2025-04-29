@@ -87,7 +87,7 @@ $total = 0;
                 <a onclick="parent.cargarVista('../cliente/paginaProductos.php'); return false;"
                     class="btn btn-outline btn-sm text-black hover:scale-125 hover:mr-5">← Volver a la tienda</a>
                 <a href="#" onclick="parent.cargarVista('../carrito/checkout.php'); return false;"
-                    class="btn bg-violet-700 btn-sm hover:scale-125 hover:ml-5 text-white">Finalizar compra</a>
+                    class="btn bg-violet-700 btn-sm hover:scale-125 hover:ml-5 hover:bg-violet-900 text-white">Finalizar compra</a>
             </div>
 
         </div>
