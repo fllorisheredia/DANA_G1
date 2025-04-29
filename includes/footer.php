@@ -19,13 +19,13 @@
 
     <nav>
         <h6 class="footer-title">Legal</h6>
-        <a href="/DANA_G1/legal/terminosdeuso.php" class="text-sm text-base-content font-semibold">Términos de uso</a>
-        <a href="/DANA_G1/legal/privacidad.php" class="text-sm text-base-content font-semibold">Política de
+        <a href="/DANA_G1/legal_sin_Usuario/terminosdeuso.php" class="text-sm text-base-content font-semibold">Términos de uso</a>
+        <a href="/DANA_G1/legal_sin_Usuario/privacidad.php" class="text-sm text-base-content font-semibold">Política de
             privacidad</a>
-        <a href="/DANA_G1/legal/condiciones.php" class="text-sm text-base-content font-semibold">Condiciones de uso y
+        <a href="/DANA_G1/legal_sin_Usuario/condiciones.php" class="text-sm text-base-content font-semibold">Condiciones de uso y
             venta</a>
-        <a href="/DANA_G1/legal/cookies.php" class="text-sm text-base-content font-semibold">Política de cookies</a>
-        <a href="/DANA_G1/legal/legal.php" class="text-sm text-base-content font-semibold">Aviso Legal</a>
+        <a href="/DANA_G1/legal_sin_Usuario/cookies.php" class="text-sm text-base-content font-semibold">Política de cookies</a>
+        <a href="/DANA_G1/legal_sin_Usuario/legal.php" class="text-sm text-base-content font-semibold">Aviso Legal  </a>
     </nav>
 </footer>
 

@@ -90,7 +90,7 @@ $tieneMensajes = $resultMensajes->num_rows > 0;
                         </tbody>
 
                     </table>
-                    <a href="pedidosUsuario.php?id=<?php echo $mensaje['id']; ?>"
+                    <a href="../usuarios/pedidosUsuario.php?id=<?php echo $usuario['id']; ?>"
                         class="btn bg-violet-700  btn-sm  hover:bg-violet-800">
                         Ver Todos los Pedidos
                     </a>
