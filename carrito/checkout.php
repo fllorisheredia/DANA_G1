@@ -109,7 +109,7 @@ $vaciarCarrito = $conexion->prepare("DELETE FROM carrito WHERE usuario_id = ?");
 $vaciarCarrito->bind_param("i", $id_usuario);
 $vaciarCarrito->execute();
 
-// 7. Eliminar productos cuyo stock ya es 0
+// 7. Eliminar productos cuyo stock ya es 0 (eliminar relaciones antes por seguridad)
 foreach ($productos as $producto) {
     $checkStock = $conexion->prepare("SELECT stock FROM productos WHERE id = ?");
     $checkStock->bind_param("i", $producto['id']);
@@ -118,6 +118,17 @@ foreach ($productos as $producto) {
     $stockRestante = $resultado->fetch_assoc();
 
     if ($stockRestante && $stockRestante['stock'] <= 0) {
+        // Eliminar de carrito (por si acaso queda alguna relación)
+        $deleteCarrito = $conexion->prepare("DELETE FROM carrito WHERE producto_id = ?");
+        $deleteCarrito->bind_param("i", $producto['id']);
+        $deleteCarrito->execute();
+
+        // Eliminar de pedidos_productos (si no te interesa conservar el historial)
+        $deleteDetalle = $conexion->prepare("DELETE FROM pedidos_productos WHERE producto_id = ?");
+        $deleteDetalle->bind_param("i", $producto['id']);
+        $deleteDetalle->execute();
+
+        // Ahora sí puedes eliminar el producto
         $eliminarProducto = $conexion->prepare("DELETE FROM productos WHERE id = ?");
         $eliminarProducto->bind_param("i", $producto['id']);
         $eliminarProducto->execute();

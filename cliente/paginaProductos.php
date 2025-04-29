@@ -58,7 +58,8 @@ if (isset($_POST['guardar'])) {
 }
 
 // Función que asigna la imagen predeterminada según la categoría
-function getImagenPorCategoria($categoria) {
+function getImagenPorCategoria($categoria)
+{
     switch ($categoria) {
         case 'limpieza':
             return 'img/img_productos/limpieza.png';
@@ -146,12 +147,12 @@ function getImagenPorCategoria($categoria) {
 
     <!-- Mensajes de sesión -->
     <?php if (isset($_SESSION['mensaje_exito'])): ?>
-    <div class="alert alert-success"><?= $_SESSION['mensaje_exito'] ?></div>
-    <?php unset($_SESSION['mensaje_exito']); ?>
+        <div class="alert alert-success"><?= $_SESSION['mensaje_exito'] ?></div>
+        <?php unset($_SESSION['mensaje_exito']); ?>
     <?php endif; ?>
     <?php if (isset($_SESSION['mensaje_error'])): ?>
-    <div class="alert alert-error"><?= $_SESSION['mensaje_error'] ?></div>
-    <?php unset($_SESSION['mensaje_error']); ?>
+        <div class="alert alert-error"><?= $_SESSION['mensaje_error'] ?></div>
+        <?php unset($_SESSION['mensaje_error']); ?>
     <?php endif; ?>
 
     <!-- Productos -->
@@ -181,13 +182,12 @@ function getImagenPorCategoria($categoria) {
                         <button type="submit"
                             class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
                     </form>
+
                 </div>
-            </div>
+            <?php endwhile; ?>
         </div>
-        <?php endwhile; ?>
-    </div>
     <?php else: ?>
-    <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
+        <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
     <?php endif; ?>
 
 </main>

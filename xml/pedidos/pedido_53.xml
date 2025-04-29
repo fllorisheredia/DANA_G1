@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido>
+  <id>53</id>
+  <usuario_id>24</usuario_id>
+  <fecha>2025-04-29 19:49:25</fecha>
+  <estado>pendiente</estado>
+  <total_tonkens>135</total_tonkens>
+  <productos>
+    <producto>
+      <id>18</id>
+      <nombre>Kit de limpieza</nombre>
+      <precio_tonkens>15</precio_tonkens>
+      <cantidad>9</cantidad>
+    </producto>
+  </productos>
+</pedido>
