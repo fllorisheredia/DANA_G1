@@ -64,7 +64,7 @@ if (!$servicios) {
             <input type="hidden" name="descripcion" value="Ofrezco ayuda con mis conocimientos en limpieza">
             <input type="hidden" name="categoria" value="Limpieza">
             <div class="card-actions mt-2">
-                <button type="button" class="btn bg-[#9900ff] text-white"
+                <button type="button" class="btn bg-[#9900ff] text-white transition hover:scale-125"
                     onclick="mostrarModal('modal1')">Ofrecerse</button>
             </div>
         </div>
@@ -99,7 +99,7 @@ if (!$servicios) {
             <input type="hidden" name="descripcion" value="Distribuyo víveres en zonas afectadas por la DANA">
             <input type="hidden" name="categoria" value="Alimento">
             <div class="card-actions mt-2">
-                <button type="button" class="btn bg-[#9900ff] text-white"
+                <button type="button" class="btn bg-[#9900ff] text-white transition hover:scale-125"
                     onclick="mostrarModal6('modal2')">Ofrecerse</button>
             </div>
         </div>
@@ -134,7 +134,7 @@ if (!$servicios) {
             <input type="hidden" name="descripcion" value="Ayudo con mis conocimientos de bricolaje">
             <input type="hidden" name="categoria" value="Bricolaje">
             <div class="card-actions mt-2">
-                <button type="button" class="btn bg-[#9900ff] text-white"
+                <button type="button" class="btn bg-[#9900ff] text-white transition hover:scale-125"
                     onclick="mostrarModal7('modal3')">Ofrecerse</button>
             </div>
         </div>
@@ -168,7 +168,8 @@ if (!$servicios) {
             <input type="hidden" name="descripcion" value="Ofrezco transporte solidario hasta el siguiente destino:">
             <input type="hidden" name="categoria" value="Transporte">
             <div class="card-actions mt-2">
-                <button type="button" class="btn bg-[#9900ff] text-white" onclick="mostrarModal2()">Ofrecerse</button>
+                <button type="button" class="btn bg-[#9900ff] text-white transition hover:scale-125"
+                    onclick="mostrarModal2()">Ofrecerse</button>
             </div>
         </div>
     </form>

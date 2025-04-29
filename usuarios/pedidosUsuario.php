@@ -30,35 +30,34 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.7.2/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class=" min-h-screen p-6">
+<body class="min-h-screen p-6">
     <div class="container mx-auto">
         <h1 class="text-3xl font-bold mb-6 text-violet-700">Mis Pedidos</h1>
 
         <?php if (count($pedidos) > 0): ?>
-            <div class="grid gap-6">
-                <?php foreach ($pedidos as $pedido): ?>
-                    <div class="card bg-white p-6 shadow-xl text-black">
-                        <h2 class="text-xl font-semibold mb-2">Pedido #<?php echo htmlspecialchars($pedido['id']); ?></h2>
-                        <p class="text-gray-600">Fecha: <?php echo htmlspecialchars($pedido['fecha']); ?></p>
-                        <p class="text-gray-600">Estado: <?php echo htmlspecialchars($pedido['estado']); ?></p>
-                        <p class="text-gray-600">Total Tonkens: <?php echo htmlspecialchars($pedido['total_tonkens']); ?></p>
+        <div class="grid gap-6">
+            <?php foreach ($pedidos as $pedido): ?>
+            <div class="card bg-white p-6 shadow-xl text-black">
+                <h2 class="text-xl font-semibold mb-2">Pedido #<?php echo htmlspecialchars($pedido['id']); ?></h2>
+                <p class="text-gray-600">Fecha: <?php echo htmlspecialchars($pedido['fecha']); ?></p>
+                <p class="text-gray-600">Estado: <?php echo htmlspecialchars($pedido['estado']); ?></p>
+                <p class="text-gray-600">Total Tonkens: <?php echo htmlspecialchars($pedido['total_tonkens']); ?></p>
 
-                        <?php if ($pedido['valorado'] == 0): ?>
-                            <button class="btn btn-primary mt-4"
-                                onclick="openPopup(<?php echo $pedido['id']; ?>, <?php echo $pedido['proveedor_id']; ?>)">
-                                Valorar Servicio
-                            </button>
-                        <?php else: ?>
-                            <span class="text-sm text-gray-500 mt-4 inline-block">Este producto ya ha sido valorado</span>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-
+                <?php if ($pedido['valorado'] == 0): ?>
+                <button class="btn btn-primary mt-4"
+                    onclick="openPopup(<?php echo $pedido['id']; ?>, <?php echo $pedido['proveedor_id']; ?>)">
+                    Valorar Servicio
+                </button>
+                <?php else: ?>
+                <span class="text-sm text-gray-500 mt-4 inline-block">Este producto ya ha sido valorado</span>
+                <?php endif; ?>
             </div>
-        <?php else: ?>
-            <p class="text-gray-700">No tienes pedidos aún.</p>
-        <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
     </div>
+    <?php else: ?>
+    <p class="text-gray-700">No tienes pedidos aún.</p>
+    <?php endif; ?>
 
     <!-- Popup de valoración -->
     <dialog id="popupValoracion" class="modal">
@@ -76,11 +75,11 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
     </dialog>
 
     <script>
-        function openPopup(pedidoId, proveedorId) {
-            document.getElementById('popup_pedido_id').value = pedidoId;
-            document.getElementById('popup_proveedor_id').value = proveedorId;
-            document.getElementById('popupValoracion').showModal();
-        }
+    function openPopup(pedidoId, proveedorId) {
+        document.getElementById('popup_pedido_id').value = pedidoId;
+        document.getElementById('popup_proveedor_id').value = proveedorId;
+        document.getElementById('popupValoracion').showModal();
+    }
     </script>
 </body>
 
