@@ -21,8 +21,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
 // Obtener servicios (opcional: puedes agregar WHERE usuario_solicita_id IS NULL para filtrar los ya solicitados)
 $servicios = $conexion->query("
-    SELECT s.id, s.nombre, s.hora_realizar, s.descripcion, s.fecha, s.imagen, s.categoria, s.usuario_ofrece_id,
-           u.nombre AS oferente
+    SELECT s.id, s.nombre, s.hora_realizar, s.descripcion, s.fecha, s.imagen, s.categoria, s.destino, s.origen, u.nombre AS oferente
     FROM servicios s
     JOIN usuarios u ON s.usuario_ofrece_id = u.id
     WHERE s.id NOT IN (
@@ -50,6 +49,11 @@ while ($s = $servicios->fetch_assoc()) {
     </div>
 </div>
 <?php endif; ?>
+<?php foreach ($servicios as $s): ?>
+    <?php 
+        $fechaHoraFormateada = (new DateTime($s['hora_realizar']))->format('d-m-Y H:i');
+    ?>
+<?php endforeach ?>
 
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
@@ -77,7 +81,6 @@ while ($s = $servicios->fetch_assoc()) {
             <h3 class="text-2xl font-bold text-purple-700 mb-6 border-b-2 border-violet-200 pb-2">
                 <?= htmlspecialchars($categoria) ?>
             </h3>
-
             <!-- Servicios dentro de la categoría -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <?php foreach ($servicios as $s): ?>
@@ -85,21 +88,45 @@ while ($s = $servicios->fetch_assoc()) {
                     <img src="<?= htmlspecialchars(!empty($s['imagen']) ? "../img/" . $s['imagen'] : '../img/logoSinF.png') ?>"
                         alt="Servicio" class="w-24 h-24 rounded-lg object-cover shadow-md mb-3" />
                     <h4 class="text-lg font-semibold text-violet-800"><?= htmlspecialchars($s['nombre']) ?></h4>
-                    <p class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['descripcion']) ?></p>
-                    <p class="text-sm text-gray-500">Hora del servicio: 
-                        <span class="text-gray-500"><?= htmlspecialchars($s['hora_realizar']) ?></span>
+                    <p class="text-sm text-black">Hora del servicio: <span
+                            class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($fechaHoraFormateada) ?></span>
                     </p>
+                <?php switch ($categoria): 
+                        case 'transporte': ?>
+                            <p class="text-sm text-black">Origen del servicio: 
+                                <span class="text-gray-500"><?= htmlspecialchars($s['origen'] ?? null) ?></span>
+                            </p>
+                            <p class="text-sm text-black">Destino del servicio: 
+                                <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                            </p>
+                    <?php break; ?>
 
-                    <?php if ($s['usuario_ofrece_id'] != $_SESSION['usuario']['id']): ?>
-                        <form action="solicitarServicio.php" method="POST" class="w-full">
-                            <input type="hidden" name="servicio_id" value="<?= htmlspecialchars($s['id']) ?>">
-                            <button type="submit" class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white w-full">
-                                Solicitar
-                            </button>
-                        </form>
-                    <?php else: ?>
-                        <span class="text-sm text-gray-400 mt-2">No puedes solicitar tu propio servicio.</span>
-                    <?php endif; ?>
+                    <?php case 'alimento': ?>
+                        <p class="text-sm text-black">Destino del servicio: 
+                            <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                        </p>
+                    <?php break; ?>
+
+                    <?php case 'bricolaje': ?>
+                        <p class="text-sm text-black">Centro de atención: 
+                            <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                        </p>
+                    <?php break; ?>
+
+                    <?php case 'limpieza': ?>
+                        <p class="text-sm text-black">Ubicación: 
+                            <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
+                        </p>
+                    <?php break; ?>
+                <?php endswitch; ?>
+
+                    <form action="solicitarServicio.php" method="POST" class="w-full">
+                        <input type="hidden" name="servicio_id" value="<?= htmlspecialchars($s['id']) ?>">
+                        <button type="submit" class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white w-full">
+                            Solicitar
+                        </button>
+                    </form>
+
                 </div>
                 <?php endforeach; ?>
             </div>
