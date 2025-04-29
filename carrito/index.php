@@ -49,7 +49,7 @@ $total = 0;
         $subtotal = $fila['precio_tonkens'] * $fila['cantidad'];
         $total += $subtotal;
         ?>
-                <li class="flex flex-col sm:flex-row items-center py-6 gap-6">
+                <li class="flex flex-col sm:flex-row items-center py-6 gap-6 text-black">
                     <img src="../<?= htmlspecialchars($fila['imagen']) ?>"
                         alt="<?= htmlspecialchars($fila['nombre']) ?>"
                         class="h-32 w-32 rounded-lg object-cover shadow" />
@@ -69,7 +69,7 @@ $total = 0;
                                 <form method="POST" action="eliminarProductoCarrito.php" class="mt-3">
                                     <input type="hidden" name="producto_id"
                                         value="<?= htmlspecialchars($fila['producto_id']) ?>">
-                                    <button type="submit" class="btn btn-error btn-xs">Quitar</button>
+                                    <button type="submit" class="btn btn-error btn-xs hover:scale-125">Quitar</button>
                                 </form>
                             </div>
                         </div>
@@ -79,15 +79,15 @@ $total = 0;
             </ul>
 
             <div class="text-right">
-                <p class="text-2xl font-bold">Total: <span
+                <p class="text-2xl font-bold text-black">Total: <span
                         class="text-purple-600"><?php echo number_format($total, 2); ?> Tonkens</span></p>
             </div>
 
             <div class="flex justify-end gap-4">
                 <a onclick="parent.cargarVista('../cliente/vistaInicio.php'); return false;"
-                    class="btn btn-outline btn-sm">← Volver a la tienda</a>
+                    class="btn btn-outline btn-sm text-black hover:scale-125 hover:mr-5">← Volver a la tienda</a>
                 <a href="#" onclick="parent.cargarVista('../carrito/checkout.php'); return false;"
-                    class="btn btn-primary btn-sm">Finalizar compra</a>
+                    class="btn btn-primary btn-sm hover:scale-125 hover:ml-5">Finalizar compra</a>
             </div>
 
         </div>
