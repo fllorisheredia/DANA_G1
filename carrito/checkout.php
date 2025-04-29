@@ -7,25 +7,28 @@ include '../includes/db.php';
 
 function mostrarMensaje($mensaje, $exito = false) {
     ?>
-    <!DOCTYPE html>
-    <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title><?= $exito ? '¡Éxito!' : 'Error' ?></title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" />
-    </head>
-    <body class="min-h-screen bg-base-200 flex items-center justify-center">
-        <div class="modal-box bg-base-300 p-6 rounded-xl text-center">
-            <h2 class="text-3xl font-bold mb-4 <?= $exito ? 'text-green-500' : 'text-red-500' ?>">
-                <?= $exito ? '¡Pedido realizado!' : 'Error' ?>
-            </h2>
-            <p class="mb-6"><?= $mensaje ?></p>
-            <a href="../cliente/vistaInicio.php" class="btn btn-primary">Volver</a>
-        </div>
-    </body>
-    </html>
-    <?php
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title><?= $exito ? '¡Éxito!' : 'Error' ?></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" />
+</head>
+
+<body class="min-h-screen bg-base-200 flex items-center justify-center">
+    <div class="modal-box bg-base-300 p-6 rounded-xl text-center">
+        <h2 class="text-3xl font-bold mb-4 <?= $exito ? 'text-green-500' : 'text-red-500' ?>">
+            <?= $exito ? '¡Pedido realizado!' : 'Error' ?>
+        </h2>
+        <p class="mb-6"><?= $mensaje ?></p>
+        <a href="../cliente/vistaInicio.php" class="btn btn-primary">Volver</a>
+    </div>
+</body>
+
+</html>
+<?php
     exit();
 }
 

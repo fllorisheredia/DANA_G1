@@ -83,6 +83,15 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                                             class="btn btn-sm btn-secondary mt-2">Actualizar</a>
                                     </div>
                                     <div>
+                                        <label class="label-text font-semibold">Cambiar nombre</label>
+                                        <input type="text" id="nombre_<?php echo$usuario['id']; ?>"
+                                            placeholder="Nuevo Nombre..."
+                                            class="input input-bordered w-full text-gray-400" />
+                                        <a onclick="actualizarNombre(<?php echo $usuario['id']; ?>); return false;"
+                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                    </div>
+
+                                    <div>
                                         <label class="label-text font-semibold">Tonkens</label>
                                         <input type="text" id="tonkens_<?php echo $usuario['id']; ?>"
                                             placeholder="Nueva Cantidad..."
