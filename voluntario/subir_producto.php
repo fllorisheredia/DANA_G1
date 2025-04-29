@@ -81,13 +81,13 @@ function getImagenPorCategoria($categoria) {
 
 <main class="p-6 space-y-8 max-w-7xl mx-auto">
 
-    <h2 class="text-4xl font-bold text-center text-primary">Productos Disponibles</h2>
+    <h2 class="text-4xl font-bold text-center text-violet-700">Productos Disponibles</h2>
 
     <!-- Botón para añadir producto -->
     <div class="text-center">
-        <button class="btn btn-primary shadow-md hover:scale-105 transition-transform"
+        <button class="btn btn-md bg-violet-700 text-white hover:scale-105 transition-transform"
             onclick="document.getElementById('modal_producto').showModal()">
-            + Añadir Producto
+            Añadir Producto
         </button>
     </div>
 
@@ -165,14 +165,15 @@ function getImagenPorCategoria($categoria) {
             </figure>
             <div class="card-body p-4">
                 <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($producto['nombre']) ?></h3>
-                <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($producto['descripcion']) ?></p>
-                <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span>
+                <p class="text-sm text-gray-600"><span class="font-semibold text-black">Descripción:</span>
+                    <?= htmlspecialchars($producto['descripcion']) ?></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold text-black">Categoría:</span>
                     <?= htmlspecialchars($producto['categoria']) ?></p>
-                <p class="text-sm text-gray-600"><span class="font-semibold">Stock:</span>
+                <p class="text-sm text-gray-600"><span class="font-semibold text-black">Stock:</span>
                     <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
                 <div class="mt-3 flex items-center justify-between">
-                    <span class="text-success font-bold">💰 <?= number_format($producto['precio_tonkens'], 2) ?>
-                        Tonkens</span>
+                    <span class="text-success font-bold">💰
+                        <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?> Tonkens</span>
                 </div>
             </div>
         </div>
