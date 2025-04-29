@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $producto_id = intval($_POST['producto_id']);
     $cantidad = intval($_POST['cantidad']) ?: 1;
 
-    // 1. Buscar si el producto ya está en el carrito
+    // Buscar si el producto ya está en el carrito
     $consulta = $conexion->prepare("SELECT id, cantidad FROM carrito WHERE usuario_id = ? AND producto_id = ?");
     $consulta->bind_param("ii", $usuario_id, $producto_id);
     $consulta->execute();
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update->bind_param("ii", $nuevaCantidad, $fila['id']);
         $update->execute();
 
-        $_SESSION['carrito'][$producto_id] = $nuevaCantidad;  // ✅ Actualizar en sesión
+        $_SESSION['carrito'][$producto_id] = $nuevaCantidad;
         $_SESSION['mensaje_exito'] = "✅ Cantidad actualizada en el carrito.";
     } else {
         // Producto no existe → insertar nuevo
@@ -36,14 +36,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insert->bind_param("iii", $usuario_id, $producto_id, $cantidad);
         $insert->execute();
 
-        $_SESSION['carrito'][$producto_id] = $cantidad;  // ✅ Añadir nuevo en sesión
+        $_SESSION['carrito'][$producto_id] = $cantidad;
         $_SESSION['mensaje_exito'] = "✅ Producto añadido al carrito.";
     }
+
+    // ✅ Ahora RESTAMOS 1 al stock del producto
+    $restarStock = $conexion->prepare("UPDATE productos SET stock = stock - ? WHERE id = ?");
+    $restarStock->bind_param("ii", $cantidad, $producto_id);
+    $restarStock->execute();
+
 } else {
     $_SESSION['mensaje_error'] = "⚠️ Método no permitido.";
 }
 
-// 2. Redirigir siempre
+// Redirigir siempre
 header("Location: ../cliente/paginaProductos.php");
 exit();
 ?>

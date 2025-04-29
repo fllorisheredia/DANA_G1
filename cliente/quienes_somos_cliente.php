@@ -21,6 +21,3 @@
     </article>
 </main>
 
-<?php
-include 'footer_cliente.php';
-?>

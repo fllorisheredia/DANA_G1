@@ -68,6 +68,3 @@ include 'header_cliente.php';
     </section>
 </main>
 
-<?php
-include 'footer_cliente.php';
-?>
