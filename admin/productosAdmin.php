@@ -25,7 +25,7 @@ $result = $conexion->query($sql);
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 
 <div class="container mx-auto p-6">
-    <h1 class="text-3xl font-bold text-center mb-8">Lista de <span class="text-purple-600">Productos</span></h1>
+    <h1 class="text-3xl font-bold text-center mb-8 text-white">Lista de <span class="text-violet-700">Productos</span></h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <?php while ($row = $result->fetch_assoc()): ?>
@@ -37,7 +37,7 @@ $result = $conexion->query($sql);
                     <span>💰 <?= $row['precio_tonkens'] ?> Tokens</span>
                 </div>
                 <button onclick="toggleMenu2(<?= $row['id'] ?>)"
-                    class="btn btn-sm btn-secondary mt-3 w-full">Opciones</button>
+                    class="btn btn-sm text-white bg-violet-700 hover:bg-violet-800 mt-3 w-full ">Opciones</button>
 
                 <div id="menu-<?= $row['id'] ?>" class="hidden mt-4 border rounded-lg p-4 bg-gray-50 shadow-inner">
                     <form onsubmit="guardarProducto(event, <?= $row['id'] ?>)">
@@ -57,7 +57,7 @@ $result = $conexion->query($sql);
 
                         <div class="flex justify-end gap-2">
                             <button type="submit" class="btn btn-success btn-sm">Guardar</button>
-                            <button onclick="eliminarProducto(<?= $row['id'] ?>)" class="btn btn-error btn-sm">
+                            <button onclick="eliminarProducto(<?= $row['id'] ?>)" class="btn bg-violet-700 btn-sm">
                                 Eliminar
                             </button>
 

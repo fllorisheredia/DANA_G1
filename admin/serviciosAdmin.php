@@ -22,7 +22,7 @@ while ($servicio = $resultado->fetch_assoc()) {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         <?php foreach ($servicios as $servicio): ?>
         <div class="relative bg-white rounded-lg shadow-md p-4 border border-gray-200">
-            <h3 class="font-bold text-lg mb-2 text-violet-900">Servicio #<?= $servicio['id'] ?></h3>
+            <h3 class="font-bold text-lg mb-2 text-violet-700">Servicio #<?= $servicio['id'] ?></h3>
             <p class="text-black"><strong>ID del Usuario Ofrecedor:</strong> <?= $servicio['usuario_ofrece_id'] ?></p>
             <p class="text-black"><strong>Fecha:</strong> <?= $servicio['fecha'] ?></p>
             <p class="text-black"><strong>Categoría:</strong> <?= $servicio['categoria'] ?></p>
@@ -43,7 +43,7 @@ while ($servicio = $resultado->fetch_assoc()) {
             </div>
 
             <div class="mt-4 flex justify-end">
-            <button onclick="eliminarServicio(<?= $servicio['id'] ?>)" class="btn btn-error btn-sm">Eliminar</button>
+            <button onclick="eliminarServicio(<?= $servicio['id'] ?>)" class="btn bg-violet-700 hover:scale-125 hover:bg-violet-900 text-white dark:text-white btn-sm">Eliminar</button>
             </div>
         </div>
         <?php endforeach; ?>
