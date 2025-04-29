@@ -1,10 +1,8 @@
 <?php
-
-
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}ini_set('display_errors', 1);
+}
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include '../includes/db.php';
 
@@ -21,11 +19,14 @@ $query->bind_param("i", $id);
 $query->execute();
 $usuario = $query->get_result()->fetch_assoc();
 
-// Obtener servicios
+// Obtener servicios (opcional: puedes agregar WHERE usuario_solicita_id IS NULL para filtrar los ya solicitados)
 $servicios = $conexion->query("
     SELECT s.id, s.nombre, s.hora_realizar, s.descripcion, s.fecha, s.imagen, s.categoria, s.destino, s.origen, u.nombre AS oferente
     FROM servicios s
     JOIN usuarios u ON s.usuario_ofrece_id = u.id
+    WHERE s.id NOT IN (
+        SELECT servicio_id FROM servicios_solicitados
+    )
     ORDER BY s.categoria ASC, s.fecha DESC
 ");
 
@@ -36,6 +37,7 @@ while ($s = $servicios->fetch_assoc()) {
     $serviciosPorCategoria[$categoria][] = $s;
 }
 ?>
+
 <?php if (isset($_GET['solicitud']) && $_GET['solicitud'] === 'ok'): ?>
 <div class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
     <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full text-center">
@@ -55,6 +57,7 @@ while ($s = $servicios->fetch_assoc()) {
 
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
+
 <!-- Sección de Servicios -->
 <section class="p-10">
 
@@ -66,7 +69,7 @@ while ($s = $servicios->fetch_assoc()) {
             </svg>
             Servicios Disponibles
         </h2>
-        <p class="text-gray-500 mt-2">Encuentra la ayuda que necesitas rapidamente</p>
+        <p class="text-gray-500 mt-2">Encuentra la ayuda que necesitas rápidamente</p>
     </div>
 
     <!-- Categorías -->
@@ -123,6 +126,7 @@ while ($s = $servicios->fetch_assoc()) {
                             Solicitar
                         </button>
                     </form>
+
                 </div>
                 <?php endforeach; ?>
             </div>

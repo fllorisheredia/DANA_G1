@@ -11,24 +11,30 @@
     <nav>
         <h6 class="footer-title">Enlaces</h6>
 
- Servicios</a>
-
-        <a onclick="parent.cargarVista('vistaInicio.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Inicio</a>
-        <a onclick="parent.cargarVista('quienes_somos_cliente.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Quiénes Somos</a>
-        <a onclick="parent.cargarVista('contacto_cliente.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Contacto</a>
+        <a onclick="parent.cargarVista('vistaInicio.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Inicio</a>
+        <a onclick="parent.cargarVista('quienes_somos_cliente.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Quiénes Somos</a>
+        <a onclick="parent.cargarVista('contacto_cliente.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Contacto</a>
 
     </nav>
 
     <nav>
         <h6 class="footer-title">Legal</h6>
-        <a onclick="parent.cargarVista('../cliente/terminosdeuso.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Términos de uso</a>
+        <a onclick="parent.cargarVista('../cliente/terminosdeuso.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Términos de uso</a>
 
-        <a onclick="parent.cargarVista('../legal/privacidad.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Política de
+        <a onclick="parent.cargarVista('../legal/privacidad.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Política de
             privacidad</a>
-        <a onclick="parent.cargarVista('../legal/condiciones.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Condiciones de uso y
+        <a onclick="parent.cargarVista('../legal/condiciones.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Condiciones de uso y
             venta</a>
-        <a onclick="parent.cargarVista('../legal/cookies.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer">Política de cookies</a>
-        <a onclick="parent.cargarVista('../legal/legal.php'); return false;" class="text-sm text-base-content font-semibold cursor-pointer" >Aviso Legal</a>
+        <a onclick="parent.cargarVista('../legal/cookies.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Política de cookies</a>
+        <a onclick="parent.cargarVista('../legal/legal.php'); return false;"
+            class="text-sm text-base-content font-semibold cursor-pointer">Aviso Legal</a>
     </nav>
 </footer>
 

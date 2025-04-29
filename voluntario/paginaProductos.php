@@ -148,43 +148,43 @@ function getImagenPorCategoria($categoria) {
     <div class="alert alert-success"><?= $_SESSION['mensaje_exito'] ?></div>
     <?php unset($_SESSION['mensaje_exito']); ?>
     <?php endif; ?>
+
     <?php if (isset($_SESSION['mensaje_error'])): ?>
     <div class="alert alert-error"><?= $_SESSION['mensaje_error'] ?></div>
     <?php unset($_SESSION['mensaje_error']); ?>
     <?php endif; ?>
 
-    <!-- Productos -->
-    <?php if ($productos->num_rows > 0): ?>
+    <!-- Servicios -->
+    <?php if ($servicios->num_rows > 0): ?>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <?php while ($producto = $productos->fetch_assoc()): ?>
+        <?php while ($servicio = $servicios->fetch_assoc()): ?>
         <div
             class="card bg-white shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-200 rounded-xl">
             <figure>
-                <img src="../<?= htmlspecialchars($producto['imagen']) ?>"
-                    alt="<?= htmlspecialchars($producto['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl">
+                <img src="../<?= htmlspecialchars($servicio['imagen']) ?>"
+                    alt="<?= htmlspecialchars($servicio['nombre']) ?>" class="h-48 w-full object-cover rounded-t-xl">
             </figure>
             <div class="card-body p-4">
-                <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($producto['nombre']) ?></h3>
-                <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($producto['descripcion']) ?></p>
+                <h3 class="text-lg font-semibold text-gray-800"><?= htmlspecialchars($servicio['nombre']) ?></h3>
+                <p class="text-sm text-gray-600 line-clamp-3"><?= htmlspecialchars($servicio['descripcion']) ?></p>
                 <p class="text-sm text-gray-600"><span class="font-semibold">Categoría:</span>
-                    <?= htmlspecialchars($producto['categoria']) ?></p>
-                <p class="text-sm text-gray-600"><span class="font-semibold">Stock:</span>
-                    <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
-                <div class="mt-3 flex items-center justify-between">
-                    <span class="text-success font-bold">💰 <?= number_format($producto['precio_tonkens'], 2) ?>
-                        Tonkens</span>
-                    <form method="POST" action="../carrito/agregarCarrito.php">
-                        <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
-                        <input type="hidden" name="cantidad" value="1">
-                        <button type="submit" class="btn btn-primary btn-sm">Comprar</button>
-                    </form>
-                </div>
+                    <?= htmlspecialchars($servicio['categoria']) ?></p>
+                <p class="text-sm text-gray-600"><span class="font-semibold">Fecha/Hora:</span>
+                    <?= htmlspecialchars($servicio['hora_realizar']) ?></p>
+                <?php if (!empty($servicio['origen']) || !empty($servicio['destino'])): ?>
+                <p class="text-sm text-gray-600">
+                    <span class="font-semibold">Ubicación:</span>
+                    <?= htmlspecialchars($servicio['origen'] ?? '') ?>
+                    <?= (!empty($servicio['origen']) && !empty($servicio['destino'])) ? '→' : '' ?>
+                    <?= htmlspecialchars($servicio['destino'] ?? '') ?>
+                </p>
+                <?php endif; ?>
             </div>
         </div>
         <?php endwhile; ?>
     </div>
     <?php else: ?>
-    <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
+    <div class="alert alert-warning mt-6">🚫 No hay servicios disponibles actualmente.</div>
     <?php endif; ?>
 
 </main>
