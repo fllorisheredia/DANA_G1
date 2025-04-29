@@ -3,11 +3,11 @@
 ?>
 <!DOCTYPE html>
 <html lang="es">
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANA - Tienda</title>
 
     <!-- DaisyUI + Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
@@ -34,19 +34,19 @@
             <ul class="menu menu-horizontal px-4 space-x-6">
                 <li>
                     <button onclick="cargarVista('../voluntario/index_voluntario.php')"
-                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
+                        class="btn text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none transition hover:scale-125">
                         Inicio
                     </button>
                 </li>
                 <li>
                     <button onclick="cargarVista('../voluntario/subir_servicio.php')"
-                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
+                        class="btn text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none transition hover:scale-125">
                         Añadir Servicio
                     </button>
                 </li>
                 <li>
                     <button onclick="cargarVista('../voluntario/subir_producto.php')"
-                        class="btn bg-transparent text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none">
+                        class="btn text-md font-semibold text-base-content hover:bg-violet-700 hover:text-white transition-colors duration-300 border-none transition hover:scale-125">
                         Añadir Producto
                     </button>
                 </li>

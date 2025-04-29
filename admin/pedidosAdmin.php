@@ -18,7 +18,7 @@ while ($pedido = $resultado->fetch_assoc()) {
     <h1 class="text-3xl font-bold text-center mb-8">Gestión de <span class="text-purple-600">Pedidos</span></h1>
 
     <?php foreach ($pedidos_por_estado as $estado => $pedidos): ?>
-    <h2 class="text-xl font-semibold mb-4 capitalize"><?= ucfirst($estado) ?></h2>
+    <h2 class="text-xl text-violet-700 font-semibold mb-4 capitalize"><?= ucfirst($estado) ?></h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
         <?php foreach ($pedidos as $pedido): ?>
         <div class="relative bg-white rounded-lg shadow-md p-4 border border-gray-200">

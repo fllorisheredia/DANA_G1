@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
+
     echo "Falta el ID del pedido o servicio.";
     exit();
 } else {

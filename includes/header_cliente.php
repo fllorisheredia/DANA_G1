@@ -9,7 +9,7 @@ include_once '../includes/db.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANA - Tienda</title>
+    <title>Pueblo Unido</title>
 
     <!-- DaisyUI + Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
@@ -29,8 +29,8 @@ include_once '../includes/db.php';
 
         <div class="navbar-center">
             <ul class="menu menu-horizontal px-4 space-x-6">
-             
-                
+
+
                 <li><a href="../cliente/dashboardCliente.php"
                         class="text-md text-base-content hover:bg-purple-600 font-semibold"> Inicio</a>
                 </li>
@@ -50,7 +50,7 @@ include_once '../includes/db.php';
                     <span id="theme-icon">🌙</span>
                 </button>
             </div>
-    
+
             <?php include '../cliente/deplegable_perfil.php' ?>
 
             </a>
