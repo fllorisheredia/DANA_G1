@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario']['id'])) {
 
 // Verificar si el servicio existe
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['servicio_id'])) {
-    $servicio_id = (int)$_POST['servicio_id'];
+    $servicio_id = (int) $_POST['servicio_id'];
 
     // Obtener info del servicio y el voluntario
     $query = $conexion->prepare("
@@ -32,6 +32,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['servicio_id'])) {
         $headers = "From: ayuda@pueblounido.com";
 
         @mail($to, $subject, $message, $headers);
+
+        // Obtener ID del solicitante desde la sesión
+        $usuario_solicita_id = $_SESSION['usuario']['id'];
+
+        // Actualizar el servicio para asignar quién lo solicitó
+        $update = $conexion->prepare("UPDATE servicios SET usuario_solicita_id = ? WHERE id = ?");
+        $update->bind_param("ii", $usuario_solicita_id, $servicio_id);
+        $update->execute();
+
+        $usuario_solicita_id = $_SESSION['usuario']['id'];
+
+        // Obtener al oferente del servicio
+        $servicio_id = (int)$_POST['servicio_id'];
+        $buscarServicio = $conexion->prepare("SELECT usuario_ofrece_id FROM servicios WHERE id = ?");
+        $buscarServicio->bind_param("i", $servicio_id);
+        $buscarServicio->execute();
+        $res = $buscarServicio->get_result();
+        $datos = $res->fetch_assoc();
+        $usuario_ofrece_id = $datos['usuario_ofrece_id'] ?? 0;
+        
+        // Insertar en el historial
+        $insert = $conexion->prepare("INSERT INTO servicios_solicitados (servicio_id, usuario_solicita_id, usuario_ofrece_id) VALUES (?, ?, ?)");
+        $insert->bind_param("iii", $servicio_id, $usuario_solicita_id, $usuario_ofrece_id);
+        $insert->execute();
+        
+        // Redirigir con confirmación
+        header("Location: paginaServicios.php?solicitud=ok");
+        exit();
+        
 
         // Redirigir de vuelta con confirmación
         header("Location: paginaServicios.php?solicitud=ok");

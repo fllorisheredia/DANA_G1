@@ -1,10 +1,8 @@
 <?php
-
-
-
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
-}ini_set('display_errors', 1);
+}
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
 include '../includes/db.php';
 
@@ -21,9 +19,10 @@ $query->bind_param("i", $id);
 $query->execute();
 $usuario = $query->get_result()->fetch_assoc();
 
-// Obtener servicios
+// Obtener servicios (opcional: puedes agregar WHERE usuario_solicita_id IS NULL para filtrar los ya solicitados)
 $servicios = $conexion->query("
-    SELECT s.id, s.nombre, s.hora_realizar, s.descripcion, s.fecha, s.imagen, s.categoria, u.nombre AS oferente
+    SELECT s.id, s.nombre, s.hora_realizar, s.descripcion, s.fecha, s.imagen, s.categoria, s.usuario_ofrece_id,
+           u.nombre AS oferente
     FROM servicios s
     JOIN usuarios u ON s.usuario_ofrece_id = u.id
     ORDER BY s.categoria ASC, s.fecha DESC
@@ -36,6 +35,7 @@ while ($s = $servicios->fetch_assoc()) {
     $serviciosPorCategoria[$categoria][] = $s;
 }
 ?>
+
 <?php if (isset($_GET['solicitud']) && $_GET['solicitud'] === 'ok'): ?>
 <div class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
     <div class="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full text-center">
@@ -50,6 +50,7 @@ while ($s = $servicios->fetch_assoc()) {
 
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.tailwindcss.com"></script>
+
 <!-- Sección de Servicios -->
 <section class="p-10">
 
@@ -61,7 +62,7 @@ while ($s = $servicios->fetch_assoc()) {
             </svg>
             Servicios Disponibles
         </h2>
-        <p class="text-gray-500 mt-2">Encuentra la ayuda que necesitas rapidamente</p>
+        <p class="text-gray-500 mt-2">Encuentra la ayuda que necesitas rápidamente</p>
     </div>
 
     <!-- Categorías -->
@@ -82,15 +83,20 @@ while ($s = $servicios->fetch_assoc()) {
                         alt="Servicio" class="w-24 h-24 rounded-lg object-cover shadow-md mb-3" />
                     <h4 class="text-lg font-semibold text-violet-800"><?= htmlspecialchars($s['nombre']) ?></h4>
                     <p class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['descripcion']) ?></p>
-                    <p class="text-sm text-gray-500">Hora del servicio: <span
-                            class="text-gray-500 text-sm text-center mb-2"><?= htmlspecialchars($s['hora_realizar']) ?></span>
+                    <p class="text-sm text-gray-500">Hora del servicio: 
+                        <span class="text-gray-500"><?= htmlspecialchars($s['hora_realizar']) ?></span>
                     </p>
-                    <form action="solicitarServicio.php" method="POST" class="w-full">
-                        <input type="hidden" name="servicio_id" value="<?= htmlspecialchars($s['id']) ?>">
-                        <button type="submit" class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white w-full">
-                            Solicitar
-                        </button>
-                    </form>
+
+                    <?php if ($s['usuario_ofrece_id'] != $_SESSION['usuario']['id']): ?>
+                        <form action="solicitarServicio.php" method="POST" class="w-full">
+                            <input type="hidden" name="servicio_id" value="<?= htmlspecialchars($s['id']) ?>">
+                            <button type="submit" class="btn btn-sm bg-violet-700 hover:bg-violet-800 text-white w-full">
+                                Solicitar
+                            </button>
+                        </form>
+                    <?php else: ?>
+                        <span class="text-sm text-gray-400 mt-2">No puedes solicitar tu propio servicio.</span>
+                    <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
             </div>
