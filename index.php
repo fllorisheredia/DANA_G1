@@ -3,6 +3,9 @@ include 'includes/header.php';
 include 'includes/db.php';
 ?>
 
+
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
+
 <div class="carousel w-full h-[85vh]">
 
     <div id="slide1" class="carousel-item relative w-full h-[85vh]">

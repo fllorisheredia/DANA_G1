@@ -4,10 +4,12 @@ session_start();
 
 <!DOCTYPE html>
 <html lang="es">
+<link rel="icon" type="image/x-icon" href="/DANA_G1/favicon.ico">
+
 
 <head>
     <meta charset="UTF-8">
-    <title>Portal Cliente</title>
+    <title>Inicio Cliente</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.3/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
