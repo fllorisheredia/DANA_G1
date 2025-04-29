@@ -1,9 +1,5 @@
 console.log("funciones.js cargado correctamente");
 
-
-
-
-
 //!FUNCIONES DE GESTION DEL USUARIO
 
 // FUNCION DE ACTUALIZAR EL CORREO DEL USUARIO
@@ -25,6 +21,28 @@ function actualizarMail(idUsuario) {
     })
     .catch((error) => {
       alert("Error al actualizar el correo");
+      console.error(error);
+    });
+}
+
+function actualizarNombre(idUsuario) {
+  const input = document.getElementById("nombre_" + idUsuario);
+  const nuevoNombre = input.value;
+
+  fetch("actualizarNombre.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: `id=${idUsuario}&nombre=${encodeURIComponent(nuevoNombre)}`,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      alert(data);
+      location.reload();
+    })
+    .catch((error) => {
+      alert("Error al actualizar el nombre");
       console.error(error);
     });
 }
@@ -268,8 +286,6 @@ function eliminarProducto(id) {
     });
 }
 
-
-
 //!FUNCIONES PARA ACTUALIZAR LAS COSAS DE LOS PRODUCTOS
 
 function toggleMenu2(id) {
@@ -325,8 +341,6 @@ function eliminarPedido(id) {
   }
 }
 
-
-
 //!FUNCIONES DE GESTION DE LOS SERVICIOS
 
 function cambiarCategoria(id, categoria) {
@@ -345,7 +359,6 @@ function cambiarCategoria(id, categoria) {
     }
   });
 }
-
 
 function eliminarServicio(id) {
   if (!confirm("¿Seguro que deseas eliminar este servicio?")) return;

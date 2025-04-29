@@ -69,7 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update->bind_param("ii", $servicio_id, $usuario_valorador);
         $update->execute();
 
-        echo "ok";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+
         exit();
     }
 
