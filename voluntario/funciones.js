@@ -29,32 +29,36 @@ function mostrarModal2() {
 
   document.getElementById("enviarBtn4").onclick = function () {
     const hora = document.getElementById("inputHora2").value;
-    const destino = document.getElementById("inputDestino2").value;
-    const llegada = document.getElementById("inputLlegada").value;
+    const origen = document.getElementById("inputOrigen").value;
+    const destino = document.getElementById("inputDestino").value;
 
-    // Obtener el formulario original
     const form = document.getElementById("form4");
 
-    // Crear y agregar input oculto para hora
+    // Limpiar inputs ocultos anteriores (por si se reabre el modal)
+    ["hora", "origen", "destino"].forEach((name) => {
+      const existing = form.querySelector(`input[name="${name}"]`);
+      if (existing) form.removeChild(existing);
+    });
+
+    // Crear y agregar inputs ocultos con los nuevos valores
     const inputHoraHidden = document.createElement("input");
     inputHoraHidden.type = "hidden";
     inputHoraHidden.name = "hora";
     inputHoraHidden.value = hora;
     form.appendChild(inputHoraHidden);
 
-    // Crear y agregar input oculto para destino
+    const inputOrigenHidden = document.createElement("input");
+    inputOrigenHidden.type = "hidden";
+    inputOrigenHidden.name = "origen";
+    inputOrigenHidden.value = origen;
+    form.appendChild(inputOrigenHidden);
+
     const inputDestinoHidden = document.createElement("input");
     inputDestinoHidden.type = "hidden";
     inputDestinoHidden.name = "destino";
     inputDestinoHidden.value = destino;
     form.appendChild(inputDestinoHidden);
 
-    // Crear y agregar input oculto para llegada
-    const inputLlegadaHidden = document.createElement("input");
-    inputLlegadaHidden.type = "hidden";
-    inputLlegadaHidden.name = "llegada";
-    inputLlegadaHidden.value = llegada;
-    form.appendChild(inputLlegadaHidden);
     // Enviar el formulario
     form.submit();
   };
