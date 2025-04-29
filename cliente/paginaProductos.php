@@ -182,6 +182,10 @@ function getImagenPorCategoria($categoria)
                         <button type="submit"
                             class=" mt-4 btn-sm bg-violet-700 hover:bg-violet-800 text-white font-bold py-2 px-4 rounded transform transition hover:scale-125">Comprar</button>
                     </form>
+<<<<<<< HEAD
+=======
+
+>>>>>>> b0dec31e38a9c894e5786e989831174dd0cfa225
                 </div>
                 <?php endwhile; ?>
             </div>

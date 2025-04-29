@@ -53,9 +53,11 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
                 <?php endif; ?>
             </div>
             <?php endforeach; ?>
-
         </div>
         <?php endforeach; ?>
+
+    </div>
+    <?php endforeach; ?>
     </div>
     <?php else: ?>
     <p class="text-gray-700">No tienes pedidos aún.</p>
