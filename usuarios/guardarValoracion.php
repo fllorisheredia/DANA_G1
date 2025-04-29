@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update->bind_param("i", $pedido_id);
         $update->execute();
 
-        echo "ok";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     }
 
@@ -70,12 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update->execute();
 
         header("Location: " . $_SERVER['HTTP_REFERER']);
-
         exit();
     }
 
-
-    echo "Falta el ID del pedido o servicio.";
     exit();
 } else {
     echo "Acceso no autorizado.";
