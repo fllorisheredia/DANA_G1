@@ -172,10 +172,17 @@ function getImagenPorCategoria($categoria) {
                     <?= htmlspecialchars($producto['categoria']) ?></p>
                 <p class="text-sm text-gray-600"><span class="font-semibold text-black">Stock:</span>
                     <?= htmlspecialchars($producto['stock']) ?> unidades</p> <!-- Mostrar stock -->
-                <div class="mt-3 flex items-center justify-between">
-                    <span class="text-success font-bold">💰
-                        <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?> Tonkens</span>
-                </div>
+                <p class="text-lg font-bold text-success flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="2">
+                            <path
+                                d="M4 2v20l2-1l2 1l2-1l2 1l2-1l2 1l2-1l2 1V2l-2 1l-2-1l-2 1l-2-1l-2 1l-2-1l-2 1Zm4 10h5" />
+                            <path d="M16 9.5a4 4 0 1 0 0 5.2" />
+                        </g>
+                    </svg>
+                    <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?> Tonkens
+                </p>
             </div>
         </div>
         <?php endwhile; ?>

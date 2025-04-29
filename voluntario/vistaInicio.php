@@ -67,8 +67,19 @@ $usuario = $query->get_result()->fetch_assoc();
                 </figure>
                 <div class="card-body">
                     <h3 class="card-title"><?= htmlspecialchars($p['nombre']) ?></h3>
-                    <p class="text-lg font-bold text-success">🪙<?= number_format($p['precio_tonkens']) ?></p>
+                    <p class="text-lg font-bold text-success flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path
+                                    d="M4 2v20l2-1l2 1l2-1l2 1l2-1l2 1l2-1l2 1V2l-2 1l-2-1l-2 1l-2-1l-2 1l-2-1l-2 1Zm4 10h5" />
+                                <path d="M16 9.5a4 4 0 1 0 0 5.2" />
+                            </g>
+                        </svg>
+                        <?= number_format($p['precio_tonkens'], 2, ',', '.') ?> Tonkens
+                    </p>
                 </div>
+
             </div>
             <?php endwhile; ?>
         </div> <!-- 👈 Aquí correctamente, cerramos después del while -->

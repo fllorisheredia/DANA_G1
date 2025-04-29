@@ -108,13 +108,13 @@ while ($s = $servicios->fetch_assoc()) {
                     <?php break; ?>
 
                     <?php case 'bricolaje': ?>
-                    <p class="text-sm text-black">Centro de atención:
+                    <p class="text-sm text-black">Destino del servicio:
                         <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
                     </p>
                     <?php break; ?>
 
                     <?php case 'limpieza': ?>
-                    <p class="text-sm text-black">Ubicación:
+                    <p class="text-sm text-black">Destino del servicio:
                         <span class="text-gray-500"><?= htmlspecialchars($s['destino'] ?? null) ?></span>
                     </p>
                     <?php break; ?>

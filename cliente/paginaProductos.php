@@ -175,9 +175,18 @@ function getImagenPorCategoria($categoria)
                     <span class="font-semibold">Stock:</span> <?= htmlspecialchars($producto['stock']) ?> unidades
                 </p>
                 <div class="mt-3 flex items-center justify-between">
-                    <span class="text-success font-bold">💰
+                    <span class="text-success font-bold flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2">
+                                <path
+                                    d="M4 2v20l2-1l2 1l2-1l2 1l2-1l2 1l2-1l2 1V2l-2 1l-2-1l-2 1l-2-1l-2 1l-2-1l-2 1Zm4 10h5" />
+                                <path d="M16 9.5a4 4 0 1 0 0 5.2" />
+                            </g>
+                        </svg>
                         <?= number_format($producto['precio_tonkens'], 2, ',', '.') ?> Tonkens
                     </span>
+
                     <form method="POST" action="../carrito/agregarCarrito.php">
                         <input type="hidden" name="producto_id" value="<?= htmlspecialchars($producto['id']) ?>">
                         <input type="hidden" name="cantidad" value="1">

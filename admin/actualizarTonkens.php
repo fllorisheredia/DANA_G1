@@ -1,7 +1,4 @@
 <?php
-// Conexión a la base de datos
-// $conexion = new mysqli('localhost', 'root', '1234', 'tiendadana');
-
 include '../includes/db.php';
 
 if ($conexion->connect_error) {
