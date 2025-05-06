@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST['password'] ?? '');
     $rol = trim($_POST['rol'] ?? 'cliente');
 
-    $foto_perfil = 'img/usuario.png'; // Imagen por defecto
+    $foto_perfil = 'img/usuario.png'; // Imagen por defecto, por si el usuario no pone
 
     if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === 0) {
         $directorioDestino = 'img/img_perfil/';
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $nombreUnico = time() . '_' . basename($_FILES['imagen']['name']);
-        $rutaRelativa = $directorioDestino . $nombreUnico; // Ruta para guardar en la BD
+        $rutaRelativa = $directorioDestino . $nombreUnico; // Ruta para guardar en la Bases de Datos
         $rutaServidor = __DIR__ . '/' . $rutaRelativa; // Ruta absoluta en servidor
 
         if (move_uploaded_file($_FILES['imagen']['tmp_name'], $rutaServidor)) {
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="w-full max-w-sm mx-auto overflow-hidden rounded-lg shadow-md dark:bg-gray-800">
         <div class="px-6 py-4">
 
-            <!-- Logo -->
+            <!-- Logo de la aplicacion -->
             <div class="flex justify-center mx-auto">
                 <img class="w-auto sm:h-20" src="img/logoSinF.png" alt="Logo">
             </div>
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         required />
                 </div>
 
-                <!-- Selector de rol -->
+                <!-- Seleccionar el rol del usuario -->
                 <div>
                     <label for="rol" class="block text-lg font-medium text-gray-300">Tipo de usuario</label>
                     <select id="rol" name="rol" class="select select-bordered w-full mt-2 text-lg py-3" required>
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </select>
                 </div>
 
-                <!-- Subir imagen de perfil -->
+                <!-- Elegir la foto de perfil que va tener el usuario -->
                 <div class="form-control">
                     <label class="label">Imagen de Perfil</label>
                     <input type="file" name="imagen" class="file-input file-input-bordered w-full" accept="image/*" />

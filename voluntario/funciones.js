@@ -59,18 +59,17 @@ function mostrarModal2() {
     inputDestinoHidden.value = destino;
     form.appendChild(inputDestinoHidden);
 
-    // Enviar el formulario
     form.submit();
   };
 }
 
 function mostrarModal3() {
-  document.getElementById("modal5").checked = true; // Abre el modal
+  document.getElementById("modal5").checked = true; 
 
   document.getElementById("enviarBtn5").onclick = function () {
     const hora = document.getElementById("inputHora3").value;
     const especialidad = document.getElementById("inputEspecialidad2").value;
-    const ciudadAyudar = document.getElementById("inputDestino32").value; // Corregir el error tipográfico
+    const ciudadAyudar = document.getElementById("inputDestino32").value; 
 
     // Obtener el formulario original
     const form = document.getElementById("form5");
@@ -95,7 +94,7 @@ function mostrarModal3() {
     inputEspecialidadHidden.name = "especialidad";
     inputEspecialidadHidden.value = especialidad;
     form.appendChild(inputEspecialidadHidden);
-    // Enviar el formulario
+    
     form.submit();
   };
 }
@@ -128,12 +127,11 @@ function mostrarModal6() {
 function mostrarModal7() {
   document.getElementById("modal3").checked = true;
 
-  // Al hacer clic en "Enviar", agregar la hora seleccionada y otros datos al formulario y enviarlo
   document.getElementById("enviarBtn7").onclick = function () {
     const horaSeleccionada = document.getElementById("inputHora7").value;
     const ciudadAyudar = document.getElementById("inputCiudad7").value;
 
-    // Crear el formulario oculto para enviar los datos
+  
     const form = document.getElementById("form3");
 
     const inputHora = document.createElement("input");

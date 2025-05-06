@@ -206,7 +206,7 @@ function getImagenPorCategoria($categoria)
                     </div>
                 </div>
             <?php endwhile; ?>
-        </div> <!-- Aquí se cierra correctamente el grid -->
+        </div> 
     <?php else: ?>
         <div class="alert alert-warning mt-6">🚫 No hay productos disponibles actualmente.</div>
     <?php endif; ?>

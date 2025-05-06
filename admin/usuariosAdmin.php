@@ -17,12 +17,12 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
 <body class="bg-base-100 text-base-content min-h-screen flex flex-col">
 
     <div class="container mx-auto px-4 py-10 flex-1">
-        <h1 class="text-3xl text-white font-bold text-center mb-8">Lista de <span class="text-violet-700">Usuarios</span></h1>
+        <h1 class="text-3xl text-dark dark:text-white font-bold text-center mb-8">Lista de <span class="text-violet-700">Usuarios</span></h1>
 
         <div class="overflow-x-auto bg-white rounded-xl shadow-md">
             <table class="table table-zebra w-full text-white">
                 <thead class="bg-base-300 text-base font-semibold text-sm uppercase">
-                    <tr class="text-white">
+                    <tr class="text-white bg-violet-700">
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Email</th>
@@ -35,7 +35,7 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                         <th>Acciones</th>
                     </tr>
                 </thead>
-                <tbody class="text-black">
+                <tbody class="text-black ">
                     <?php while ($usuario = $resultado->fetch_assoc()) { ?>
                     <tr>
                         <td><?php echo $usuario['id']; ?></td>
@@ -49,82 +49,82 @@ $resultado = $conexion->query("SELECT * FROM usuarios");
                         <td><?php echo $usuario['valoracion']; ?></td>
                         <td>
                             <a onclick="toggleMenu(<?php echo $usuario['id']; ?>); return false;"
-                                class="btn btn-sm btn-primary  text-white ">
+                                class="btn btn-sm bg-violet-700  text-white font-bold hover:bg-violet-800 hover:scale-105 transition-transform duration-200 ease-in-out">
                                 Editar
                             </a>
                         </td>
                     </tr>
 
                     <!-- Menú Opciones de susuairio -->
-                    <tr id="menu-content-<?php echo $usuario['id']; ?>" class="hidden bg-white">
+                    <tr id="menu-content-<?php echo $usuario['id']; ?>" class="hidden ">
                         <td colspan="10">
                             <div class="p-4 rounded-lg border bg-white bg-gray-50border-base-300">
-                                <h2 class="text-lg font-semibold mb-4">Opciones del Usuario
-                                    <?php echo $usuario['nombre'] ?></h2>
+                                <h2 class="text-lg font-semibold mb-4">Opciones del Usuario <span class="text-violet-700  font-bold">
+                                    <?php echo $usuario['nombre'] ?></span></h2>
                                 <form action="editar_usuario.php" method="POST"
                                     class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <input type="hidden" name="usuario_id" value="<?php echo $usuario['id']; ?>">
 
                                     <div>
-                                        <label class="label-text font-semibold">Cambiar Correo</label>
+                                        <label class="label-text font-bold light:text-white dark:text-black">Cambiar Correo</label>
 
                                         <input type="email" id="email_<?php echo $usuario['id']; ?>"
                                             value="<?php echo $usuario['email']; ?>"
-                                            class="input input-bordered w-full text-gray-400" />
+                                            class="input input-bordered w-full light:text-black dark:text-white" />
                                         <a onclick="actualizarMail(<?php echo $usuario['id']; ?>); return false;"
-                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                            class="btn btn-sm bg-violet-700 font-bold text-white mt-2">Actualizar</a>
                                     </div>
                                     <div>
-                                        <label class="label-text font-semibold">Cambiar Contraseña</label>
+                                        <label class="label-text font-bold light:text-white dark:text-black">Cambiar Contraseña</label>
                                         <input type="text" id="password_<?php echo $usuario['id']; ?>"
                                             placeholder="Nueva Contraseña..."
-                                            class="input input-bordered w-full text-gray-400" />
+                                            class="input input-bordered w-full light:text-black dark:text-white" />
                                         <a onclick="actualizarPassword(<?php echo $usuario['id']; ?>); return false;"
-                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                            class="btn btn-sm bg-violet-700 font-bold text-white mt-2">Actualizar</a>
                                     </div>
                                     <div>
-                                        <label class="label-text font-semibold">Cambiar nombre</label>
+                                        <label class="label-text font-bold light:text-white dark:text-black">Cambiar nombre</label>
                                         <input type="text" id="nombre_<?php echo$usuario['id']; ?>"
                                             placeholder="Nuevo Nombre..."
-                                            class="input input-bordered w-full text-gray-400" />
+                                            class="input input-bordered w-full light:text-black dark:text-white" />
                                         <a onclick="actualizarNombre(<?php echo $usuario['id']; ?>); return false;"
-                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                            class="btn btn-sm bg-violet-700 font-bold text-white mt-2">Actualizar</a>
                                     </div>
 
                                     <div>
-                                        <label class="label-text font-semibold">Tonkens</label>
+                                        <label class="label-text font-bold light:text-white dark:text-black">Tonkens</label>
                                         <input type="text" id="tonkens_<?php echo $usuario['id']; ?>"
                                             placeholder="Nueva Cantidad..."
-                                            class="input input-bordered w-full text-gray-400" />
+                                            class="input input-bordered w-full light:text-black dark:text-white" />
                                         <a onclick="actualizarTonkens(<?php echo $usuario['id']; ?>); return false;"
-                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                            class="btn btn-sm bg-violet-700 font-bold text-white mt-2">Actualizar</a>
                                     </div>
                                     <div>
-                                        <label class="label-text font-semibold">Valoracion</label>
+                                        <label class="label-text font-bold light:text-white dark:text-black">Valoracion</label>
                                         <input type="text" id="valoracion_<?php echo $usuario['id']; ?>"
                                             value="<?php echo $usuario['valoracion']; ?>"
-                                            class="input input-bordered w-full text-gray-400" />
+                                            class="input input-bordered w-full light:text-black dark:text-white" />
                                         <a onclick="actualizarValoracion(<?php echo $usuario['id']; ?>); return false;"
-                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                            class="btn btn-sm bg-violet-700 font-bold text-white mt-2">Actualizar</a>
 
                                     </div>
                                     <div>
-                                        <label class="label-text font-semibold">Cambiar Rol</label>
+                                        <label class="label-text font-bold light:text-white dark:text-black">Cambiar Rol</label>
                                         <select id="rol_<?php echo $usuario['id']; ?>"
-                                            class="select select-bordered w-full text-gray-400">
+                                            class="select select-bordered w-full light:text-black dark:text-white">
                                             <option value="" disabled selected>Selecciona tu rol</option>
                                             <option value="cliente">Cliente</option>
                                             <option value="voluntario">Voluntario</option>
                                             <option value="admin">Admin</option>
                                         </select>
                                         <a onclick="actualizarRol(<?php echo $usuario['id']; ?>); return false;"
-                                            class="btn btn-sm btn-secondary mt-2">Actualizar</a>
+                                            class="btn btn-sm bg-violet-700 font-bold text-white mt-2">Actualizar</a>
                                     </div>
 
 
                                     <div class="col-span-full flex justify-end gap-3 mt-4">
                                         <button onclick="eliminarUsuario(<?php echo $usuario['id']; ?>); return false;"
-                                            type="button" class="btn btn-error">
+                                            type="button" class="btn btn-error font-bold text-white">
                                             Eliminar Usuario
                                         </button>
                                     </div>

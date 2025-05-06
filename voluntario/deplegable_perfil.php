@@ -12,14 +12,12 @@ $usuario = $query->get_result()->fetch_assoc();
 ?>
 
 
-<!-- Incluye esto en tu <head> o justo antes del cierre de </body> -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
 
 
-
+<!-- desplegable del perfil este cerrado al iniciar sesion y contenido navbar  -->
 <div x-data="{ isOpen: false }" class="relative inline-block ">
-    <!-- Dropdown toggle button -->
     <button @click="isOpen = !isOpen"
         class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
         <div class="w-10 h-10 rounded-full overflow-hidden">
@@ -36,7 +34,7 @@ $usuario = $query->get_result()->fetch_assoc();
 
 
 
-    <!-- Dropdown menu -->
+    <!-- desplegable opciones de perfil  -->
     <div x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-100"
         x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
         x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"

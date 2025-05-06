@@ -24,7 +24,7 @@
 
     <nav>
         <h6 class="footer-title">Legal</h6>
-        <a onclick="parent.cargarVista('../cliente/terminosdeuso.php'); return false;"
+        <a onclick="parent.cargarVista('../legal/terminosdeuso.php'); return false;"
             class="text-sm text-base-content font-semibold cursor-pointer">Términos de uso</a>
 
         <a onclick="parent.cargarVista('../legal/privacidad.php'); return false;"

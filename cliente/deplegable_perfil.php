@@ -19,7 +19,6 @@ $usuario = $query->get_result()->fetch_assoc();
 
 
 <div x-data="{ isOpen: false }" class="relative inline-block ">
-    <!-- Dropdown toggle button -->
     <button @click="isOpen = !isOpen"
 
         class="relative z-10 flex items-center p-2 text-sm text-gray-600 bg-white border border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:text-white dark:bg-gray-800 focus:outline-none">
@@ -36,7 +35,6 @@ $usuario = $query->get_result()->fetch_assoc();
 
 
 
-    <!-- Dropdown menu -->
     <div x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-out duration-100"
         x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
         x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 scale-100"
