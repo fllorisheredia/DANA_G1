@@ -1,5 +1,5 @@
 <footer class="footer sm:footer-horizontal bg-base-200 text-base-content p-10 mt-auto leading-relaxed">
-    <aside class="flex items-center gap-4 max-w-4xl mx-auto p-4">
+    <aside class="flex items-center gap-4 max-w-4xl mx-auto p-4 leading-relaxed">
         <img src="/DANA_G1/img/logoSinF.png" alt="Logo Pueblo Unido" class="w-16 h-auto" />
 
         <p class="leading-relaxed font-semibold">
